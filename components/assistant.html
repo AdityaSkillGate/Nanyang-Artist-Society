@@ -1,0 +1,37 @@
+<!-- FLOATING AI ART ASSISTANT WIDGET -->
+<div class="ai-assistant-widget" id="ai-assistant-widget">
+  <button type="button" class="ai-assistant-toggle" id="ai-assistant-toggle" aria-label="Open AI Assistant">
+    🎨
+  </button>
+
+  <div class="ai-chat-window" id="ai-chat-window">
+    <div style="background: var(--color-ink-black); color: #FFFFFF; padding: 14px 16px; display: flex; align-items: center; justify-content: space-between;">
+      <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 18px;">🎨</span>
+        <div>
+          <h4 style="font-size: 14px; margin: 0; color: #FFFFFF;">NAS Art Assistant</h4>
+          <span style="font-size: 11px; color: var(--color-accent-gold); font-weight: 500;">Grounded Knowledgebase</span>
+        </div>
+      </div>
+      <button type="button" id="ai-chat-close" style="background: none; border: none; color: #FFFFFF; font-size: 20px; cursor: pointer;">&times;</button>
+    </div>
+
+    <div id="ai-chat-messages" style="flex: 1 1 auto; padding: 14px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; background-color: var(--color-paper-ivory);">
+      <div style="background: var(--color-paper-ivory-dark); color: var(--color-ink-black); padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.45;">
+        Welcome to <strong>Nanyang Artists Society</strong>! I can answer questions regarding our Grade Examinations, Art Courses, Test Centres, or Society History.
+      </div>
+    </div>
+
+    <!-- Suggestion Chips -->
+    <div style="padding: 6px 12px; background: var(--color-paper-card); border-top: 1px solid var(--color-paper-border); display: flex; gap: 6px; overflow-x: auto; white-space: nowrap;">
+      <button type="button" class="ai-suggestion-chip btn btn-outline btn-sm" style="font-size: 11px; padding: 2px 8px;">Exam Disciplines</button>
+      <button type="button" class="ai-suggestion-chip btn btn-outline btn-sm" style="font-size: 11px; padding: 2px 8px;">Test Centres</button>
+      <button type="button" class="ai-suggestion-chip btn btn-outline btn-sm" style="font-size: 11px; padding: 2px 8px;">Liu Kang & History</button>
+    </div>
+
+    <form id="ai-chat-form" style="padding: 10px 12px; background: var(--color-paper-card); border-top: 1px solid var(--color-paper-border); display: flex; gap: 8px;">
+      <input type="text" id="ai-chat-input" placeholder="Ask a question..." style="flex-grow: 1; padding: 8px 12px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 13px; outline: none;">
+      <button type="submit" class="btn btn-primary btn-sm" style="padding: 8px 14px;">Send</button>
+    </form>
+  </div>
+</div>

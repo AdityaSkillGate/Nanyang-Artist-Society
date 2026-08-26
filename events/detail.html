@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Schedule | Nanyang Artists Society</title>
+  <meta name="description" content="Detailed event schedule, venue coordinates, and registration info for Nanyang Artists Society exhibitions, examinations, and workshops.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Events & Calendar</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Event Detail</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Event Detail Section -->
+    <section class="section">
+      <div class="container" style="max-width: 920px;">
+        <div class="card" style="padding: 36px 32px; margin-bottom: 40px;">
+          <!-- Event Header -->
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap;">
+              <span class="seal-badge seal-badge-cobalt" id="event-type-badge">Event</span>
+              <span class="rel-badge rel-badge-partner">✓ Open Registration</span>
+            </div>
+
+            <h1 style="font-size: 28px; line-height: 1.3; margin: 0 0 6px; color: var(--color-ink-black);" id="event-title-en">
+              Loading event...
+            </h1>
+            <h2 style="font-size: 16px; color: var(--color-cinnabar); font-weight: 600; margin: 0;" id="event-title-zh">
+              请稍候...
+            </h2>
+          </div>
+
+          <!-- Hero Image -->
+          <div style="margin-bottom: 28px; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-card);">
+            <img src="" alt="" id="event-hero-image" style="width: 100%; height: 360px; object-fit: cover;" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+          </div>
+
+          <!-- Event Facts Grid -->
+          <div class="grid grid-cols-2" style="gap: 20px; background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 28px; font-size: 13px;">
+            <div>
+              <p style="margin: 0 0 8px;">📅 <strong>Date:</strong> <span id="event-date-text">—</span></p>
+              <p style="margin: 0 0 8px;">⏰ <strong>Time:</strong> <span id="event-time-text">—</span></p>
+              <p style="margin: 0;">🎟️ <strong>Admission / Fee:</strong> <span id="event-fee-text">—</span></p>
+            </div>
+            <div>
+              <p style="margin: 0 0 8px;">📍 <strong>Venue:</strong> <span id="event-location-text">—</span></p>
+              <p style="margin: 0 0 8px;">📮 <strong>Address:</strong> <span id="event-address-text">—</span></p>
+              <p style="margin: 0;">🏛️ <strong>Organizer:</strong> <span id="event-organizer-text">—</span></p>
+            </div>
+          </div>
+
+          <!-- Event Description Body -->
+          <div id="event-description-text" style="margin-bottom: 32px;"></div>
+
+          <!-- Action Bar -->
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-paper-border); padding-top: 20px; flex-wrap: wrap; gap: 14px;">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline" id="event-map-link">
+              🗺️ Get Google Maps Directions ↗
+            </a>
+            <a href="#" class="btn btn-primary" id="event-registration-cta-btn">
+              Register / Entry Portal →
+            </a>
+          </div>
+        </div>
+
+        <!-- Related Upcoming Events -->
+        <div>
+          <div style="margin-bottom: 18px; border-bottom: 2px solid var(--color-paper-border); padding-bottom: 8px;">
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 4px;">More Schedules</span>
+            <h3 style="font-size: 20px; margin: 0;">Related Upcoming Activities</h3>
+          </div>
+          <div class="grid grid-cols-3" id="related-events-container" style="gap: 20px;"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Event Detail Resolver -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/event-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!-- RESPONSIVE UNIVERSAL SEARCH MODAL / OVERLAY COMPONENT -->
+<div class="search-modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-label="Universal Site Search" style="display: none;">
+  <div class="search-modal-container">
+    <!-- Search Header & Input -->
+    <div class="search-modal-header">
+      <span class="search-input-icon" aria-hidden="true">🔍</span>
+      <input type="search" id="search-input" class="search-input-field" placeholder="Search across all 10 entities (courses, artists, syllabi, artworks, news)..." data-i18n="quick_search_placeholder" autocomplete="off" spellcheck="false">
+      <button type="button" class="search-modal-close" id="search-modal-close" aria-label="Close search dialog">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <!-- 7 Filter Categories Bar -->
+    <div class="search-filter-bar" style="display: flex; gap: 6px; padding: 10px 20px; background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border); overflow-x: auto;">
+      <button type="button" class="doc-category-pill search-filter-pill active" data-filter="all">All (全部)</button>
+      <button type="button" class="doc-category-pill search-filter-pill" data-filter="courses">Courses (课程)</button>
+      <button type="button" class="doc-category-pill search-filter-pill" data-filter="artists">Artists (名家)</button>
+      <button type="button" class="doc-category-pill search-filter-pill" data-filter="artwork">Artwork (作品)</button>
+      <button type="button" class="doc-category-pill search-filter-pill" data-filter="competitions">Competitions (大赛)</button>
+      <button type="button" class="doc-category-pill search-filter-pill" data-filter="news">News (新闻)</button>
+      <button type="button" class="doc-category-pill search-filter-pill" data-filter="events">Events (日程)</button>
+    </div>
+
+    <!-- Quick Search Recommendation Chips -->
+    <div class="search-quick-chips">
+      <span class="search-chips-label">Popular:</span>
+      <button type="button" class="search-chip" data-query="Calligraphy">Chinese Calligraphy</button>
+      <button type="button" class="search-chip" data-query="Teng Jiashu">Dr. Teng Jiashu</button>
+      <button type="button" class="search-chip" data-query="Nanyang Star">Nanyang Star</button>
+      <button type="button" class="search-chip" data-query="Jurong">Jurong Test Centre</button>
+    </div>
+
+    <!-- Dynamic Search Results Stream -->
+    <div class="search-results-viewport" id="search-results" aria-live="polite">
+      <p class="search-placeholder-msg">Type to search across all courses, grade criteria, test centres, and archives...</p>
+    </div>
+
+    <!-- Search Modal Footer / Keyboard Hints -->
+    <div class="search-modal-footer">
+      <span class="search-hint"><span>ESC</span> to close</span>
+      <span class="search-hint"><span>↑↓</span> to navigate</span>
+      <span class="search-hint"><span>↵</span> to select</span>
+    </div>
+  </div>
+</div>

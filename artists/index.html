@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artists & Instructors Directory | Nanyang Artists Society</title>
+  <meta name="description" content="Discover our distinguished faculty masters, resident artists, professional instructors, and academic consulting fellows.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Artists & Teachers</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Faculty & Master Roster</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Artists & Faculty Directory</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">南洋名家、驻会艺术家与专业导师名录</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 620px;">
+              Meet our accomplished faculty masters, resident painters, national calligraphy examiners, and youth arts educators.
+            </p>
+          </div>
+
+          <div>
+            <a href="../about/team.html" class="btn btn-primary">
+              🏛️ View Executive Board Council →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Directory Search & 6-Category Filters -->
+    <section class="section">
+      <div class="container">
+        <!-- 6 Category Filter Tabs -->
+        <div class="comp-timeline-tabs" style="margin-bottom: 24px;">
+          <button type="button" class="comp-timeline-tab active" data-artist-category="all">All Members (全部成员)</button>
+          <button type="button" class="comp-timeline-tab" data-artist-category="executive_board">Executive Board (理事会)</button>
+          <button type="button" class="comp-timeline-tab" data-artist-category="consulting_team">Consulting Team (顾问团)</button>
+          <button type="button" class="comp-timeline-tab" data-artist-category="artists">Artists (驻会艺术家)</button>
+          <button type="button" class="comp-timeline-tab" data-artist-category="teachers">Teachers (专业导师)</button>
+          <button type="button" class="comp-timeline-tab" data-artist-category="society_members">Society Members (协会会员)</button>
+          <button type="button" class="comp-timeline-tab" data-artist-category="guest_artists">Guest Artists (特邀名家)</button>
+        </div>
+
+        <!-- Search Bar & Discipline Filter -->
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 20px; box-shadow: var(--shadow-card); margin-bottom: 24px;">
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 260px;">
+              <input type="search" id="artist-search-input" placeholder="Search by name (e.g. Teng Jiashu, 滕家述), title, or specialty..." class="form-input" style="padding-left: 40px; height: 44px;" aria-label="Search artists">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+
+            <div style="min-width: 200px;">
+              <select id="artist-discipline-select" class="form-select" style="height: 44px;" aria-label="Filter by discipline">
+                <option value="all">All Disciplines (全部专业)</option>
+                <option value="Oil Painting">Oil Painting (油画)</option>
+                <option value="Chinese Calligraphy">Chinese Calligraphy (书法)</option>
+                <option value="Chinese Painting">Chinese Painting (国画山水/花鸟)</option>
+                <option value="Academic Sketching">Academic Sketching (学院素描)</option>
+                <option value="Watercolor">Watercolor & Gouache (水彩水粉)</option>
+                <option value="Origami">Plastic Origami & Craft (专利折纸)</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-outline" id="artist-reset-btn" style="height: 44px;">
+              ↺ Reset
+            </button>
+          </div>
+        </div>
+
+        <!-- Results Counter -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="artists-count-badge">
+            Loading directory...
+          </span>
+          <span style="font-size: 12px; color: var(--color-ink-muted);">Verified Society Credentials</span>
+        </div>
+
+        <!-- Artists Grid Container -->
+        <div class="grid grid-cols-3" id="artists-grid-container" style="gap: 24px;">
+          <!-- Populated dynamically via js/artists.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Artists Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/artists.js"></script>
+</body>
+</html>

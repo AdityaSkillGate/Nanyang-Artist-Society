@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events, Masterclasses & Calendar | Nanyang Artists Society</title>
+  <meta name="description" content="Explore upcoming visual arts exhibitions, national grade examinations, international competition deadlines, and masterclass workshops.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Events & Calendar</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Activity Schedule & Timetable</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Events & Calendar</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">全国考级考务、国际大展、大师工坊与赛事日程</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 650px;">
+              Plan your artistic journey with our interactive monthly calendar and event schedules.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <a href="../competitions/nanyang-star.html" class="btn btn-primary">
+              ⭐ Nanyang Star Competition →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Events Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Toolbar: Type Filters, Search & View Switcher -->
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 20px 24px; box-shadow: var(--shadow-card); margin-bottom: 28px;">
+          <!-- Top Row: Type Pills -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;">
+            <button type="button" class="doc-category-pill event-type-pill active" data-type="all">All Events (全部活动)</button>
+            <button type="button" class="doc-category-pill event-type-pill" data-type="Competition">Competition (国际赛事)</button>
+            <button type="button" class="doc-category-pill event-type-pill" data-type="Grade Examination">Grade Exam (考级考务)</button>
+            <button type="button" class="doc-category-pill event-type-pill" data-type="Exhibition">Exhibition (名家大展)</button>
+            <button type="button" class="doc-category-pill event-type-pill" data-type="Workshop">Workshop (大师工坊)</button>
+            <button type="button" class="doc-category-pill event-type-pill" data-type="Course">Course (研修开班)</button>
+          </div>
+
+          <!-- Bottom Row: Search & View Toggle -->
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-paper-border); padding-top: 16px; flex-wrap: wrap; gap: 12px;">
+            <div style="position: relative; min-width: 280px; flex-grow: 1;">
+              <input type="search" id="events-search-input" placeholder="Search events by title, venue or keyword..." class="form-input" style="padding-left: 36px; height: 38px; font-size: 13px;" aria-label="Search events">
+              <span style="position: absolute; left: 12px; top: 10px; font-size: 14px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+
+            <div style="display: flex; gap: 6px;">
+              <button type="button" class="btn btn-outline btn-sm active" id="view-calendar-btn" style="padding: 6px 14px; font-size: 12px;">
+                📅 Calendar View
+              </button>
+              <button type="button" class="btn btn-outline btn-sm" id="view-list-btn" style="padding: 6px 14px; font-size: 12px;">
+                📋 List Stream
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1. CALENDAR VIEW CONTAINER -->
+        <div id="events-calendar-view">
+          <div class="calendar-wrapper">
+            <div class="calendar-header">
+              <div>
+                <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Monthly Schedule</span>
+                <h3 style="font-size: 22px; margin: 0;" id="cal-month-title">September 2026</h3>
+              </div>
+
+              <div style="display: flex; gap: 8px;">
+                <button type="button" class="btn btn-outline btn-sm" id="cal-prev-month-btn">← Previous Month</button>
+                <button type="button" class="btn btn-outline btn-sm" id="cal-next-month-btn">Next Month →</button>
+              </div>
+            </div>
+
+            <!-- 7 Days Header -->
+            <div class="calendar-grid" style="margin-bottom: 6px;">
+              <div class="calendar-day-header">Sun</div>
+              <div class="calendar-day-header">Mon</div>
+              <div class="calendar-day-header">Tue</div>
+              <div class="calendar-day-header">Wed</div>
+              <div class="calendar-day-header">Thu</div>
+              <div class="calendar-day-header">Fri</div>
+              <div class="calendar-day-header">Sat</div>
+            </div>
+
+            <!-- Dynamic Days Grid -->
+            <div class="calendar-grid" id="calendar-days-grid">
+              <!-- Populated via js/events.js -->
+            </div>
+
+            <!-- Selected Day Events Popover Container -->
+            <div id="calendar-selected-day-events"></div>
+          </div>
+        </div>
+
+        <!-- 2. LIST VIEW CONTAINER -->
+        <div id="events-list-view" style="display: none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="events-count-badge">
+              Loading events schedule...
+            </span>
+          </div>
+
+          <div id="events-list-container">
+            <!-- Populated via js/events.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Events Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/events.js"></script>
+</body>
+</html>

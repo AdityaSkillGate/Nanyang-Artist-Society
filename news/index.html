@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Editorial Magazine | Nanyang Artists Society</title>
+  <meta name="description" content="Latest announcements, competition dispatches, academic keynote salons, and youth laureate spotlights from the Singapore Nanyang Artists Society.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">News & Editorial</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Society Editorial Wing</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">News & Dispatches</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">官方动态、大赛快讯、名家讲座与少儿美育专栏</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 650px;">
+              Stay informed with authoritative announcements, competition developments, masterclasses, and fine arts pedagogy insights.
+            </p>
+          </div>
+
+          <div>
+            <a href="../events/index.html" class="btn btn-outline">
+              📅 Events & Calendar →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main News Feed Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Featured Hero Banner Container -->
+        <div id="news-featured-hero-container"></div>
+
+        <!-- Filter & Search Toolbar -->
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 20px 24px; box-shadow: var(--shadow-card); margin-bottom: 28px;">
+          <!-- Category Pills Row -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;">
+            <button type="button" class="doc-category-pill news-category-tab active" data-category="all" data-i18n="news.filter.all">All News</button>
+            <button type="button" class="doc-category-pill news-category-tab" data-category="Competition News" data-i18n="news.filter.competition">Competition News</button>
+            <button type="button" class="doc-category-pill news-category-tab" data-category="Announcements" data-i18n="news.filter.announcements">Announcements</button>
+            <button type="button" class="doc-category-pill news-category-tab" data-category="Academic Salons" data-i18n="news.filter.academic">Academic Salons</button>
+            <button type="button" class="doc-category-pill news-category-tab" data-category="Art Pedagogy" data-i18n="news.filter.pedagogy">Art Pedagogy</button>
+          </div>
+
+          <!-- Search & Sort Controls Row -->
+          <div style="display: flex; gap: 10px; align-items: center; border-top: 1px solid var(--color-paper-border); padding-top: 14px; flex-wrap: wrap;">
+            <div style="position: relative; flex: 1; min-width: 200px;">
+              <input type="search" id="news-search-input" placeholder="Search news..." class="form-input" style="padding-left: 36px; height: 38px; font-size: 13px; width: 100%;" aria-label="Search news articles">
+              <span style="position: absolute; left: 12px; top: 10px; font-size: 14px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+
+            <select id="news-sort-select" class="form-select" style="height: 38px; font-size: 12px; min-width: 130px; flex-shrink: 0;">
+              <option value="newest" data-i18n="news.sort.newest">Newest First</option>
+              <option value="oldest" data-i18n="news.sort.oldest">Oldest First</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Count Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="news-count-badge">
+            Loading news feed...
+          </span>
+          <span style="font-size: 12px; color: var(--color-ink-muted);">
+            Official Singapore Nanyang Artists Society Press
+          </span>
+        </div>
+
+        <!-- News Grid Container -->
+        <div class="grid grid-cols-3" id="news-grid-container" style="gap: 24px;">
+          <!-- Dynamically populated via js/news.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & News Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/news.js"></script>
+</body>
+</html>

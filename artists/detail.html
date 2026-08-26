@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faculty Profile | Nanyang Artists Society</title>
+  <meta name="description" content="View official artist biography, selected works, major exhibitions, awards, and courses taught.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Artists & Teachers</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" id="profile-breadcrumb-name" style="color: var(--color-ink-black); font-weight: 600;">Faculty Profile</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Profile Section -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+          <img id="profile-photo" src="../assets/logo/logo.png" alt="Artist Portrait" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 3px solid var(--color-gold); box-shadow: var(--shadow-card);" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+
+          <div style="flex-grow: 1;">
+            <div style="display: flex; gap: 8px; margin-bottom: 6px; align-items: center; flex-wrap: wrap;">
+              <span class="seal-badge seal-badge-gold" id="profile-category-badge">Executive Board</span>
+              <span class="seal-badge seal-badge-cobalt" id="profile-specialty">Fine Arts Specialty</span>
+            </div>
+            <h1 style="font-size: var(--font-size-3xl); margin: 0 0 2px;" id="profile-name-en">Artist Name</h1>
+            <h2 style="font-size: var(--font-size-lg); color: var(--color-cinnabar); font-weight: 600; margin: 0 0 8px;" id="profile-name-zh">中文姓名</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; font-weight: 600;" id="profile-role-en">Official Role</p>
+            <p style="font-size: 12px; color: var(--color-ink-muted); margin: 0;" id="profile-role-zh">职位职称</p>
+          </div>
+
+          <div>
+            <a href="index.html" class="btn btn-outline">
+              ← Back to Artists Directory
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Profile Content Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="grid grid-cols-3" style="gap: 32px; align-items: flex-start;">
+          <!-- Left Column (2 Cols): Biography & Selected Works -->
+          <div style="grid-column: span 2;">
+            <!-- Biography -->
+            <div id="profile-biography-container">
+              <!-- Populated dynamically via js/artist-detail.js -->
+            </div>
+
+            <!-- Selected Works Gallery -->
+            <div style="margin-bottom: 36px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div>
+                  <span class="seal-badge seal-badge-gold" style="margin-bottom: 4px;">Master Collection</span>
+                  <h3 style="font-size: 20px; margin: 0;">Selected Masterworks & Creations</h3>
+                </div>
+                <span style="font-size: 12px; color: var(--color-ink-muted);">Representative Visual Works</span>
+              </div>
+
+              <div class="grid grid-cols-2" id="profile-works-container" style="gap: 20px;">
+                <!-- Populated dynamically via js/artist-detail.js -->
+              </div>
+            </div>
+
+            <!-- Courses Taught -->
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                <div>
+                  <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Pedagogy</span>
+                  <h3 style="font-size: 20px; margin: 0;">Courses & Studio Masterclasses Taught</h3>
+                </div>
+                <span style="font-size: 12px; color: var(--color-ink-muted);">Active Term Enrollment</span>
+              </div>
+
+              <div class="grid grid-cols-2" id="profile-courses-container" style="gap: 20px;">
+                <!-- Populated dynamically via js/artist-detail.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column (1 Col): Exhibitions & Achievements Sidebar -->
+          <div>
+            <!-- Achievements Box -->
+            <div class="card" style="padding: 24px; margin-bottom: 24px;">
+              <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Honours & Citations</span>
+              <h4 style="font-size: 16px; margin: 0 0 12px;">Key Achievements</h4>
+              <ul id="profile-achievements-list" style="margin: 0; padding-left: 0; list-style: none;">
+                <!-- Populated dynamically via js/artist-detail.js -->
+              </ul>
+            </div>
+
+            <!-- Exhibitions Box -->
+            <div class="card" style="padding: 24px; margin-bottom: 24px;">
+              <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 8px;">Salon Records</span>
+              <h4 style="font-size: 16px; margin: 0 0 12px;">Major Exhibitions & Biennales</h4>
+              <ul id="profile-exhibitions-list" style="margin: 0; padding-left: 0; list-style: none;">
+                <!-- Populated dynamically via js/artist-detail.js -->
+              </ul>
+            </div>
+
+            <!-- Contact / Enquire CTA -->
+            <div style="background: var(--color-ink-black); color: #FFFFFF; border-radius: var(--radius-md); padding: 24px; text-align: center;">
+              <h4 style="font-size: 16px; margin: 0 0 6px; color: #FFFFFF;">Enquire with Faculty</h4>
+              <p style="font-size: 12px; color: #9CA3AF; margin: 0 0 16px;">
+                Schedule studio consultation or enquire about masterclass cohorts.
+              </p>
+              <a href="../contact.html" class="btn btn-primary btn-sm" style="width: 100%;">
+                Contact Secretariat →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Profile Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/artist-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!-- NANYANG ARTISTS ASSISTANT — FLOATING AI ART ADVISOR COMPONENT -->
+<div class="assistant-widget-container">
+  <!-- 1. Floating Launcher Button -->
+  <button type="button" class="assistant-floating-launcher" id="nas-assistant-launcher" aria-label="Open Nanyang Artists Assistant" aria-expanded="false" aria-controls="nas-assistant-window">
+    <span class="assistant-launcher-icon" aria-hidden="true">🤖</span>
+    <span class="assistant-launcher-badge" title="AI Advisor Online"></span>
+    <span class="assistant-launcher-tooltip">Ask NAS Assistant</span>
+  </button>
+
+  <!-- 2. Collapsible Chat Window -->
+  <div class="assistant-chat-window" id="nas-assistant-window" role="dialog" aria-modal="false" aria-label="Nanyang Artists AI Art Assistant" style="display: none;">
+    <!-- Chat Header -->
+    <div class="assistant-chat-header">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div class="assistant-avatar">🎨</div>
+        <div>
+          <h3 class="assistant-header-title">Nanyang Artists Assistant</h3>
+          <div class="assistant-header-status">
+            <span class="status-dot-green"></span> Grounded Knowledge Active
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <button type="button" class="assistant-header-btn" id="nas-assistant-clear" title="Clear Conversation History" aria-label="Clear chat history">
+          🗑️
+        </button>
+        <button type="button" class="assistant-header-btn" id="nas-assistant-close" title="Minimize / Close Assistant" aria-label="Close chat assistant">
+          ✕
+        </button>
+      </div>
+    </div>
+
+    <!-- Messages Container -->
+    <div class="assistant-messages-viewport" id="nas-assistant-messages" aria-live="polite">
+      <!-- Populated dynamically via js/services/assistant.js -->
+    </div>
+
+    <!-- Quick Starter Prompts Chips -->
+    <div class="assistant-starter-container" id="nas-assistant-starter-chips">
+      <!-- Populated dynamically via js/services/assistant.js -->
+    </div>
+
+    <!-- Chat Input Form -->
+    <form class="assistant-input-form" id="nas-assistant-form" autocomplete="off">
+      <input type="text" id="nas-assistant-input" class="assistant-input-field" placeholder="Ask about courses, grade exams, Nanyang Star..." aria-label="Type your question for the art assistant">
+      <button type="submit" class="assistant-send-btn" aria-label="Send message">
+        ➔
+      </button>
+    </form>
+  </div>
+</div>

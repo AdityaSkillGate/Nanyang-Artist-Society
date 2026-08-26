@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Societies & Regional Community Network | Nanyang Artists Society</title>
+  <meta name="description" content="Discover our institutional network, historical collaborations, overseas alliances, and competition partner academies.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Societies & Network</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Regional Guilds & Institutional Hub</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Art Societies & Community Network</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">艺术团体、联盟机构与国际交流网络</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 620px;">
+              Explore our institutional partnerships, historical salon collaborations, and academic alliances across Southeast Asia and globally.
+            </p>
+          </div>
+
+          <div>
+            <a href="../competitions/nanyang-star.html" class="btn btn-primary">
+              ⭐ Nanyang Star Competition Platform →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Ecosystem Network Radar -->
+    <section class="section section-ivory">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+          <div>
+            <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Live Topology</span>
+            <h3 style="font-size: 20px; margin: 0;">Institutional Network & Node Radar</h3>
+          </div>
+          <div style="font-size: 11px; color: var(--color-ink-muted); display: flex; gap: 12px; align-items: center; flex-wrap: wrap;">
+            <span>🟢 Current Partner</span>
+            <span>🟡 Historical Collab</span>
+            <span>🔵 Associated Org</span>
+            <span>⚪ Competition Network</span>
+          </div>
+        </div>
+
+        <div class="network-radar-wrapper">
+          <canvas id="network-radar-canvas" class="network-radar-canvas"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4-Criteria Filter Toolbar & Directory Grid -->
+    <section class="section">
+      <div class="container">
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-card); margin-bottom: 28px;">
+          <!-- Top Row: Search Input -->
+          <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 260px;">
+              <input type="search" id="network-search-input" placeholder="Search by organization name (e.g. Federation of Art Societies), country, or discipline..." class="form-input" style="padding-left: 40px; height: 44px;" aria-label="Search network">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+            <button type="button" class="btn btn-outline" id="network-reset-btn">
+              ↺ Reset Filters
+            </button>
+          </div>
+
+          <!-- Secondary Filters Row (3 Select Dropdowns) -->
+          <div class="grid grid-cols-3" style="gap: 12px; border-top: 1px solid var(--color-paper-border); padding-top: 16px;">
+            <!-- 1. Region -->
+            <div>
+              <label for="network-region-select" class="form-label" style="font-size: 11px;">Region (区域):</label>
+              <select id="network-region-select" class="form-select" style="font-size: 12px;">
+                <option value="all">All Regions (全部区域)</option>
+                <option value="Singapore">Singapore (本地)</option>
+                <option value="Southeast Asia">Southeast Asia (东南亚)</option>
+                <option value="East Asia">East Asia (东亚)</option>
+                <option value="International">International (国际组织)</option>
+              </select>
+            </div>
+
+            <!-- 2. Discipline -->
+            <div>
+              <label for="network-discipline-select" class="form-label" style="font-size: 11px;">Discipline Focus (专业领域):</label>
+              <select id="network-discipline-select" class="form-select" style="font-size: 12px;">
+                <option value="all">All Disciplines (全部专业)</option>
+                <option value="Fine Arts Federation">Fine Arts Federation (美术总会)</option>
+                <option value="Chinese Calligraphy">Chinese Calligraphy & Ink (书法水墨)</option>
+                <option value="Academic Painting">Academic Painting (学术绘画)</option>
+                <option value="Youth Arts">Youth Arts & Origami (少儿美育)</option>
+                <option value="Arts Pedagogy">Arts Pedagogy & Grading (考级大纲)</option>
+              </select>
+            </div>
+
+            <!-- 3. Relationship Type -->
+            <div>
+              <label for="network-rel-select" class="form-label" style="font-size: 11px;">Relationship Type (合作关系):</label>
+              <select id="network-rel-select" class="form-select" style="font-size: 12px;">
+                <option value="all">All Relationship Types (全类型)</option>
+                <option value="Current Partner">Current Partner (当前合作伙伴)</option>
+                <option value="Historical Collaboration">Historical Collaboration (历届合作)</option>
+                <option value="Associated Organization">Associated Organization (关联学术组织)</option>
+                <option value="Competition Participant">Competition Participant (参赛联盟)</option>
+                <option value="Client Confirmation Required">Client Confirmation Required (待确认)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Status & Results Count Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="network-count-badge">
+            Loading network directory...
+          </span>
+          <span style="font-size: 12px; color: var(--color-ink-muted);">
+            Transparent Relationship Disclosures
+          </span>
+        </div>
+
+        <!-- Organization Cards Grid -->
+        <div class="grid grid-cols-3" id="network-cards-container" style="gap: 24px;">
+          <!-- Populated dynamically via js/network.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Network Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/network.js"></script>
+</body>
+</html>

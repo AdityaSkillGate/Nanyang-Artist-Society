@@ -1,0 +1,33 @@
+<!-- ACCESSIBLE ANNOUNCEMENT MARQUEE TICKER COMPONENT -->
+<div class="announcement-bar" id="announcement-bar" role="region" aria-label="Society Announcement Ticker">
+  <div class="container announcement-inner">
+    <div class="announcement-badge-wrapper">
+      <span class="seal-badge seal-badge-gold" data-i18n="tag_since">Since 2002</span>
+    </div>
+
+    <!-- Ticker Track with Smooth Horizontal Animation -->
+    <div class="announcement-viewport" id="announcement-viewport" tabindex="0" aria-live="polite">
+      <div class="announcement-track" id="announcement-track">
+        <a href="{{BASE_PATH}}courses/index.html" class="announcement-link" id="announcement-link">
+          <span class="announcement-text" id="announcement-text">
+            Applications and creative learning opportunities are now available — Explore Art Courses →
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Accessible Ticker Controls -->
+    <div class="announcement-controls">
+      <!-- Pause / Resume Button -->
+      <button type="button" class="announcement-btn" id="announcement-pause-btn" aria-label="Pause announcement animation" title="Pause / Play Ticker">
+        <span class="icon-pause" aria-hidden="true">⏸</span>
+        <span class="icon-play" aria-hidden="true" style="display: none;">▶</span>
+      </button>
+
+      <!-- Dismiss Button -->
+      <button type="button" class="announcement-btn" id="announcement-dismiss-btn" aria-label="Dismiss announcement" title="Dismiss">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+</div>
