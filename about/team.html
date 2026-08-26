@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Executive Board & Leadership Council | Nanyang Artists Society</title>
+  <meta name="description" content="Meet the Executive Board, Academic Consulting Team, and leadership council of the Singapore Nanyang Artists Society.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">About Society</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Leadership & Board</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Governance & Academic Leadership</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Executive Board & Advisory Council</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">南洋美术家协会理事会与学术顾问团</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 620px;">
+              Guided by master visual artists, academic educators, and cultural stewards dedicated to advancing Nanyang fine arts.
+            </p>
+          </div>
+
+          <div>
+            <a href="../artists/index.html" class="btn btn-primary">
+              🎨 View Full Artists & Teachers Directory →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive Board Section -->
+    <section class="section">
+      <div class="container">
+        <div style="margin-bottom: 28px;">
+          <span class="seal-badge seal-badge-gold" style="margin-bottom: 4px;">Executive Council</span>
+          <h2 style="font-size: var(--font-size-2xl); margin: 0 0 2px;">Society Executive Board</h2>
+          <h3 style="font-size: 14px; color: var(--color-cinnabar); font-weight: 600; margin: 0;">理事会核心领导班子</h3>
+        </div>
+
+        <div class="grid grid-cols-2" id="team-exec-container" style="gap: 24px;">
+          <!-- Populated dynamically via js/team.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Consulting Section -->
+    <section class="section section-ivory">
+      <div class="container">
+        <div style="margin-bottom: 24px;">
+          <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Consulting Team</span>
+          <h2 style="font-size: 20px; margin: 0 0 2px;">Academic Advisory Council</h2>
+          <h3 style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600; margin: 0;">学术顾问与专家委员会</h3>
+        </div>
+
+        <div class="grid grid-cols-2" id="team-advisors-container" style="gap: 24px;">
+          <!-- Populated dynamically via js/team.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Team Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/team.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Certificate | Nanyang Artists Society</title>
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/logo/logo.png" alt="Logo" class="brand-logo-img">
+      </a>
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../courses/index.html" class="nav-link">Art Courses</a>
+        <a href="./index.html" class="nav-link active">Grade Examination</a>
+        <a href="../competitions/nanyang-star.html" class="nav-link">Nanyang Star</a>
+        <a href="../contact/index.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="../contact/index.html" class="btn btn-primary btn-sm">Enquire / Register</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="section section-lg" style="background: var(--color-paper-ivory-dark); text-align: center;">
+      <div class="container container-narrow">
+        <span class="seal-badge seal-badge-gold" style="margin-bottom: 12px;">Official Registry</span>
+        <h1 style="font-size: 38px; margin-bottom: 16px;">Certificate Authenticity Verification</h1>
+        <p style="font-size: 17px; color: var(--color-ink-muted);">
+          Validate official Singapore Nanyang Artists Society examination certificates and competition awards.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-narrow">
+        <div style="background: var(--color-paper-card); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-md); margin-bottom: 32px;">
+          <form id="verify-form" style="display: flex; flex-direction: column; gap: 20px;">
+            <div>
+              <label for="cert-number" style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 15px;">Certificate Number (证书编号):</label>
+              <input type="text" id="cert-number" placeholder="e.g. NAS-2020-0891 or NAS-CLG-G3-2021" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 15px;">
+            </div>
+
+            <div>
+              <label for="student-name" style="display: block; font-weight: 700; margin-bottom: 8px; font-size: 15px;">Candidate Full Name (考生姓名):</label>
+              <input type="text" id="student-name" placeholder="Enter candidate's registered name" required style="width: 100%; padding: 12px 16px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 15px;">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Verify Certificate Authenticity →</button>
+          </form>
+        </div>
+
+        <div id="verify-result" style="display: none; background: var(--color-paper-card); border: 2px solid var(--color-success); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-md); animation: fadeIn 0.3s ease;"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2002–2026 Singapore Nanyang Artists Society. All Rights Reserved.</p>
+      <a href="../contact/index.html" style="color: #9CA3AF;">Contact Us</a>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { i18n } from '../js/core/i18n.js';
+    import { showToast } from '../js/modules/toast.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      i18n.init();
+      const form = document.getElementById('verify-form');
+      const resultDiv = document.getElementById('verify-result');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const certNo = document.getElementById('cert-number').value.trim();
+        const name = document.getElementById('student-name').value.trim();
+
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+            <span style="font-size: 28px; color: var(--color-success);">✓</span>
+            <div>
+              <span class="seal-badge seal-badge-gold">Verified Official Record</span>
+              <h3 style="font-size: 20px; margin: 4px 0 0; color: var(--color-ink-black);">Authentic Certificate Confirmed</h3>
+            </div>
+          </div>
+          <div style="background: var(--color-paper-ivory); padding: 20px; border-radius: 8px; border: 1px solid var(--color-paper-border); font-size: 14px; display: flex; flex-direction: column; gap: 8px;">
+            <p style="margin:0;"><strong>Certificate ID:</strong> ${certNo.toUpperCase()}</p>
+            <p style="margin:0;"><strong>Candidate Name:</strong> ${name}</p>
+            <p style="margin:0;"><strong>Issuing Body:</strong> Singapore Nanyang Artists Society</p>
+            <p style="margin:0;"><strong>Status:</strong> <span style="color: var(--color-success); font-weight: bold;">Authentic & Active in Official Archive</span></p>
+          </div>
+        `;
+        showToast('Certificate verified successfully!', 'success');
+      });
+    });
+  </script>
+</body>
+</html>

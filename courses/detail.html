@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Details | Nanyang Artists Society</title>
+  <meta name="description" content="Comprehensive curriculum syllabus, examination alignment, artwork gallery, and studio enrollment for Nanyang Artists Society courses.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Shell Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main" id="course-detail-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Art Courses</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" id="breadcrumb-course-title" style="color: var(--color-ink-black); font-weight: 600;">Course Detail</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- 1. HERO SECTION -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+              <span class="seal-badge" id="course-discipline">Discipline</span>
+              <span class="seal-badge seal-badge-gold" id="course-level">Skill Level</span>
+              <span class="seal-badge seal-badge-cobalt" id="course-age">Age Group</span>
+            </div>
+
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;" id="course-title">Loading Course...</h1>
+            <h2 style="font-size: var(--font-size-lg); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 600;" id="course-title-zh"></h2>
+            
+            <p style="font-size: var(--font-size-base); color: var(--color-ink-charcoal); line-height: 1.65; margin-bottom: 24px;" id="course-short-desc">
+              Please wait while course details are loaded...
+            </p>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="#enquiry-section" class="btn btn-primary btn-lg">Register / Enquire Online →</a>
+              <a href="index.html" class="btn btn-outline btn-lg">← Browse All Courses</a>
+            </div>
+          </div>
+
+          <!-- Hero Artwork with Lightbox / Video Preview Trigger -->
+          <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-paper-border); box-shadow: var(--shadow-card); background: #FFFFFF; position: relative;">
+            <img src="../assets/logo/logo.png" alt="Course Artwork" id="course-hero-img" style="width: 100%; aspect-ratio: 16/11; object-fit: cover;" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+            <div style="position: absolute; bottom: 12px; right: 12px; background: rgba(18, 19, 22, 0.8); color: #FFFFFF; font-size: 11px; padding: 4px 10px; border-radius: var(--radius-xs); backdrop-filter: blur(4px);">
+              Studio Exemplary Work
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. COURSE FACTS BAR -->
+    <section class="section-sm" style="background: var(--color-gallery-white); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div class="grid grid-cols-3" style="gap: 20px;">
+          <div style="padding: 16px; background: var(--color-warm-ivory); border-radius: var(--radius-md); border: 1px solid var(--color-paper-border);">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">⏱️ Term Duration & Timetable</span>
+            <p style="font-size: 14px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 2px;" id="course-duration">Duration</p>
+            <p style="font-size: 12px; color: var(--color-ink-muted); margin: 0;" id="course-schedule">Timetable</p>
+          </div>
+
+          <div style="padding: 16px; background: var(--color-warm-ivory); border-radius: var(--radius-md); border: 1px solid var(--color-paper-border);">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">💰 Studio Fees & Ratio</span>
+            <p style="font-size: 13px; font-weight: 700; color: var(--color-cinnabar); margin-bottom: 2px;" id="course-fee">Fee Schedule</p>
+            <p style="font-size: 12px; color: var(--color-ink-muted); margin: 0;" id="course-class-size">Class Size</p>
+          </div>
+
+          <div style="padding: 16px; background: var(--color-warm-ivory); border-radius: var(--radius-md); border: 1px solid var(--color-paper-border);">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">🏅 National Exam Alignment</span>
+            <p style="font-size: 13px; font-weight: 700; color: var(--color-cobalt); margin-bottom: 2px;" id="course-assessment">Exam Grade Alignment</p>
+            <p style="font-size: 12px; color: var(--color-ink-muted); margin: 0;">Faculty Lead: <strong id="course-instructor-name">Senior Faculty</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN BODY: Content Sections & Sticky Enquiry Form -->
+    <section class="section">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: flex-start;">
+          <!-- Left Column: 14 Core Content Sections -->
+          <div>
+            <!-- 3. OVERVIEW -->
+            <div style="margin-bottom: 36px;">
+              <span class="section-subtitle">Pedagogical Overview</span>
+              <h2 style="font-size: 24px; margin-bottom: 12px;">Curriculum Philosophy & Background</h2>
+              <p style="font-size: 15px; color: var(--color-ink-charcoal); line-height: 1.7;" id="course-full-description">
+                Description...
+              </p>
+            </div>
+
+            <!-- 4. LEARNING OUTCOMES -->
+            <div style="margin-bottom: 36px;">
+              <h3 style="font-size: 20px; margin-bottom: 14px;">Key Learning Outcomes & Milestones</h3>
+              <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); padding: 24px;">
+                <ul class="finder-why-list" id="course-outcomes-list" style="font-size: 14px; gap: 10px;">
+                  <!-- Populated dynamically -->
+                </ul>
+              </div>
+            </div>
+
+            <!-- 5. COURSE STRUCTURE & SYLLABUS -->
+            <div style="margin-bottom: 36px;">
+              <h3 style="font-size: 20px; margin-bottom: 14px;">Course Structure & Term Progression</h3>
+              <div id="course-syllabus-stages" style="display: flex; flex-direction: column; gap: 16px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- 6. ARTWORK EXAMPLES & MEDIA GALLERY -->
+            <div style="margin-bottom: 36px;">
+              <h3 style="font-size: 20px; margin-bottom: 14px;">Artwork Examples & Studio Gallery</h3>
+              <div class="grid grid-cols-3" id="course-gallery-grid" style="gap: 16px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- 7 & 8. ASSESSMENT & GRADE PATHWAY -->
+            <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 36px;">
+              <span class="seal-badge seal-badge-gold" style="margin-bottom: 6px;">Evaluation Framework</span>
+              <h3 style="font-size: 18px; margin-bottom: 8px;">Assessment & National Grade Examination Pathway</h3>
+              <p style="font-size: 14px; color: var(--color-ink-charcoal); line-height: 1.6; margin-bottom: 12px;" id="course-grade-pathway">
+                Grade pathway...
+              </p>
+              <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+                <a href="../grade-examination/index.html" class="btn btn-outline btn-sm">Explore National Grades 1–9 Rubrics →</a>
+              </div>
+            </div>
+
+            <!-- 9. COMPETITION OPPORTUNITIES -->
+            <div style="background: var(--color-gallery-white); border-left: 3px solid var(--color-muted-gold); border-radius: 0 var(--radius-md) var(--radius-md) 0; border-top: 1px solid var(--color-paper-border); border-right: 1px solid var(--color-paper-border); border-bottom: 1px solid var(--color-paper-border); padding: 24px; margin-bottom: 36px;">
+              <span class="seal-badge seal-badge-gold" style="margin-bottom: 6px;">Exhibition Stage</span>
+              <h3 style="font-size: 18px; margin-bottom: 8px;">Nanyang Star & International Competitions</h3>
+              <p style="font-size: 14px; color: var(--color-ink-charcoal); line-height: 1.6; margin-bottom: 12px;" id="course-competition-opp">
+                Competition opportunities...
+              </p>
+              <a href="../competitions/nanyang-star.html" class="btn btn-primary btn-sm">Nanyang Star Competition Hub →</a>
+            </div>
+
+            <!-- 10. INSTRUCTOR PROFILE -->
+            <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 36px;">
+              <span class="section-subtitle">Academic Mentorship</span>
+              <h3 style="font-size: 20px; margin-bottom: 16px;">Lead Instructor & Academic Faculty</h3>
+              <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+                <img src="../assets/logo/logo.png" alt="Instructor Profile" id="course-instructor-img" style="width: 72px; height: 72px; border-radius: var(--radius-full); object-fit: cover; border: 2px solid var(--color-cinnabar);" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+                <div>
+                  <h4 style="font-size: 18px; margin: 0 0 2px;" id="course-instructor-title">Faculty Name</h4>
+                  <p style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 6px;" id="course-instructor-role">Role Title</p>
+                  <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;" id="course-instructor-bio">Faculty biography...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 11. COURSE FAQ ACCORDION -->
+            <div style="margin-bottom: 36px;">
+              <h3 style="font-size: 20px; margin-bottom: 16px;">Frequently Asked Questions</h3>
+              <div id="course-faq-accordion" style="display: flex; flex-direction: column; gap: 10px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <!-- 12. RELATED COURSES -->
+            <div>
+              <h3 style="font-size: 20px; margin-bottom: 16px;">Complementary Studio Courses</h3>
+              <div class="grid grid-cols-2" id="course-related-grid" style="gap: 16px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: 13 & 14. ENQUIRY & REGISTRATION CTAS -->
+          <div id="enquiry-section" style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-card); position: sticky; top: 90px;">
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Direct Admissions</span>
+            <h3 style="font-size: 22px; margin-bottom: 4px;">Course Enrollment & Enquiry</h3>
+            <p style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 20px;">
+              Submit your enquiry below. Our secretariat will confirm availability and schedule a studio consultation.
+            </p>
+
+            <form id="course-enquiry-form" style="display: flex; flex-direction: column; gap: 14px;">
+              <div>
+                <label for="enquiry-course-name" class="form-label" style="font-size: 12px;">Selected Course:</label>
+                <input type="text" id="enquiry-course-name" readonly class="form-input" style="background: var(--color-warm-ivory); font-weight: 600; font-size: 13px;">
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 12px;">
+                <div>
+                  <label for="enquiry-name" class="form-label" style="font-size: 12px;">Student Name (姓名):</label>
+                  <input type="text" id="enquiry-name" required placeholder="Full Name" class="form-input" style="font-size: 13px;">
+                </div>
+                <div>
+                  <label for="enquiry-age" class="form-label" style="font-size: 12px;">Student Age (年龄):</label>
+                  <input type="text" id="enquiry-age" placeholder="e.g. 8 or Adult" class="form-input" style="font-size: 13px;">
+                </div>
+              </div>
+
+              <div>
+                <label for="enquiry-email" class="form-label" style="font-size: 12px;">Email Address (电邮):</label>
+                <input type="email" id="enquiry-email" required placeholder="name@example.com" class="form-input" style="font-size: 13px;">
+              </div>
+
+              <div>
+                <label for="enquiry-phone" class="form-label" style="font-size: 12px;">Contact Phone (电话):</label>
+                <input type="tel" id="enquiry-phone" required placeholder="+65 xxxx xxxx" class="form-input" style="font-size: 13px;">
+              </div>
+
+              <div>
+                <label for="enquiry-location" class="form-label" style="font-size: 12px;">Preferred Test Centre / Studio:</label>
+                <select id="enquiry-location" class="form-select" style="font-size: 13px;">
+                  <option value="Jurong East HQ">Jurong East HQ (裕廊东总院 - Blk 135)</option>
+                  <option value="Tampines AiDe">Tampines Studio (淡滨尼 - AiDe)</option>
+                  <option value="Jurong West Butterfly">Jurong West Studio (裕廊西 - Butterfly)</option>
+                  <option value="FAS Eunos">Eunos Art Federation (友诺士 - FAS)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="enquiry-notes" class="form-label" style="font-size: 12px;">Art Experience & Goals (备注):</label>
+                <textarea id="enquiry-notes" rows="3" placeholder="Tell us about previous art experience or grade exam goals..." class="form-textarea" style="font-size: 13px;"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; margin-top: 6px;">
+                Submit Course Registration →
+              </button>
+            </form>
+
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 16px; margin-top: 16px; font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;">
+              <p style="margin-bottom: 4px;">📍 <strong>HQ:</strong> Blk 135 Jurong Gateway Rd #03-333/335, Singapore 600135</p>
+              <p style="margin: 0;">📞 <strong>Tel:</strong> <a href="tel:+6568990828">+65 6899 0828</a> / <a href="tel:+6590048768">+65 9004 8768</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Shell Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Course Detail Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/course-detail.js"></script>
+</body>
+</html>

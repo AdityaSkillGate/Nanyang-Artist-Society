@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Nanyang Artists Society CMS</title>
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/admin.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #111827;">
+
+  <div style="background: #FFFFFF; width: 100%; max-width: 400px; padding: 40px; border-radius: 16px; box-shadow: var(--shadow-xl); text-align: center;">
+    <img src="../assets/logo/logo.png" alt="Logo" style="height: 48px; margin: 0 auto 16px;">
+    <h1 style="font-size: 20px; font-family: var(--font-sans); margin-bottom: 4px; color: #111827;">NAS Admin CMS</h1>
+    <p style="font-size: 13px; color: #6B7280; margin-bottom: 24px;">Society Management Portal</p>
+
+    <form id="admin-login-form" style="display: flex; flex-direction: column; gap: 16px; text-align: left;">
+      <div>
+        <label for="admin-user" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #374151;">Username / Admin Email</label>
+        <input type="text" id="admin-user" required value="admin@nyart.org.sg" style="width: 100%; padding: 10px 14px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 14px;">
+      </div>
+
+      <div>
+        <label for="admin-pass" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: #374151;">Password</label>
+        <input type="password" id="admin-pass" required value="••••••••" style="width: 100%; padding: 10px 14px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 14px;">
+      </div>
+
+      <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; margin-top: 8px;">Log In to CMS Dashboard →</button>
+    </form>
+
+    <div style="margin-top: 24px;">
+      <a href="../index.html" style="font-size: 13px; color: #6B7280;">← Back to Society Website</a>
+    </div>
+  </div>
+
+  <script type="module">
+    document.getElementById('admin-login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      localStorage.setItem('nas_admin_logged_in', 'true');
+      window.location.href = './index.html';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discipline Examination Syllabus | Nanyang Artists Society</title>
+  <meta name="description" content="Detailed grade examination syllabus, paper specifications, and assessment rubrics for visual arts disciplines.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Grade Examination</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" id="breadcrumb-discipline-title" style="color: var(--color-ink-black); font-weight: 600;">Discipline Syllabus</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Discipline Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="max-width: 800px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+            <span class="seal-badge" id="disc-category">Category</span>
+            <span class="seal-badge seal-badge-gold" id="disc-grades-avail">Grades</span>
+          </div>
+
+          <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;" id="disc-title">Loading Discipline...</h1>
+          <h2 style="font-size: var(--font-size-lg); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 600;" id="disc-title-zh"></h2>
+
+          <p style="font-size: 15px; color: var(--color-ink-charcoal); line-height: 1.65; margin-bottom: 20px;" id="disc-overview">
+            Loading overview...
+          </p>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="index.html#register-section" class="btn btn-primary btn-lg">Register for Exam →</a>
+            <a href="index.html" class="btn btn-outline btn-lg">← All Disciplines</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specifications Strip -->
+    <section class="section-sm" style="background: var(--color-gallery-white); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div class="grid grid-cols-2" style="gap: 20px;">
+          <div style="padding: 16px; background: var(--color-warm-ivory); border-radius: var(--radius-md); border: 1px solid var(--color-paper-border);">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">📄 Substrate & Paper Specifications</span>
+            <p style="font-size: 13px; color: var(--color-ink-black); margin: 0; font-weight: 600;" id="disc-paper-spec">Specification loading...</p>
+          </div>
+
+          <div style="padding: 16px; background: var(--color-warm-ivory); border-radius: var(--radius-md); border: 1px solid var(--color-paper-border);">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">🎨 Proctored Tools & Mediums Allowed</span>
+            <p style="font-size: 13px; color: var(--color-ink-black); margin: 0; font-weight: 600;" id="disc-tools-spec">Tools loading...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Level Selector Grid -->
+    <section class="section">
+      <div class="container">
+        <div style="margin-bottom: 24px;">
+          <span class="section-subtitle">Examination Grades</span>
+          <h2 style="font-size: 24px; margin-bottom: 4px;">Standardized Grade Levels & Rubrics</h2>
+          <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0;">
+            Click on any grade level below to inspect specific examination tasks, time limits, and scoring rubrics.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3" id="disc-levels-grid" style="gap: 24px;">
+          <!-- Populated dynamically via js/grade-detail.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Grade Detail Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/grade-detail.js"></script>
+</body>
+</html>

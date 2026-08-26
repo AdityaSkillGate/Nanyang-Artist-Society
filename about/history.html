@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organizational Story & Milestones (2012–2026) | Nanyang Artists Society</title>
+  <meta name="description" content="Explore the development story, collaborative origins, and major milestones of the Singapore Nanyang Artists Society from 2012 to 2026.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">About Society</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Organizational Story & Timeline</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Developmental Lineage</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Selected Collaboration & Development Milestones</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">南洋艺术历史沿革、合作历程与发展纪元 (2012–2026)</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 650px;">
+              Tracing the journey from early cross-border education exploration to Singapore's premier Nanyang fine arts and grade examination platform.
+            </p>
+          </div>
+
+          <div>
+            <a href="team.html" class="btn btn-outline">
+              🏛️ Meet Society Leadership →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Provenance Disclosure Alert Box -->
+    <section class="section section-sm" style="padding-bottom: 0;">
+      <div class="container">
+        <div style="background: #FEF7E0; border: 1px solid #FEEFC3; border-left: 4px solid var(--color-gold); border-radius: var(--radius-sm); padding: 16px 20px; display: flex; gap: 14px; align-items: flex-start;">
+          <span style="font-size: 20px;" aria-hidden="true">📜</span>
+          <div style="font-size: 12px; color: #7A4100; line-height: 1.5;">
+            <strong style="display: block; margin-bottom: 2px; font-size: 13px;">Archival Provenance Note (历史资料说明):</strong>
+            Milestones between 2012 and 2015 reflect collaborative origin materials (including KEC Singapore, SmartKidz Asia, Budding Aces, and regional missions) and are presented transparently as collaborative lineage pending final client confirmation. Subsequent milestones from 2018 onwards represent official Singapore Nanyang Artists Society landmark records.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Timeline Presentation Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Desktop Horizontal Timeline Layout -->
+        <div class="timeline-desktop-wrapper">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px;">
+            <div>
+              <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Interactive Stepper</span>
+              <h3 style="font-size: 18px; margin: 0;">Chronological Progress Track (2012 – 2026)</h3>
+            </div>
+            <span style="font-size: 12px; color: var(--color-ink-muted);">Use ← and → arrow keys to navigate</span>
+          </div>
+
+          <!-- Nav Track with Progress Line -->
+          <div class="timeline-nav-track" id="timeline-desktop-track">
+            <!-- Populated dynamically via js/timeline.js -->
+          </div>
+
+          <!-- Active Spotlight Card -->
+          <div id="timeline-spotlight-card">
+            <!-- Populated dynamically via js/timeline.js -->
+          </div>
+        </div>
+
+        <!-- Mobile Vertical Stream Layout -->
+        <div class="timeline-mobile-wrapper" id="timeline-mobile-container">
+          <!-- Populated dynamically via js/timeline.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Timeline Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/timeline.js"></script>
+</body>
+</html>

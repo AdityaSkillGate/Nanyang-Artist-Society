@@ -1,0 +1,277 @@
+/* ==========================================================================
+   NANYANG ARTISTS SOCIETY — MOBILE-FIRST RESPONSIVE ENGINE
+   Comprehensive multi-device viewport optimization (360px to 1440px+)
+   ========================================================================== */
+
+/* Body Scroll Lock for Modal & Drawer States */
+body.drawer-scroll-locked,
+body.modal-scroll-locked {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
+/* Touch Target Optimization on Coarse Pointers */
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .dropdown-link,
+  .mobile-nav-link,
+  .mobile-accordion-toggle,
+  .filter-pill,
+  .tab-item,
+  .lang-btn,
+  .announcement-btn,
+  .grade-node-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   VIEWPORT BREAKPOINT: COMPACT LAPTOP & DESKTOP (1024px - 1480px)
+   ========================================================================== */
+@media (min-width: 1024px) and (max-width: 1480px) {
+  .nav-link {
+    padding: 4px 5px;
+    font-size: 12.5px;
+  }
+  .brand-logo-img {
+    height: 36px;
+  }
+  .header-enquire-btn {
+    display: none; /* Keep primary Register button prominent */
+  }
+  .search-btn-label,
+  .search-kbd-shortcut {
+    display: none;
+  }
+  .search-trigger-btn {
+    padding: 5px 8px;
+  }
+  .lang-btn {
+    padding: 2px 4px;
+    font-size: 10.5px;
+  }
+}
+
+/* ==========================================================================
+   TAMIL LANGUAGE NAVBAR OVERFLOW FIX
+   Optimized font-sizing, compact spacing, and flexible container rules
+   so all 10 navigation items and actions remain visible on desktop in Tamil.
+   ========================================================================== */
+html[lang="ta"] .main-nav {
+  flex-wrap: nowrap;
+  gap: 2px;
+}
+
+html[lang="ta"] .main-nav .nav-link {
+  font-size: 11.5px !important;
+  padding: 4px 5px !important;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+html[lang="ta"] .header-inner {
+  gap: 8px;
+}
+
+html[lang="ta"] .header-enquire-btn {
+  display: none !important;
+}
+
+html[lang="ta"] .lang-btn {
+  font-size: 10.5px !important;
+  padding: 2px 4px !important;
+}
+
+@media (min-width: 1024px) and (max-width: 1480px) {
+  html[lang="ta"] .main-nav .nav-link {
+    font-size: 11px !important;
+    padding: 3px 3px !important;
+  }
+
+  html[lang="ta"] .nav-item .nav-dropdown {
+    min-width: 180px;
+  }
+
+  html[lang="ta"] .dropdown-chevron {
+    font-size: 9px;
+  }
+}
+
+/* ==========================================================================
+   VIEWPORT BREAKPOINT 1: MOBILE & SMALL SCREENS (< 1024px)
+   ========================================================================== */
+@media (max-width: 1023px) {
+
+  /* Hide Desktop Nav and show Mobile Hamburger */
+  .main-nav {
+    display: none !important;
+  }
+
+  .mobile-hamburger-btn {
+    display: flex;
+  }
+
+  .header-enquire-btn {
+    display: none; /* Keep primary Register CTA on mobile header */
+  }
+
+  .search-btn-label,
+  .search-kbd-shortcut {
+    display: none;
+  }
+
+  .search-trigger-btn {
+    padding: 8px 10px;
+  }
+
+  .lang-selector {
+    display: none; /* Language selection moves to mobile navigation drawer */
+  }
+
+  .site-header {
+    height: 64px;
+  }
+
+  .brand-logo-img {
+    height: 38px;
+  }
+
+  .gate-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: calc(-1 * var(--space-8));
+  }
+
+  /* Full-Screen Search Modal on Mobile */
+  .search-modal-backdrop {
+    padding: 0;
+    align-items: stretch;
+  }
+
+  .search-modal-container {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    border: none;
+  }
+
+  .search-results-viewport {
+    max-height: calc(100vh - 160px);
+  }
+
+  .search-modal-footer {
+    display: none;
+  }
+
+  /* Mobile Footer Stacking */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+
+  .footer-col-heritage {
+    grid-column: 1 / -1;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+}
+
+/* ==========================================================================
+   VIEWPORT BREAKPOINT 2: PHABLET & SMALL TABLET (640px to 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .hero-cinematic {
+    min-height: 75vh;
+    padding: var(--space-12) var(--space-4);
+  }
+
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .assessment-viewer-container {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+}
+
+/* ==========================================================================
+   VIEWPORT BREAKPOINT 3: MOBILE PHONES (< 640px: 360px, 390px, 430px)
+   ========================================================================== */
+@media (max-width: 639px) {
+  .announcement-bar {
+    height: auto;
+    padding: 6px 0;
+  }
+
+  .announcement-badge-wrapper {
+    display: none;
+  }
+
+  .announcement-text {
+    font-size: 11px;
+  }
+
+  .gate-grid {
+    grid-template-columns: 1fr;
+    margin-top: var(--space-4);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .footer-input-group {
+    flex-direction: column;
+  }
+
+  .footer-submit-btn {
+    width: 100%;
+  }
+
+  .gate-card {
+    padding: var(--space-5);
+  }
+
+  .hero-cta-wrap {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta-wrap .btn {
+    width: 100%;
+  }
+
+  .btn-lg {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   VIEWPORT BREAKPOINT 4: DESKTOP (> 1024px)
+   ========================================================================== */
+@media (min-width: 1024px) {
+  .mobile-hamburger-btn {
+    display: none;
+  }
+
+  .main-nav {
+    display: flex;
+  }
+
+  .mobile-nav-wrapper {
+    display: none !important;
+  }
+}

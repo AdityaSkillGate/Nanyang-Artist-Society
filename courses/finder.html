@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Art Course Finder Quiz | Nanyang Artists Society</title>
+  <meta name="description" content="Take our 60-second guided course recommendation quiz to discover your personalized art learning pathway at Nanyang Artists Society.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Art Courses</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Course Finder Quiz</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Header Section -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border); text-align: center;">
+      <div class="container container-narrow">
+        <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">60-Second Recommendation</span>
+        <h1 style="font-size: var(--font-size-3xl); margin-bottom: 6px;">Interactive Art Course Finder</h1>
+        <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 12px; font-weight: 600;">智能寻课与个性化艺术进阶测评</h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted); margin: 0;">
+          Answer 6 quick questions to discover your ideal studio curriculum based on age, preferred medium, and examination goals.
+        </p>
+      </div>
+    </section>
+
+    <!-- Quiz Engine Section -->
+    <section class="section">
+      <div class="container">
+        <div class="finder-container">
+          <!-- VIEW 1: Active Quiz View -->
+          <div id="finder-quiz-view">
+            <!-- Progress Bar -->
+            <div class="finder-step-meta">
+              <span id="finder-step-count">Question 1 of 6</span>
+              <span>Guidance Tool</span>
+            </div>
+            <div class="finder-progress-track" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="6" aria-label="Quiz Progress">
+              <div class="finder-progress-fill" id="finder-progress-fill" style="width: 16%;"></div>
+            </div>
+
+            <!-- Question Prompt -->
+            <h3 class="finder-question-title" id="finder-q-title">Loading Question...</h3>
+            <p class="finder-question-subtitle" id="finder-q-sub">Please select an option below.</p>
+
+            <!-- Options Grid -->
+            <div class="finder-options-grid" id="finder-options-grid" role="radiogroup" aria-labelledby="finder-q-title">
+              <!-- Rendered dynamically via js/course-finder.js -->
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="finder-nav-footer">
+              <button type="button" class="btn btn-outline" id="finder-prev-btn" disabled>
+                ← Previous Question
+              </button>
+              <button type="button" class="btn btn-primary" id="finder-next-btn" disabled>
+                Next Question →
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW 2: Results View -->
+          <div id="finder-result-view" style="display: none;">
+            <div style="text-align: center; margin-bottom: 28px;">
+              <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Recommendation Analysis</span>
+              <h2 style="font-size: 28px; margin-bottom: 4px;">Your Personalized Course Recommendation</h2>
+              <p style="font-size: 14px; color: var(--color-ink-muted);">
+                Transparent curriculum matching calculated by the Nanyang Artists Society Academic Board.
+              </p>
+            </div>
+
+            <!-- Primary Recommended Match -->
+            <div id="finder-primary-result">
+              <!-- Populated dynamically by js/course-finder.js -->
+            </div>
+
+            <!-- Secondary Matches -->
+            <div id="finder-secondary-results" style="margin-top: 32px;">
+              <!-- Populated dynamically by js/course-finder.js -->
+            </div>
+
+            <!-- Actions Toolbar -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-paper-border); padding-top: 24px; margin-top: 32px; flex-wrap: wrap; gap: 12px;">
+              <button type="button" class="btn btn-outline" id="finder-restart-btn">
+                🔄 Retake Course Quiz
+              </button>
+              <a href="index.html" class="btn btn-primary">
+                Browse All Studio Courses →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Course Finder Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/course-finder.js"></script>
+</body>
+</html>

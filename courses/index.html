@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Studio Courses & Curriculums | Nanyang Artists Society</title>
+  <meta name="description" content="Discover Singapore Nanyang Artists Society studio courses in Chinese calligraphy, Chinese painting, academic sketching, oil painting, children intellectual art, and teacher certification.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Art Courses</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Courses Catalog Hero -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="max-width: 760px;">
+          <span class="section-subtitle">Studio Education</span>
+          <h1 style="font-size: var(--font-size-3xl); margin-bottom: 8px;">Art Courses & Creative Curriculums</h1>
+          <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 600;">艺术课程与专业考级教学体系</h2>
+          <p style="font-size: var(--font-size-base); color: var(--color-ink-muted); margin: 0; line-height: var(--leading-normal);">
+            From early sensory discovery in children's intellectual art to academic mastery in Chinese calligraphy, Shanshui landscapes, and oil painting.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Discovery Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Search & Filter Control Bar -->
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 32px; box-shadow: var(--shadow-subtle);">
+          <!-- Top Row: Search Input -->
+          <div style="display: flex; gap: 12px; margin-bottom: 20px;">
+            <div style="position: relative; flex-grow: 1;">
+              <input type="search" id="course-search-input" placeholder="Search by course title, Chinese name, instructor, or medium..." class="form-input" style="padding-left: 40px; height: 46px;" aria-label="Search courses">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+            <button type="button" class="btn btn-outline" id="reset-filters-btn" title="Reset all search and filter parameters">
+              Reset Filters
+            </button>
+          </div>
+
+          <!-- Category Filter Pills -->
+          <div style="margin-bottom: 16px;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 8px;">
+              Primary Art Category:
+            </span>
+            <div class="filter-bar" style="margin-bottom: 0;">
+              <button type="button" class="filter-pill active" data-filter-cat="all">All Categories</button>
+              <button type="button" class="filter-pill" data-filter-cat="fine-arts">Fine Arts (纯美术)</button>
+              <button type="button" class="filter-pill" data-filter-cat="heritage-arts">Heritage Arts (传统书法与国画)</button>
+              <button type="button" class="filter-pill" data-filter-cat="youth-arts">Youth Arts (少儿美术)</button>
+              <button type="button" class="filter-pill" data-filter-cat="professional-certification">Professional Certification (师资培训)</button>
+            </div>
+          </div>
+
+          <!-- Secondary Filters Row -->
+          <div class="grid grid-cols-4" style="gap: 16px; border-top: 1px solid var(--color-paper-border); padding-top: 16px; align-items: flex-end;">
+            <!-- Age Group -->
+            <div>
+              <label for="filter-age-select" class="form-label" style="font-size: 12px;">Age Group:</label>
+              <select id="filter-age-select" class="form-select" style="padding: 8px 12px; font-size: 13px;">
+                <option value="all">All Age Groups</option>
+                <option value="children">Early Childhood (Ages 3–8)</option>
+                <option value="junior">Junior (Ages 8–14)</option>
+                <option value="youth_adult">Youth & Adults (Ages 13+)</option>
+                <option value="educator">Art Teachers & Educators</option>
+              </select>
+            </div>
+
+            <!-- Skill Level -->
+            <div>
+              <label for="filter-level-select" class="form-label" style="font-size: 12px;">Skill Level:</label>
+              <select id="filter-level-select" class="form-select" style="padding: 8px 12px; font-size: 13px;">
+                <option value="all">All Skill Levels</option>
+                <option value="beginner">Beginner / Foundations</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+                <option value="masterclass">Masterclass / Pro</option>
+              </select>
+            </div>
+
+            <!-- Learning Goal -->
+            <div>
+              <label for="filter-goal-select" class="form-label" style="font-size: 12px;">Learning Goal:</label>
+              <select id="filter-goal-select" class="form-select" style="padding: 8px 12px; font-size: 13px;">
+                <option value="all">All Learning Goals</option>
+                <option value="exploration">Creative Exploration</option>
+                <option value="grade_exam">Grade Exam Preparation</option>
+                <option value="portfolio">Portfolio Development</option>
+                <option value="teacher_cert">Teacher Certification</option>
+              </select>
+            </div>
+
+            <!-- Featured Toggle Checkbox -->
+            <div style="display: flex; align-items: center; gap: 8px; height: 38px;">
+              <input type="checkbox" id="filter-featured-toggle" style="width: 18px; height: 18px; accent-color: var(--color-cinnabar); cursor: pointer;">
+              <label for="filter-featured-toggle" style="font-size: 13px; font-weight: 600; color: var(--color-ink-charcoal); cursor: pointer;">
+                Featured Courses Only
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Status Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <span style="font-size: 14px; font-weight: 600; color: var(--color-ink-charcoal);" id="courses-count-badge">
+            Showing courses...
+          </span>
+          <span style="font-size: 13px; color: var(--color-ink-muted);">
+            Low student-to-teacher ratio · Accredited faculty
+          </span>
+        </div>
+
+        <!-- Dynamic Courses Catalog Grid -->
+        <div class="grid grid-cols-3" id="courses-catalog-grid" style="gap: 24px;">
+          <!-- Rendered dynamically by js/courses.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Callout Banner -->
+    <section class="section section-sm section-ivory-dark">
+      <div class="container">
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-lg); padding: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 6px;">Personalized Recommendation</span>
+            <h3 style="font-size: 20px; margin-bottom: 4px;">Unsure which art discipline suits you best?</h3>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0;">Take our 60-second interactive Course Finder Quiz to discover your ideal learning path.</p>
+          </div>
+          <a href="finder.html" class="btn btn-primary">Take Course Quiz →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Courses Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/courses.js"></script>
+</body>
+</html>

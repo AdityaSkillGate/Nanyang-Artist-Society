@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artwork Assessment Viewer | Nanyang Artists Society</title>
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/logo/logo.png" alt="Logo" class="brand-logo-img">
+      </a>
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../courses/index.html" class="nav-link">Art Courses</a>
+        <a href="./index.html" class="nav-link active">Grade Examination</a>
+        <a href="../competitions/nanyang-star.html" class="nav-link">Nanyang Star</a>
+        <a href="../contact/index.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="./test-centres.html" class="btn btn-outline btn-sm">Test Centres</a>
+        <a href="../contact/index.html" class="btn btn-primary btn-sm">Register for Exam</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="section section-lg" style="background: var(--color-paper-ivory-dark); text-align: center;">
+      <div class="container container-narrow">
+        <span class="section-subtitle">Interactive Exemplar Inspector</span>
+        <h1 style="font-size: 38px; margin-bottom: 16px;">Artwork Assessment & Scoring Standard Viewer</h1>
+        <p style="font-size: 17px; color: var(--color-ink-muted);">
+          Explore official examination exemplar artworks with interactive zoom, stroke criteria breakdowns, and scoring guidelines.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- Controls Bar -->
+        <div style="background: var(--color-paper-card); border: 1px solid var(--color-paper-border); border-radius: var(--radius-lg); padding: 16px; margin-bottom: 24px; display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="viewer-discipline-select" style="font-weight: 700; font-size: 14px;">Discipline:</label>
+            <select id="viewer-discipline-select" style="padding: 6px 12px; border: 1px solid var(--color-paper-border); border-radius: 6px; font-size: 14px;">
+              <option value="DISC-CLG">Chinese Calligraphy (中国书法)</option>
+              <option value="DISC-CHP">Chinese Painting (中国画)</option>
+              <option value="DISC-SKT">Academic Sketching (素描)</option>
+              <option value="DISC-CHD">Children Art (儿童画)</option>
+              <option value="DISC-CTN">Cartoon Drawing (卡通画)</option>
+              <option value="DISC-WCO">Watercolor & Oil (水彩油画)</option>
+            </select>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <label for="viewer-grade-select" style="font-weight: 700; font-size: 14px;">Grade Level:</label>
+            <select id="viewer-grade-select" style="padding: 6px 12px; border: 1px solid var(--color-paper-border); border-radius: 6px; font-size: 14px;">
+              <option value="1">Grade 1 (第1级)</option>
+              <option value="2">Grade 2 (第2级)</option>
+              <option value="3">Grade 3 (第3级)</option>
+              <option value="4">Grade 4 (第4级)</option>
+              <option value="5">Grade 5 (第5级)</option>
+              <option value="6">Grade 6 (第6级)</option>
+              <option value="7">Grade 7 (第7级)</option>
+              <option value="8">Grade 8 (第8级)</option>
+              <option value="9">Grade 9 (第9级)</option>
+            </select>
+          </div>
+
+          <div style="margin-left: auto; display: flex; gap: 8px;">
+            <button type="button" id="viewer-zoom-in" class="btn btn-outline btn-sm">Zoom +</button>
+            <button type="button" id="viewer-zoom-out" class="btn btn-outline btn-sm">Zoom -</button>
+            <button type="button" id="viewer-zoom-reset" class="btn btn-outline btn-sm">Reset</button>
+          </div>
+        </div>
+
+        <!-- Assessment Viewer Two-Column Stage -->
+        <div class="assessment-viewer-container">
+          <div class="artwork-zoom-stage">
+            <img id="viewer-artwork-img" src="https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?auto=format&fit=crop&w=800&q=80" alt="Exemplar Artwork">
+          </div>
+
+          <div id="viewer-criteria-list">
+            <!-- Populated by assessment-viewer.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2002–2026 Singapore Nanyang Artists Society. All Rights Reserved.</p>
+      <a href="../contact/index.html" style="color: #9CA3AF;">Contact Us</a>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initAssessmentViewer } from '../js/modules/assessment-viewer.js';
+    import { i18n } from '../js/core/i18n.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      i18n.init();
+      initAssessmentViewer();
+    });
+  </script>
+</body>
+</html>

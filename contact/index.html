@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Transit Guide | Nanyang Artists Society</title>
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <section class="section section-lg" style="background: var(--color-paper-ivory-dark); text-align: center;">
+      <div class="container container-narrow">
+        <span class="section-subtitle">Get in Touch</span>
+        <h1 style="font-size: 38px; margin-bottom: 16px;">Contact Society Office & Transit Directions</h1>
+        <p style="font-size: 17px; color: var(--color-ink-muted);">
+          Reach out to our admissions secretariat, visit our Jurong East headquarters, or submit general enquiries.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: flex-start;">
+          <!-- Contact Info & Transit -->
+          <div>
+            <h2 style="font-size: 26px; margin-bottom: 20px;">Society Headquarters</h2>
+            <div style="background: var(--color-paper-card); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 24px;">
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 16px; font-size: 15px;">
+                <li>
+                  <strong>📍 Address (English):</strong><br>
+                  <span style="color: var(--color-ink-muted);">Blk 135 Jurong Gateway Road #03-333/335, Singapore 600135</span>
+                </li>
+                <li>
+                  <strong>📍 地址 (中文):</strong><br>
+                  <span style="color: var(--color-ink-muted);">新加坡裕廊门路大牌135号#03-333/335 邮编600135</span>
+                </li>
+                <li>
+                  <strong>📞 Telephone:</strong><br>
+                  <span style="color: var(--color-ink-muted);"><a href="tel:+6568990828">+65 6899 0828</a> / <a href="tel:+6590048768">+65 9004 8768</a></span>
+                </li>
+                <li>
+                  <strong>🌐 Official Domain:</strong><br>
+                  <span style="color: var(--color-ink-muted);">http://nyart.org.sg</span>
+                </li>
+              </ul>
+            </div>
+
+            <h3 style="font-size: 20px; margin-bottom: 12px;">Public Transit Guide</h3>
+            <div style="background: var(--color-paper-card); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 24px;">
+              <p style="font-size: 14px; margin-bottom: 8px;">
+                <strong>🚇 MRT:</strong> Jurong East MRT Station (EW24/NS1) — 3 minutes walking distance via Exit A.
+              </p>
+              <p style="font-size: 14px; margin: 0;">
+                <strong>🚌 Bus:</strong> Jurong East Bus Interchange (Services 51, 52, 66, 78, 79, 97, 98, 105, 143, 160, 183, 197, 333, 334, 335, 506).
+              </p>
+            </div>
+          </div>
+
+          <!-- Enquiry Form -->
+          <div style="background: var(--color-paper-card); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 36px; box-shadow: var(--shadow-md);">
+            <h2 style="font-size: 24px; margin-bottom: 8px;">Online Course / Exam Enquiry</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin-bottom: 24px;">Please complete the form below. Our secretariat will respond within 24 hours.</p>
+
+            <form id="contact-form" style="display: flex; flex-direction: column; gap: 16px;">
+              <div>
+                <label for="contact-name" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Full Name (姓名):</label>
+                <input type="text" id="contact-name" required placeholder="Your full name" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 16px;">
+                <div>
+                  <label for="contact-email" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Email (电邮):</label>
+                  <input type="email" id="contact-email" required placeholder="your.email@example.com" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+                </div>
+                <div>
+                  <label for="contact-phone" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Contact Phone (电话):</label>
+                  <input type="tel" id="contact-phone" required placeholder="+65 xxxx xxxx" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+                </div>
+              </div>
+
+              <div>
+                <label for="contact-interest" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Interested Discipline (咨询门类):</label>
+                <select id="contact-interest" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+                  <option value="General Enquiry">General Society Enquiry (一般咨询)</option>
+                  <option value="Chinese Calligraphy">Chinese Calligraphy (中国书法)</option>
+                  <option value="Chinese Painting">Chinese Painting (中国画)</option>
+                  <option value="Academic Sketching">Academic Sketching (素描)</option>
+                  <option value="Children Intellectual Art">Children Intellectual Art (少儿智力美术)</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing (卡通画)</option>
+                  <option value="Watercolor / Oil">Watercolor & Oil (水彩 / 油画)</option>
+                  <option value="Handicrafts / Plastic Origami">Handicraft & Patented Plastic Origami (手工与塑料折纸)</option>
+                  <option value="Grade Examination Registration">Grade Examination Registration (考级报名)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contact-message" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Message / Questions (留言内容):</label>
+                <textarea id="contact-message" rows="4" required placeholder="Tell us how we can help..." style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Enquiry →</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-root"></div>
+
+  <script type="module">
+    import '../js/core/app.js';
+    import { dataAdapter } from '../js/services/dataAdapter.js';
+    import { showToast } from '../js/modules/toast.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const payload = {
+          fullName: document.getElementById('contact-name').value,
+          email: document.getElementById('contact-email').value,
+          phone: document.getElementById('contact-phone').value,
+          discipline: document.getElementById('contact-interest').value,
+          message: document.getElementById('contact-message').value
+        };
+
+        await dataAdapter.submit('enquiry', payload);
+        showToast('Enquiry received! Our secretariat will contact you shortly.', 'success');
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

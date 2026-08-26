@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Educational Artwork Assessment Viewer | Nanyang Artists Society</title>
+  <meta name="description" content="Explore high-resolution student masterworks, assessment scoring criteria breakdowns, and side-by-side developmental benchmark comparisons.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Gallery</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Assessment Viewer</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Viewer Header & Educational Notice -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Pedagogical Inspection Tool</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Educational Artwork Assessment Viewer</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 10px; font-weight: 600;">范画深度鉴赏与考级评分细则解析</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 680px;">
+              Examine high-resolution exemplar artworks across National Examination disciplines with deep zoom pan, rubric score distributions, and faculty critique commentaries.
+            </p>
+          </div>
+
+          <!-- Educational Disclaimer Banner -->
+          <div style="background: var(--color-gallery-white); border-left: 3px solid var(--color-cobalt); border-radius: var(--radius-sm); padding: 12px 16px; max-width: 380px; font-size: 12px; color: var(--color-ink-charcoal); line-height: 1.5; border-top: 1px solid var(--color-paper-border); border-right: 1px solid var(--color-paper-border); border-bottom: 1px solid var(--color-paper-border);">
+            <strong style="color: var(--color-cobalt);">ℹ️ Educational Reference Notice:</strong>
+            <p style="margin: 4px 0 0; color: var(--color-ink-muted);">
+              Sample criteria scores and commentary are for studio pedagogical demonstration. Official examination grading strictly follows invigilated council rubrics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Artwork Stage Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Artwork Selection Tray -->
+        <div style="display: flex; align-items: center; gap: 10px; overflow-x: auto; padding-bottom: 14px; margin-bottom: 20px;">
+          <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); white-space: nowrap;">
+            Select Artwork:
+          </span>
+          <div id="viewer-artworks-tray" style="display: flex; gap: 8px;">
+            <!-- Populated dynamically via js/assessment-viewer.js -->
+          </div>
+        </div>
+
+        <!-- Main Viewer Layout: Canvas (Left) & Critique Panel (Right) -->
+        <div style="display: grid; grid-template-columns: 1.3fr 0.7fr; gap: 32px; align-items: flex-start;">
+          <!-- Left: High-Res Interactive Canvas Stage -->
+          <div>
+            <div class="viewer-stage" id="viewer-stage">
+              <!-- Single Canvas Viewport -->
+              <div class="viewer-viewport" id="viewer-single-viewport">
+                <img src="../assets/logo/logo.png" alt="Artwork Viewport" class="viewer-img-canvas" id="viewer-canvas-img" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+              </div>
+
+              <!-- Side-by-Side Dual Comparison Grid (Hidden by default) -->
+              <div class="viewer-comparison-grid" id="viewer-comparison-grid" style="display: none;">
+                <!-- Populated dynamically by js/assessment-viewer.js -->
+              </div>
+
+              <!-- Interactive Toolbar -->
+              <div class="viewer-toolbar">
+                <div class="viewer-tool-group">
+                  <button type="button" class="viewer-tool-btn" id="viewer-zoom-in-btn" title="Zoom In (+)">
+                    🔍+ Zoom In
+                  </button>
+                  <button type="button" class="viewer-tool-btn" id="viewer-zoom-out-btn" title="Zoom Out (-)">
+                    🔍- Zoom Out
+                  </button>
+                  <button type="button" class="viewer-tool-btn" id="viewer-zoom-reset-btn" title="Reset Zoom (0)">
+                    ↺ Reset
+                  </button>
+                  <span class="viewer-zoom-badge" id="viewer-zoom-level-badge">100%</span>
+                </div>
+
+                <div class="viewer-tool-group">
+                  <button type="button" class="viewer-tool-btn" id="viewer-compare-toggle-btn" style="background: rgba(186, 27, 29, 0.2); border-color: var(--color-cinnabar);">
+                    ⚖️ Compare A vs B Mode
+                  </button>
+                  <button type="button" class="viewer-tool-btn" id="viewer-fullscreen-btn" title="Toggle Fullscreen (F)">
+                    ⛶ Fullscreen
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; font-size: 11px; color: var(--color-ink-muted);">
+              <span>💡 Controls: Click and drag to pan when zoomed. Keyboard: <code>+</code> / <code>-</code> / <code>0</code>, <code>F</code> fullscreen, <code>ESC</code> exit.</span>
+              <span>High-resolution museum scan</span>
+            </div>
+          </div>
+
+          <!-- Right: Comprehensive Educational Critique & Rubrics Panel -->
+          <div>
+            <div class="viewer-critique-panel">
+              <div style="display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap;">
+                <span class="seal-badge" id="viewer-art-disc">Discipline</span>
+                <span class="seal-badge seal-badge-gold" id="viewer-art-tier">Grade Tier</span>
+              </div>
+
+              <h2 style="font-size: 20px; margin-bottom: 2px;" id="viewer-art-title">Loading Artwork...</h2>
+              <h3 style="font-size: 14px; color: var(--color-cinnabar); font-weight: 600; margin-bottom: 14px;" id="viewer-art-title-zh"></h3>
+
+              <!-- Metadata Strip -->
+              <div style="background: var(--color-warm-ivory); border-radius: var(--radius-sm); border: 1px solid var(--color-paper-border); padding: 12px; font-size: 12px; color: var(--color-ink-charcoal); line-height: 1.5; margin-bottom: 20px;">
+                <p style="margin: 0 0 4px;">👤 <strong>Candidate / Author:</strong> <span id="viewer-art-candidate">Candidate</span></p>
+                <p style="margin: 0 0 4px;">🎨 <strong>Medium:</strong> <span id="viewer-art-medium">Medium</span></p>
+                <p style="margin: 0;">📐 <strong>Dimensions & Year:</strong> <span id="viewer-art-dimensions">Dimensions</span></p>
+              </div>
+
+              <!-- Comparison Notice (When active) -->
+              <div id="viewer-comparison-notice" style="background: var(--color-warm-ivory-dark); border-radius: var(--radius-sm); padding: 12px; margin-bottom: 20px; display: none;"></div>
+
+              <!-- Scoring Rubric Breakdown -->
+              <h4 style="font-size: 15px; margin-bottom: 12px;">Evaluation Rubric Scores (评分细则)</h4>
+              <div id="viewer-rubric-container" style="margin-bottom: 20px;">
+                <!-- Populated dynamically via js/assessment-viewer.js -->
+              </div>
+
+              <!-- Master Faculty Critique Notes -->
+              <div style="border-top: 1px solid var(--color-paper-border); padding-top: 16px;">
+                <h4 style="font-size: 14px; margin-bottom: 6px; color: var(--color-cinnabar);">👨‍🏫 Faculty Assessment Critique:</h4>
+                <p style="font-size: 13px; color: var(--color-ink-charcoal); line-height: 1.6; margin: 0;" id="viewer-instructor-notes">
+                  Critique notes...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Assessment Viewer Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/assessment-viewer.js"></script>
+</body>
+</html>

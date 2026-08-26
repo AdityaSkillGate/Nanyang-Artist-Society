@@ -1,0 +1,109 @@
+/* ==========================================================================
+   NANYANG ARTISTS SOCIETY — DESIGN SYSTEM VARIABLES & TOKENS
+   Theme: Contemporary Art Gallery + Asian Cultural Heritage + Modern Education
+   ========================================================================== */
+
+:root {
+  /* Brand Color Palette */
+  --color-ink-black: #121316;          /* Classical Chinese Ink Stone Depth */
+  --color-ink-charcoal: #23272E;       /* Charcoal Text & Deep Borders */
+  --color-ink-muted: #5A6270;          /* Secondary Body Text & Subtitles */
+  --color-ink-light: #8E97A6;          /* Tertiary Placeholders & Minor Meta */
+
+  --color-cinnabar: #BA1B1D;           /* Liu Kang Seal / Primary Accent Red */
+  --color-cinnabar-dark: #961214;      /* Deep Cinnabar for Hover & Pressed */
+  --color-cinnabar-light: #E03E40;     /* Vibrant Highlight Cinnabar */
+  --color-cinnabar-subtle: rgba(186, 27, 29, 0.08); /* Watered Seal Tint */
+
+  --color-cobalt: #1B4298;             /* Society Globe Emblem Royal Blue */
+  --color-cobalt-dark: #133070;        /* Deep Academic Navy */
+  --color-cobalt-light: #3361C7;       /* Interactive Blue */
+  --color-cobalt-subtle: rgba(27, 66, 152, 0.08); /* Watered Cobalt Tint */
+
+  --color-warm-ivory: #F9F6F0;         /* Authentic Xuan / Rice Paper Ground */
+  --color-warm-ivory-dark: #EFE9DC;    /* Aged Parchment / Section Contrast */
+  --color-gallery-white: #FFFFFF;      /* Clean Exhibition Wall White */
+  --color-paper-border: #E5DFD3;       /* Fine 1px Archival Border */
+  --color-paper-border-dark: #D4CCBD;  /* Interactive / Focus Border */
+
+  --color-muted-gold: #C59B27;         /* Antique Chinese Gold for Awards */
+  --color-muted-gold-dark: #9E7B1A;    /* Burnished Bronze */
+  --color-muted-gold-subtle: rgba(197, 155, 39, 0.12); /* Gold Glaze Tint */
+
+  /* Functional Status Tokens */
+  --color-success: #1E824C;            /* Jade Green */
+  --color-warning: #D97706;            /* Amber Amber */
+  --color-error: #BA1B1D;              /* Cinnabar Error */
+  --color-info: #1B4298;               /* Cobalt Info */
+
+  /* Typography Stacks */
+  --font-serif: "Noto Serif SC", "Songti SC", "SimSun", "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+  /* Fluid Typography Scale (Mobile-First 320px -> 1440px) */
+  --font-size-xs: clamp(0.75rem, 0.72rem + 0.15vw, 0.8125rem);   /* 12px -> 13px */
+  --font-size-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);    /* 13px -> 14px */
+  --font-size-base: clamp(0.9375rem, 0.9rem + 0.25vw, 1rem);      /* 15px -> 16px */
+  --font-size-md: clamp(1.0625rem, 1rem + 0.35vw, 1.125rem);      /* 17px -> 18px */
+  --font-size-lg: clamp(1.1875rem, 1.1rem + 0.5vw, 1.3125rem);    /* 19px -> 21px */
+  --font-size-xl: clamp(1.375rem, 1.25rem + 0.75vw, 1.625rem);    /* 22px -> 26px */
+  --font-size-2xl: clamp(1.625rem, 1.45rem + 1.1vw, 2rem);        /* 26px -> 32px */
+  --font-size-3xl: clamp(2rem, 1.7rem + 1.6vw, 2.625rem);         /* 32px -> 42px */
+  --font-size-4xl: clamp(2.375rem, 1.95rem + 2.2vw, 3.375rem);    /* 38px -> 54px */
+  --font-size-5xl: clamp(2.75rem, 2.2rem + 3vw, 4.25rem);         /* 44px -> 68px */
+
+  /* Line Heights */
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+
+  /* Spacing System */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+  --space-32: 8rem;     /* 128px */
+
+  /* Layout & Container Constraints */
+  --container-max: 1240px;
+  --container-narrow: 880px;
+  --container-wide: 1400px;
+  --header-height: 72px;
+  --topbar-height: 36px;
+
+  /* Architectural Restraint Radii (Subtle, never overly bubbly) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 9999px;
+
+  /* Museum Light Shadows (Delicate & Paper-Grade) */
+  --shadow-subtle: 0 1px 3px rgba(18, 19, 22, 0.04), 0 1px 2px rgba(18, 19, 22, 0.02);
+  --shadow-card: 0 4px 12px rgba(18, 19, 22, 0.06);
+  --shadow-elevation: 0 12px 24px -4px rgba(18, 19, 22, 0.08), 0 4px 8px -2px rgba(18, 19, 22, 0.04);
+  --shadow-seal: 0 2px 8px rgba(186, 27, 29, 0.2);
+
+  /* Transitions (Clean, precise, non-distracting) */
+  --transition-fast: 140ms ease;
+  --transition-base: 220ms ease;
+  --transition-slow: 360ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Z-Index Hierarchy */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-dropdown: 200;
+  --z-drawer: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}

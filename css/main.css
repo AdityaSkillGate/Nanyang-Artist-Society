@@ -1,0 +1,11 @@
+/* ==========================================================================
+   NANYANG ARTISTS SOCIETY — MASTER STYLESHEET
+   Aggregating all modular CSS layers in architectural cascade order
+   ========================================================================== */
+
+@import url('variables.css');
+@import url('base.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('animations.css');
+@import url('responsive.css');

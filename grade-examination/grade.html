@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grade Level Examination Details | Nanyang Artists Society</title>
+  <meta name="description" content="Detailed examination requirements, scoring rubrics, time allocations, and sample benchmark artworks for National Grade Examinations.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Grade Examination</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="discipline.html" id="breadcrumb-grade-disc">Discipline</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" id="breadcrumb-grade-num" style="color: var(--color-ink-black); font-weight: 600;">Grade Detail</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Grade Level Header Section -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center;">
+          <div>
+            <div style="display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap;">
+              <span class="seal-badge" id="grade-disc-badge">Discipline</span>
+              <span class="seal-badge seal-badge-gold" id="grade-tier-badge">Tier Badge</span>
+            </div>
+
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;" id="grade-title">Loading Grade...</h1>
+            <h2 style="font-size: var(--font-size-lg); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 600;" id="grade-title-zh"></h2>
+
+            <p style="font-size: 15px; color: var(--color-ink-charcoal); line-height: 1.65; margin-bottom: 24px;" id="grade-overview">
+              Loading grade overview...
+            </p>
+
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="index.html#register-section" class="btn btn-primary btn-lg">Register for This Grade →</a>
+              <a href="discipline.html" class="btn btn-outline btn-lg">← View All Levels</a>
+            </div>
+          </div>
+
+          <!-- Sample Benchmark Reference Work -->
+          <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--color-paper-border); box-shadow: var(--shadow-card); background: #FFFFFF;">
+            <img src="../assets/logo/logo.png" alt="Sample Benchmark Work" id="grade-sample-img" style="width: 100%; aspect-ratio: 16/11; object-fit: cover;" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+            <div style="padding: 12px 16px; background: var(--color-gallery-white); border-top: 1px solid var(--color-paper-border); font-size: 12px; color: var(--color-ink-muted);">
+              Official Scoring Benchmark Exemplar
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Examination Logistics Strip -->
+    <section class="section-sm" style="background: var(--color-gallery-white); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div class="grid grid-cols-2" style="gap: 20px;">
+          <div style="padding: 16px; background: var(--color-warm-ivory); border-radius: var(--radius-md); border: 1px solid var(--color-paper-border);">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">⏱️ Examination Format & Time Allocation</span>
+            <p style="font-size: 14px; font-weight: 700; color: var(--color-ink-black); margin: 0;" id="grade-requirements">Requirements...</p>
+          </div>
+
+          <div style="padding: 16px; background: var(--color-warm-ivory); border-radius: var(--radius-md); border: 1px solid var(--color-paper-border);">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted); display: block; margin-bottom: 4px;">📅 Official Examination Intakes</span>
+            <p style="font-size: 14px; font-weight: 700; color: var(--color-cinnabar); margin: 0;" id="grade-schedule">Schedule...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scoring Rubric Matrix Table -->
+    <section class="section">
+      <div class="container">
+        <div style="margin-bottom: 24px;">
+          <span class="section-subtitle">Judging Rubrics</span>
+          <h2 style="font-size: 24px; margin-bottom: 6px;">Evaluation Criteria & Weighting (考级评分标准)</h2>
+          <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0;">
+            Candidates are evaluated based on the official standard rubrics accredited by the Academic Council.
+          </p>
+        </div>
+
+        <div class="criteria-table-wrapper" style="margin-bottom: 36px;">
+          <table class="criteria-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Evaluation Item (评审维度)</th>
+                <th style="width: 15%;">Weight (权重)</th>
+                <th>Standard & Description (评分细则与要求)</th>
+              </tr>
+            </thead>
+            <tbody id="grade-rubric-tbody">
+              <!-- Populated dynamically via js/grade-detail.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Grade Stepper Navigation -->
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); padding: 16px 24px;" id="grade-stepper-nav">
+          <!-- Populated dynamically via js/grade-detail.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Grade Detail Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/grade-detail.js"></script>
+</body>
+</html>

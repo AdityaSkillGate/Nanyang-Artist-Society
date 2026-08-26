@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accredited Examination Test Centres Search | Nanyang Artists Society</title>
+  <meta name="description" content="Search accredited Singapore National Visual Arts Grade Examination venues by centre name, location, postal code, discipline, and grade tier.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="index.html">Grade Examination</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Test Centres</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Test Centres Search Hero -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Official Singapore Examination Venues</span>
+        <h1 style="font-size: var(--font-size-3xl); margin-bottom: 6px;">Accredited Examination Test Centres</h1>
+        <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 14px; font-weight: 600;">全国考级官方指定考点与考场查询</h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted); margin: 0;">
+          Search official examination venues across Singapore by location, postal code, discipline, and grade tier.
+        </p>
+      </div>
+    </section>
+
+    <!-- Search & Filter Control Bar -->
+    <section class="section">
+      <div class="container">
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-card); margin-bottom: 28px;">
+          <!-- Top Row: Search Input -->
+          <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 260px;">
+              <input type="search" id="centre-search-input" placeholder="Search by centre name, district (e.g. Jurong, Tampines, Eunos), or 6-digit postal code..." class="form-input" style="padding-left: 40px; height: 46px;" aria-label="Search test centres">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">📍</span>
+            </div>
+            <button type="button" class="btn btn-outline" id="centre-reset-btn" title="Reset all search parameters">
+              ↺ Reset
+            </button>
+          </div>
+
+          <!-- Quick Postal Code & Location Chips -->
+          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px; flex-wrap: wrap;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted);">
+              Quick Postal Lookup:
+            </span>
+            <button type="button" class="filter-pill" data-quick-search="600135">Jurong East (600135)</button>
+            <button type="button" class="filter-pill" data-quick-search="528588">Tampines (528588)</button>
+            <button type="button" class="filter-pill" data-quick-search="640731">Jurong West (640731)</button>
+            <button type="button" class="filter-pill" data-quick-search="417775">Eunos (417775)</button>
+          </div>
+
+          <!-- Secondary Filters Row -->
+          <div class="grid grid-cols-2" style="gap: 16px; border-top: 1px solid var(--color-paper-border); padding-top: 16px;">
+            <!-- Discipline Filter -->
+            <div>
+              <label for="centre-discipline-select" class="form-label" style="font-size: 12px;">Filter by Discipline (考级门类):</label>
+              <select id="centre-discipline-select" class="form-select" style="font-size: 13px;">
+                <option value="all">All Disciplines (全科目考点)</option>
+                <option value="DISC-CLG">Chinese Calligraphy (中国书法)</option>
+                <option value="DISC-CHP">Chinese Painting (中国画)</option>
+                <option value="DISC-SKT">Academic Sketching (学院素描)</option>
+                <option value="DISC-CHD">Children's Drawing (少儿美术)</option>
+                <option value="DISC-WTC">Watercolor / Gouache / Oil (水彩油画)</option>
+              </select>
+            </div>
+
+            <!-- Grade Tier Filter -->
+            <div>
+              <label for="centre-grade-select" class="form-label" style="font-size: 12px;">Filter by Grade Level (考级段位):</label>
+              <select id="centre-grade-select" class="form-select" style="font-size: 13px;">
+                <option value="all">All Grade Levels (1–9级全段位)</option>
+                <option value="foundation">Grades 1 to 3 (Foundation · 初级段位)</option>
+                <option value="intermediate">Grades 4 to 6 (Intermediate · 中级段位)</option>
+                <option value="advanced">Grades 7 to 9 (Senior Apex · 高级/毕业段位)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Status Badge -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="test-centres-count-badge">
+            Loading accredited test centres...
+          </span>
+          <span style="font-size: 13px; color: var(--color-ink-muted);">
+            Proctored by Society Academic Invigilators
+          </span>
+        </div>
+
+        <!-- Live Results Grid -->
+        <div class="grid grid-cols-2" id="test-centres-grid" style="gap: 24px;">
+          <!-- Populated dynamically via js/test-centres.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Candidate Advice Callout -->
+    <section class="section section-sm section-ivory-dark">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="seal-badge seal-badge-gold" style="margin-bottom: 6px;">Examination Seating</span>
+        <h3 style="font-size: 20px; margin-bottom: 4px;">Need Assistance Choosing Your Examination Venue?</h3>
+        <p style="font-size: 14px; color: var(--color-ink-muted); margin-bottom: 16px;">
+          Our admissions registry can assist candidates with easel bookings, accessibility requirements, and group studio test schedules.
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:+6568990828" class="btn btn-primary">📞 Call Registry Office (+65 6899 0828)</a>
+          <a href="https://wa.me/6590048768" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="color: #16A34A; border-color: #16A34A;">💬 WhatsApp Helpdesk</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Test Centres Search Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/test-centres.js"></script>
+</body>
+</html>

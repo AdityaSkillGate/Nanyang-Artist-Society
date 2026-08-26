@@ -1,0 +1,144 @@
+/* ==========================================================================
+   NANYANG ARTISTS SOCIETY — BASE & TYPOGRAPHY STYLES
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-normal);
+  color: var(--color-ink-charcoal);
+  background-color: var(--color-warm-ivory);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Text Selection Color (Cinnabar Paper Glaze) */
+::selection {
+  background-color: var(--color-cinnabar-subtle);
+  color: var(--color-cinnabar-dark);
+}
+
+::-moz-selection {
+  background-color: var(--color-cinnabar-subtle);
+  color: var(--color-cinnabar-dark);
+}
+
+/* Accessibility Focus Rings */
+:focus-visible {
+  outline: 2px solid var(--color-cinnabar);
+  outline-offset: 3px;
+}
+
+/* Headings (Editorial Display Serif) */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  color: var(--color-ink-black);
+  line-height: var(--leading-tight);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: var(--font-size-4xl); margin-bottom: var(--space-4); }
+h2 { font-size: var(--font-size-3xl); margin-bottom: var(--space-3); }
+h3 { font-size: var(--font-size-2xl); margin-bottom: var(--space-3); }
+h4 { font-size: var(--font-size-xl); margin-bottom: var(--space-2); }
+h5 { font-size: var(--font-size-lg); margin-bottom: var(--space-2); }
+h6 { font-size: var(--font-size-md); margin-bottom: var(--space-1); }
+
+p {
+  margin-bottom: var(--space-4);
+  color: var(--color-ink-charcoal);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Links (Subtle Ink Transition) */
+a {
+  color: var(--color-cobalt);
+  text-decoration: none;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-cinnabar);
+}
+
+/* Media Elements */
+img, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Code & Preformatted */
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+code {
+  background: var(--color-warm-ivory-dark);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--color-paper-border);
+}
+
+/* Lists */
+ul, ol {
+  padding-left: var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+li {
+  margin-bottom: var(--space-1);
+}
+
+/* Horizontal Dividers */
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--color-paper-border);
+  margin: var(--space-8) 0;
+}
+
+/* Quotes & Inscriptions */
+blockquote {
+  border-left: 3px solid var(--color-cinnabar);
+  padding-left: var(--space-4);
+  margin: var(--space-6) 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-ink-black);
+}
+
+/* Screen Reader Only Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

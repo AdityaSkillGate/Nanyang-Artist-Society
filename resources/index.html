@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resources & Document Archive | Nanyang Artists Society</title>
+  <meta name="description" content="Official repository for course brochures, examination syllabi, competition registration forms, exhibition catalogues, and society policies.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Resources & Document Archive</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Official Document Repository</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Resources & Document Archive</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">学术大纲、考务表格、画册年鉴与历史文献中心</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 650px;">
+              Access official course brochures, 1–9 grade assessment syllabi, competition forms, and high-resolution archival exhibition catalogues.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <a href="../competitions/register.html" class="btn btn-outline">
+              📝 Competition Entry Portal →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Repository Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Search & Filter Toolbar -->
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-card); margin-bottom: 28px;">
+          <!-- Top Row: Search & Year Select -->
+          <div style="display: flex; gap: 14px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 280px;">
+              <input type="search" id="resources-search-input" placeholder="Search by title, syllabus keyword (e.g. Calligraphy Grade 5), format or category..." class="form-input" style="padding-left: 40px; height: 44px;" aria-label="Search documents">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+
+            <div style="min-width: 160px;">
+              <select id="resources-year-select" class="form-select" style="height: 44px; font-size: 13px;" aria-label="Filter by Year">
+                <option value="all">All Years (全部年份)</option>
+                <option value="2026">2026 (Current Active Session)</option>
+                <option value="2024">2024 Session</option>
+                <option value="2022">2022 Session</option>
+                <option value="2020">2020 Historical Edition</option>
+                <option value="2018">2018 Inaugural Archive</option>
+              </select>
+            </div>
+
+            <button type="button" class="btn btn-outline" id="resources-reset-btn">
+              ↺ Reset Filters
+            </button>
+          </div>
+
+          <!-- Bottom Row: 9-Category Filter Pills Bar -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; border-top: 1px solid var(--color-paper-border); padding-top: 16px;">
+            <button type="button" class="doc-category-pill active" data-category="all">All Documents (全部)</button>
+            <button type="button" class="doc-category-pill" data-category="Course Brochures">Course Brochures (招生简章)</button>
+            <button type="button" class="doc-category-pill" data-category="Grade Guides">Grade Guides (考级大纲)</button>
+            <button type="button" class="doc-category-pill" data-category="Exam Forms">Exam Forms (考级表格)</button>
+            <button type="button" class="doc-category-pill" data-category="Competition Forms">Competition Forms (大赛表格)</button>
+            <button type="button" class="doc-category-pill" data-category="Competition Posters">Competition Posters (海报物料)</button>
+            <button type="button" class="doc-category-pill" data-category="Exhibition Catalogues">Exhibition Catalogues (画册年鉴)</button>
+            <button type="button" class="doc-category-pill" data-category="Certificates">Certificates (证书样本)</button>
+            <button type="button" class="doc-category-pill" data-category="Policies">Policies (协会章程)</button>
+            <button type="button" class="doc-category-pill" data-category="FAQs">FAQs (常见问答)</button>
+          </div>
+        </div>
+
+        <!-- Status & Results Count Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="documents-count-badge">
+            Loading document repository...
+          </span>
+          <span style="font-size: 12px; color: var(--color-ink-muted);">
+            Clear Distinction Between Current Standards & Archival Records
+          </span>
+        </div>
+
+        <!-- Documents Grid Container -->
+        <div class="grid grid-cols-3" id="documents-grid-container" style="gap: 24px;">
+          <!-- Dynamically populated via js/resources.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Container for Document Preview -->
+    <div id="doc-preview-modal-root"></div>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Resources Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/resources.js"></script>
+</body>
+</html>
