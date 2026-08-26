@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team / Institutional Competition Registration | Nanyang Artists Society</title>
+  <meta name="description" content="Group registration portal for art schools, primary academies, and studios participating in the Nanyang Star International Competition.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="nanyang-star.html">Competitions</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Team & Institution Registration</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Institutional Batch Portal</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Team / Institution Competition Registration</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">“南洋之星”国际少儿美术大赛 · 团体/机构/学校报名通道</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 650px;">
+              Register multiple candidates in a unified batch with dynamic roster management, auto-calculated group age totals, and printable institutional vouchers.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px;">
+            <a href="register.html" class="btn btn-outline">
+              👤 Individual Entry →
+            </a>
+            <a href="nanyang-star.html" class="btn btn-primary">
+              ⭐ Competition Hub
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Registration Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Printable Slip Container (Initially Empty) -->
+        <div id="team-slip-container"></div>
+
+        <!-- Form Workspace Section -->
+        <div id="team-form-section">
+          <!-- 1. Organization Details Card -->
+          <div class="card" style="padding: 28px 24px; margin-bottom: var(--space-6);" id="team-org-form">
+            <div style="margin-bottom: 20px; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 12px;">
+              <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Section 1</span>
+              <h3 style="font-size: 18px; margin: 0;">Institutional Contact Information</h3>
+            </div>
+
+            <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 20px;">
+              <div>
+                <label for="team-org-name" class="form-label">Organization / School Name (机构/学校名称) <span style="color: var(--color-cinnabar);">*</span></label>
+                <input type="text" id="team-org-name" class="form-input" placeholder="e.g. AiDe Art Studio / Nanyang Primary" required>
+              </div>
+              <div>
+                <label for="team-rec-inst" class="form-label">Recommendation Institution (推荐机构 / 合作联盟)</label>
+                <input type="text" id="team-rec-inst" class="form-input" placeholder="e.g. Singapore Federation of Art Societies (Optional)">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3" style="gap: 20px;">
+              <div>
+                <label for="team-contact-person" class="form-label">Contact Person Name (负责人姓名) <span style="color: var(--color-cinnabar);">*</span></label>
+                <input type="text" id="team-contact-person" class="form-input" placeholder="e.g. Teacher Jessica Tan" required>
+              </div>
+              <div>
+                <label for="team-email" class="form-label">Email Address (电子邮箱) <span style="color: var(--color-cinnabar);">*</span></label>
+                <input type="email" id="team-email" class="form-input" placeholder="e.g. jessica@studio.sg" required>
+              </div>
+              <div>
+                <label for="team-phone" class="form-label">Phone Number (联系电话) <span style="color: var(--color-cinnabar);">*</span></label>
+                <input type="tel" id="team-phone" class="form-input" placeholder="e.g. +65 9876 5432" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Real-Time Group Totals Scoreboard -->
+          <div class="totals-scoreboard">
+            <div class="stat-counter-card">
+              <div class="stat-counter-value" id="counter-preschooler" style="color: var(--color-cinnabar);">0</div>
+              <div class="stat-counter-label">Preschooler (3–5 yrs)</div>
+            </div>
+            <div class="stat-counter-card">
+              <div class="stat-counter-value" id="counter-children" style="color: var(--color-cobalt);">0</div>
+              <div class="stat-counter-label">Children (6–8 yrs)</div>
+            </div>
+            <div class="stat-counter-card">
+              <div class="stat-counter-value" id="counter-preteen" style="color: var(--color-gold);">0</div>
+              <div class="stat-counter-label">Pre-teen (9–12 yrs)</div>
+            </div>
+            <div class="stat-counter-card">
+              <div class="stat-counter-value" id="counter-total" style="color: var(--color-ink-black);">0</div>
+              <div class="stat-counter-label">Total Registered Headcount</div>
+            </div>
+          </div>
+
+          <!-- 3. Dynamic Participant Table & Toolbar -->
+          <div class="card" style="padding: 24px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+              <div>
+                <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Section 2</span>
+                <h3 style="font-size: 18px; margin: 0;">Participant Roster (01, 02...)</h3>
+              </div>
+
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-outline btn-sm" id="team-sample-data-btn" title="Quickly pre-fill realistic students">
+                  ⚡ Fill Sample Data
+                </button>
+                <button type="button" class="btn btn-outline btn-sm" id="team-add-five-btn">
+                  + Add 5 Rows
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" id="team-add-row-btn">
+                  + Add Participant
+                </button>
+              </div>
+            </div>
+
+            <!-- Dynamic Table Container -->
+            <div class="participant-table-wrapper">
+              <table class="participant-table">
+                <thead>
+                  <tr>
+                    <th style="width: 50px; text-align: center;">#</th>
+                    <th>English Name (英文姓名) <span style="color: var(--color-cinnabar);">*</span></th>
+                    <th>Chinese Name (中文姓名)</th>
+                    <th>Age <span style="color: var(--color-cinnabar);">*</span></th>
+                    <th>Gender <span style="color: var(--color-cinnabar);">*</span></th>
+                    <th>Competition Group</th>
+                    <th style="text-align: center;">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="team-participants-tbody">
+                  <!-- Dynamically populated via js/group-register.js -->
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Bottom Workflow Action Bar -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--color-paper-border); padding-top: 16px; flex-wrap: wrap; gap: 12px;">
+              <div style="display: flex; gap: 8px;">
+                <button type="button" class="btn btn-outline btn-sm" id="team-save-draft-btn">
+                  💾 Save Draft
+                </button>
+                <button type="button" class="btn btn-outline btn-sm" id="team-clear-draft-btn" style="color: var(--color-ink-muted);">
+                  ↺ Reset Form
+                </button>
+              </div>
+
+              <div>
+                <button type="button" class="btn btn-primary" id="team-review-submit-btn">
+                  Review Roster & Submit Registration →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Container for Review -->
+    <div id="team-review-modal"></div>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Group Registration Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/group-register.js"></script>
+</body>
+</html>

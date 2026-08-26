@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Competition Artwork | Nanyang Artists Society</title>
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-logo">
+        <img src="../assets/logo/logo.png" alt="Logo" class="brand-logo-img">
+      </a>
+      <nav class="main-nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../courses/index.html" class="nav-link">Art Courses</a>
+        <a href="../grade-examination/index.html" class="nav-link">Grade Examination</a>
+        <a href="./nanyang-star.html" class="nav-link active">Nanyang Star</a>
+        <a href="../gallery/index.html" class="nav-link">Gallery</a>
+        <a href="../contact/index.html" class="nav-link">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <a href="../contact/index.html" class="btn btn-outline btn-sm">Contact Society</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="section section-lg" style="background: var(--color-paper-ivory-dark); text-align: center;">
+      <div class="container container-narrow">
+        <span class="seal-badge seal-badge-gold" style="margin-bottom: 12px;">Digital Artwork Submission</span>
+        <h1 style="font-size: 38px; margin-bottom: 16px;">Artwork Submission Portal</h1>
+        <p style="font-size: 17px; color: var(--color-ink-muted);">
+          Submit high-resolution digital scans and photos of youth artworks for international evaluation.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-narrow">
+        <div style="background: var(--color-paper-card); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-md);">
+          <form id="submission-form" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="grid grid-cols-2" style="gap: 16px;">
+              <div>
+                <label for="sub-student-name" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Artist / Student Name (学员姓名):</label>
+                <input type="text" id="sub-student-name" required placeholder="Enter student full name" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+              </div>
+              <div>
+                <label for="sub-student-age" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Age (年龄):</label>
+                <input type="number" id="sub-student-age" min="2" max="25" required placeholder="e.g. 8" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+              </div>
+            </div>
+
+            <div>
+              <label for="sub-artwork-title" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Artwork Title (作品名称):</label>
+              <input type="text" id="sub-artwork-title" required placeholder="Title in English or Chinese" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+            </div>
+
+            <div class="grid grid-cols-2" style="gap: 16px;">
+              <div>
+                <label for="sub-discipline" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Discipline / Medium (门类):</label>
+                <select id="sub-discipline" style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;">
+                  <option value="Children Art">Children Art (儿童画)</option>
+                  <option value="Chinese Calligraphy">Chinese Calligraphy (中国书法)</option>
+                  <option value="Chinese Painting">Chinese Painting (中国画)</option>
+                  <option value="Academic Sketching">Academic Sketching (素描)</option>
+                  <option value="Cartoon Drawing">Cartoon Drawing (卡通画)</option>
+                  <option value="Watercolor / Oil">Watercolor & Oil (水彩 / 油画)</option>
+                </select>
+              </div>
+              <div>
+                <label for="sub-file" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Upload Artwork Image (JPG/PNG max 10MB):</label>
+                <input type="file" id="sub-file" accept="image/*" required style="width: 100%; padding: 8px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 13px;">
+              </div>
+            </div>
+
+            <div>
+              <label for="sub-statement" style="display: block; font-weight: 700; margin-bottom: 6px; font-size: 14px;">Artist Statement / Creative Concept (创作说明):</label>
+              <textarea id="sub-statement" rows="3" placeholder="Briefly describe what inspired this artwork..." style="width: 100%; padding: 10px 14px; border: 1px solid var(--color-paper-border); border-radius: var(--radius-md); font-size: 14px;"></textarea>
+            </div>
+
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input type="checkbox" id="sub-consent" required>
+              <label for="sub-consent" style="font-size: 13px; color: var(--color-ink-muted);">I certify that this is an original artwork and consent to exhibition and publication by Singapore Nanyang Artists Society.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Submit Artwork for Review →</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>© 2002–2026 Singapore Nanyang Artists Society. All Rights Reserved.</p>
+      <a href="../contact/index.html" style="color: #9CA3AF;">Contact Us</a>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { api } from '../js/core/api.js';
+    import { showToast } from '../js/modules/toast.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('submission-form');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const payload = {
+          studentName: document.getElementById('sub-student-name').value,
+          studentAge: document.getElementById('sub-student-age').value,
+          artworkTitle: document.getElementById('sub-artwork-title').value,
+          discipline: document.getElementById('sub-discipline').value,
+          statement: document.getElementById('sub-statement').value
+        };
+
+        const res = await api.submitForm('submission', payload);
+        showToast('Artwork submission received successfully!', 'success');
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

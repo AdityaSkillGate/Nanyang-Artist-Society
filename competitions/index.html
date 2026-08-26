@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>International Art Competitions & Laureate Archives | Nanyang Artists Society</title>
+  <meta name="description" content="Explore international children's art competitions, official posters, historical editions, and winning laureate masterworks from 2018 to 2026.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Competitions Archive</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Global Arts Platform</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">International Competitions Archive</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">国际少儿与青年美术大赛历届档案</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 600px;">
+              Browse past competition editions, download official exhibition posters, and discover award-winning laureate artworks.
+            </p>
+          </div>
+
+          <div>
+            <a href="nanyang-star.html" class="btn btn-primary">
+              ⭐ Nanyang Star Flagship Experience →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competition Editions Catalog -->
+    <section class="section section-ivory">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 4px;">Historical Catalog</span>
+            <h3 style="font-size: 20px; margin: 0;">Official Competition Editions (2018–2026)</h3>
+          </div>
+          <span style="font-size: 12px; color: var(--color-ink-muted);">Verified Academic Records</span>
+        </div>
+
+        <div class="grid grid-cols-2" id="archive-editions-container" style="gap: 24px;">
+          <!-- Populated dynamically via js/competitions-archive.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Winner Discovery & Filter Control Bar -->
+    <section class="section">
+      <div class="container">
+        <div style="text-align: center; max-width: 680px; margin: 0 auto 32px;">
+          <span class="seal-badge seal-badge-gold" style="margin-bottom: 6px;">Excellence Roster</span>
+          <h2 style="font-size: var(--font-size-2xl); margin-bottom: 4px;">Winning Laureates Gallery</h2>
+          <h3 style="font-size: var(--font-size-sm); color: var(--color-cinnabar); font-weight: 600; margin: 0;">获奖作品全景检索与鉴赏</h3>
+        </div>
+
+        <!-- 5-Way Filter Panel -->
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-card); margin-bottom: 28px;">
+          <!-- Top Row: Search -->
+          <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 260px;">
+              <input type="search" id="archive-search-input" placeholder="Search by candidate name (e.g. Megan Low), artwork title, school or city..." class="form-input" style="padding-left: 40px; height: 44px;" aria-label="Search winners">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+            <button type="button" class="btn btn-outline" id="archive-reset-btn">
+              ↺ Reset Filters
+            </button>
+          </div>
+
+          <!-- Secondary Filters Row -->
+          <div class="grid grid-cols-4" style="gap: 12px; border-top: 1px solid var(--color-paper-border); padding-top: 16px;">
+            <div>
+              <label for="archive-year-select" class="form-label" style="font-size: 11px;">Year (年份):</label>
+              <select id="archive-year-select" class="form-select" style="font-size: 12px;">
+                <option value="all">All Years (全部年份)</option>
+                <option value="2026">2026 Edition</option>
+                <option value="2024">2024 Edition</option>
+                <option value="2022">2022 Edition</option>
+                <option value="2020">2020 (Looking into the Future)</option>
+                <option value="2018">2018 (Inaugural)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="archive-competition-select" class="form-label" style="font-size: 11px;">Competition (赛事):</label>
+              <select id="archive-competition-select" class="form-select" style="font-size: 12px;">
+                <option value="all">All Competitions (全部赛事)</option>
+                <option value="COMP-NANYANG-2020">Nanyang Star 2020</option>
+                <option value="COMP-NANYANG-2024">Nanyang Star 2024</option>
+                <option value="COMP-NANYANG-2026">Nanyang Star 2026</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="archive-award-select" class="form-label" style="font-size: 11px;">Award Tier (奖项):</label>
+              <select id="archive-award-select" class="form-select" style="font-size: 12px;">
+                <option value="all">All Award Tiers (全部奖项)</option>
+                <option value="Grand Prize">Star of Nanyang (特等奖)</option>
+                <option value="Gold">Gold Award (金奖)</option>
+                <option value="Silver">Silver Award (银奖)</option>
+                <option value="Bronze">Bronze Award (铜奖)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="archive-age-select" class="form-label" style="font-size: 11px;">Age Group (年龄组别):</label>
+              <select id="archive-age-select" class="form-select" style="font-size: 12px;">
+                <option value="all">All Age Groups (全年龄组)</option>
+                <option value="Preschooler">Preschooler Group (3–5)</option>
+                <option value="Children">Children Group (6–8)</option>
+                <option value="Pre-teen">Pre-teen Group (9–12)</option>
+                <option value="Division A">Division A (Preschool)</option>
+                <option value="Division D">Division D (Youth 13–16)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dynamic Results Counter -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="archive-winners-count">
+            Loading laureate artworks...
+          </span>
+          <span style="font-size: 12px; color: var(--color-ink-muted);">Click artwork image to view full resolution</span>
+        </div>
+
+        <!-- Winners Grid -->
+        <div class="grid grid-cols-3" id="archive-winners-grid" style="gap: 24px;">
+          <!-- Populated dynamically via js/competitions-archive.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Official Poster & Artwork Zoom Modal -->
+  <div id="poster-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(18, 19, 22, 0.95); z-index: var(--z-modal); flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+    <!-- Top Toolbar -->
+    <div style="width: 100%; max-width: 900px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; color: #FFFFFF;">
+      <div>
+        <h4 id="poster-modal-caption" style="font-size: 16px; margin: 0; font-weight: 600;">Official Competition Visual</h4>
+      </div>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <button type="button" class="btn btn-outline btn-sm" id="poster-zoom-in-btn" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);" title="Zoom In (+)">🔍+</button>
+        <button type="button" class="btn btn-outline btn-sm" id="poster-zoom-out-btn" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);" title="Zoom Out (-)">🔍-</button>
+        <button type="button" class="btn btn-outline btn-sm" id="poster-zoom-reset-btn" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);" title="Reset (0)">↺</button>
+        <span id="poster-zoom-badge" style="font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px;">100%</span>
+        <a id="poster-modal-download-btn" href="#" download class="btn btn-primary btn-sm" style="font-size: 11px;">⬇️ Download</a>
+        <button type="button" id="poster-modal-close" style="background: transparent; border: none; color: #FFFFFF; font-size: 24px; cursor: pointer; margin-left: 8px;" aria-label="Close modal">✕</button>
+      </div>
+    </div>
+
+    <!-- Canvas Viewport -->
+    <div id="poster-modal-viewport" style="width: 100%; max-width: 900px; height: 75vh; background: #0A0A0C; border-radius: var(--radius-md); overflow: hidden; display: flex; justify-content: center; align-items: center; position: relative; cursor: grab;">
+      <img id="poster-modal-img" src="../assets/logo/logo.png" alt="Official Competition Poster" style="max-width: 90%; max-height: 90%; object-fit: contain; transition: transform 0.1s ease-out;" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+    </div>
+  </div>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Competitions Archive Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/competitions-archive.js"></script>
+</body>
+</html>

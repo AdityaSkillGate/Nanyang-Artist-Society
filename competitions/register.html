@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Individual Competition Registration | Nanyang Artists Society</title>
+  <meta name="description" content="Online entry portal for the Nanyang Star International Children's Art Competition. Complete your 6-step entry with instant verification.">
+  <link rel="icon" type="image/png" href="../assets/logo/logo.png">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Roots -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="nanyang-star.html">Competitions</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Individual Registration</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Hero Header -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Official Online Portal</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;">Individual Competition Registration</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;">“南洋之星”国际少儿美术大赛 · 个人在线报名通道</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 620px;">
+              Complete your entry in 6 guided steps. Once submitted, you will receive an official Registration ID and printable artwork voucher.
+            </p>
+          </div>
+
+          <div>
+            <a href="nanyang-star.html" class="btn btn-outline">
+              ⭐ Competition Overview →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Registration Section -->
+    <section class="section">
+      <div class="container" style="max-width: 860px;" id="reg-form-container">
+        <!-- 6-Step Visual Stepper -->
+        <div class="form-stepper-container">
+          <div class="step-item active">
+            <div class="step-circle">1</div>
+            <div class="step-label">Contestant<br><span style="font-size: 10px; font-weight: normal;">参赛者</span></div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">2</div>
+            <div class="step-label">Guardian<br><span style="font-size: 10px; font-weight: normal;">家长信息</span></div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">3</div>
+            <div class="step-label">Category<br><span style="font-size: 10px; font-weight: normal;">比赛组别</span></div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">4</div>
+            <div class="step-label">Artwork<br><span style="font-size: 10px; font-weight: normal;">作品详情</span></div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">5</div>
+            <div class="step-label">Review<br><span style="font-size: 10px; font-weight: normal;">信息核对</span></div>
+          </div>
+          <div class="step-item">
+            <div class="step-circle">6</div>
+            <div class="step-label">Voucher<br><span style="font-size: 10px; font-weight: normal;">报名凭证</span></div>
+          </div>
+        </div>
+
+        <!-- Form Card Container -->
+        <div class="card" style="padding: 36px 32px;">
+          <!-- Hidden Honeypot Anti-Spam Trap -->
+          <div style="position: absolute; left: -9999px; top: -9999px;" aria-hidden="true">
+            <label for="reg-honeypot-website">Leave this field blank:</label>
+            <input type="text" id="reg-honeypot-website" name="website_url_trap" tabindex="-1" autocomplete="off">
+          </div>
+
+          <form id="individual-registration-form" novalidate onsubmit="return false;">
+            <!-- STEP 1: CONTESTANT DETAILS -->
+            <div class="step-panel active" data-step="1">
+              <div style="margin-bottom: 24px;">
+                <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Step 1 of 6</span>
+                <h3 style="font-size: 20px; margin: 0 0 4px;">Contestant Personal Information</h3>
+                <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;">Please provide the young artist's details accurately as they appear on official identity records.</p>
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 20px;">
+                <div>
+                  <label for="reg-applicant-en-name" class="form-label">Applicant English Name (英文姓名) <span style="color: var(--color-cinnabar);">*</span></label>
+                  <input type="text" id="reg-applicant-en-name" class="form-input" placeholder="e.g. Lucas Tan Jun Wei" required>
+                </div>
+                <div>
+                  <label for="reg-applicant-zh-name" class="form-label">Chinese Name (中文姓名)</label>
+                  <input type="text" id="reg-applicant-zh-name" class="form-input" placeholder="e.g. 陈俊伟 (Optional)">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 20px;">
+                <div>
+                  <label for="reg-dob" class="form-label">Date of Birth (出生日期) <span style="color: var(--color-cinnabar);">*</span></label>
+                  <input type="date" id="reg-dob" class="form-input" required>
+                  <span id="reg-age-badge" class="seal-badge seal-badge-gold" style="margin-top: 6px; display: none; font-size: 11px;"></span>
+                </div>
+                <div>
+                  <label for="reg-gender" class="form-label">Gender (性别) <span style="color: var(--color-cinnabar);">*</span></label>
+                  <select id="reg-gender" class="form-select" required>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male (男)</option>
+                    <option value="Female">Female (女)</option>
+                    <option value="Other">Other / Prefer not to say</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 32px;">
+                <div>
+                  <label for="reg-school-grade" class="form-label">School & Grade / Level (就读学校与年级)</label>
+                  <input type="text" id="reg-school-grade" class="form-input" placeholder="e.g. Nanyang Primary School / P4">
+                </div>
+                <div>
+                  <label for="reg-recommendation-inst" class="form-label">Recommendation Institution / Studio (推荐机构)</label>
+                  <input type="text" id="reg-recommendation-inst" class="form-input" placeholder="e.g. AiDe Art Studio / Independent">
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: flex-end;">
+                <button type="button" class="btn btn-primary" data-action="next-step">
+                  Next: Guardian Details →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 2: GUARDIAN DETAILS -->
+            <div class="step-panel" data-step="2">
+              <div style="margin-bottom: 24px;">
+                <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Step 2 of 6</span>
+                <h3 style="font-size: 20px; margin: 0 0 4px;">Parent / Guardian Contact Information</h3>
+                <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;">Official notices, jury results, and exhibition invitations will be dispatched to these contacts.</p>
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 20px;">
+                <div>
+                  <label for="reg-guardian-name" class="form-label">Parent / Guardian Name (家长姓名) <span style="color: var(--color-cinnabar);">*</span></label>
+                  <input type="text" id="reg-guardian-name" class="form-input" placeholder="e.g. Tan Boon Keng" required>
+                </div>
+                <div>
+                  <label for="reg-mobile-number" class="form-label">Contact Mobile Number (手机号码) <span style="color: var(--color-cinnabar);">*</span></label>
+                  <input type="tel" id="reg-mobile-number" class="form-input" placeholder="e.g. +65 9123 4567" required>
+                </div>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label for="reg-singapore-address" class="form-label">Singapore Mailing Address (新加坡邮寄地址)</label>
+                <input type="text" id="reg-singapore-address" class="form-input" placeholder="e.g. Blk 123 Jurong Gateway Road #08-12, Singapore 600123">
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 32px;">
+                <div>
+                  <label for="reg-wechat-id" class="form-label">WeChat ID (微信号 - Optional)</label>
+                  <input type="text" id="reg-wechat-id" class="form-input" placeholder="e.g. tan_art_parent">
+                </div>
+                <div>
+                  <label for="reg-email" class="form-label">Email Address (电子邮箱)</label>
+                  <input type="email" id="reg-email" class="form-input" placeholder="e.g. guardian@example.com">
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <button type="button" class="btn btn-outline" data-action="prev-step">
+                  ← Back to Contestant
+                </button>
+                <button type="button" class="btn btn-primary" data-action="next-step">
+                  Next: Competition Category →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 3: COMPETITION CATEGORY -->
+            <div class="step-panel" data-step="3">
+              <div style="margin-bottom: 24px;">
+                <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Step 3 of 6</span>
+                <h3 style="font-size: 20px; margin: 0 0 4px;">Competition Edition & Age Category</h3>
+                <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;">Categories are automatically computed from your Date of Birth.</p>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label for="reg-competition-edition" class="form-label">Competition Edition (参赛届别) <span style="color: var(--color-cinnabar);">*</span></label>
+                <select id="reg-competition-edition" class="form-select">
+                  <option value="COMP-2026">2026 5th Nanyang Star International Competition (Current Active Edition)</option>
+                  <option value="COMP-2020">2020 2nd Nanyang Star 'Looking into the Future' (Historical Archival Entry)</option>
+                </select>
+              </div>
+
+              <div style="margin-bottom: 32px;">
+                <label for="reg-competition-category" class="form-label">Assigned Age Category / Division (组别) <span style="color: var(--color-cinnabar);">*</span></label>
+                <select id="reg-competition-category" class="form-select" required>
+                  <option value="">-- Please Select or Verify Category --</option>
+                  <optgroup label="2026 Contemporary Categories">
+                    <option value="Division A (Preschool: age 4–6)">Division A (Preschool: age 4–6 · 幼儿组)</option>
+                    <option value="Division B (Junior Primary: age 7–9)">Division B (Junior Primary: age 7–9 · 少儿初级组)</option>
+                    <option value="Division C (Senior Primary: age 10–12)">Division C (Senior Primary: age 10–12 · 少儿高级组)</option>
+                    <option value="Division D (Youth / Secondary: age 13–16)">Division D (Youth / Secondary: age 13–16 · 青年组)</option>
+                  </optgroup>
+                  <optgroup label="2020 Historical Categories">
+                    <option value="Preschooler Group: age 3–5">Preschooler Group: age 3–5 (幼儿组 3-5岁)</option>
+                    <option value="Children Group: age 6–8">Children Group: age 6–8 (少儿组 6-8岁)</option>
+                    <option value="Pre-teen Group: age 9–12">Pre-teen Group: age 9–12 (少年前期组 9-12岁)</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <button type="button" class="btn btn-outline" data-action="prev-step">
+                  ← Back to Guardian
+                </button>
+                <button type="button" class="btn btn-primary" data-action="next-step">
+                  Next: Artwork Submission →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 4: ARTWORK DETAILS & UPLOAD -->
+            <div class="step-panel" data-step="4">
+              <div style="margin-bottom: 24px;">
+                <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Step 4 of 6</span>
+                <h3 style="font-size: 20px; margin: 0 0 4px;">Artwork Details & Photographic Preview</h3>
+                <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;">Specify the artwork's dimensions, medium, creative statement, and upload a high-resolution preview.</p>
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 20px;">
+                <div>
+                  <label for="reg-artwork-title-en" class="form-label">Artwork Title (English) <span style="color: var(--color-cinnabar);">*</span></label>
+                  <input type="text" id="reg-artwork-title-en" class="form-input" placeholder="e.g. Future Green Supertrees" required>
+                </div>
+                <div>
+                  <label for="reg-artwork-title-zh" class="form-label">Artwork Title (Chinese)</label>
+                  <input type="text" id="reg-artwork-title-zh" class="form-input" placeholder="e.g. 未来绿色超级树 (Optional)">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2" style="gap: 20px; margin-bottom: 20px;">
+                <div>
+                  <label for="reg-artwork-medium" class="form-label">Art Medium / Technique (画种/媒介) <span style="color: var(--color-cinnabar);">*</span></label>
+                  <select id="reg-artwork-medium" class="form-select" required>
+                    <option value="">Select Medium</option>
+                    <option value="Oil Pastel / Crayon">Oil Pastel / Wax Crayon (油画棒/蜡笔)</option>
+                    <option value="Watercolor / Gouache">Watercolor / Gouache (水彩/水粉)</option>
+                    <option value="Chinese Ink Wash / Calligraphy">Chinese Ink Wash / Calligraphy (中国画/书法)</option>
+                    <option value="Academic Sketching / Charcoal">Academic Sketching / Charcoal (素描/炭笔)</option>
+                    <option value="Acrylic on Canvas / Board">Acrylic on Canvas / Board (丙烯/油画)</option>
+                    <option value="3D Patented Plastic Origami / Craft">3D Patented Plastic Origami / Craft (专利折纸/立体手工)</option>
+                    <option value="Comic & Cartoon Illustration">Comic & Cartoon Illustration (动漫/卡通插画)</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="reg-artwork-dimensions" class="form-label">Artwork Dimensions (作品尺寸)</label>
+                  <input type="text" id="reg-artwork-dimensions" class="form-input" placeholder="e.g. 4-Cut (54cm x 38cm) or 8-Cut">
+                </div>
+              </div>
+
+              <div style="margin-bottom: 20px;">
+                <label for="reg-artwork-statement" class="form-label">Artwork Creative Statement (作品创意简介 / 50–100字)</label>
+                <textarea id="reg-artwork-statement" class="form-input" rows="3" placeholder="Briefly describe the inspiration, storyline, or technique behind this masterpiece..."></textarea>
+              </div>
+
+              <div style="margin-bottom: 32px;">
+                <label class="form-label">Upload Artwork Photo (上传作品照片 / JPEG, PNG, max 10MB)</label>
+                <div class="artwork-upload-zone" id="reg-upload-zone">
+                  <div style="font-size: 32px; margin-bottom: 6px;">📷</div>
+                  <div style="font-size: 14px; font-weight: 600; color: var(--color-ink-black);" id="reg-upload-text">Click or drag & drop artwork image here</div>
+                  <div style="font-size: 11px; color: var(--color-ink-muted); margin-top: 4px;">Supports High-Res JPG, PNG, WebP</div>
+                  <input type="file" id="reg-artwork-file" accept="image/*" style="display: none;">
+                  <div id="reg-artwork-preview-container"></div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <button type="button" class="btn btn-outline" data-action="prev-step">
+                  ← Back to Category
+                </button>
+                <button type="button" class="btn btn-primary" data-action="next-step">
+                  Next: Review Entries →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 5: REVIEW & CONSENT -->
+            <div class="step-panel" data-step="5">
+              <div style="margin-bottom: 24px;">
+                <span class="seal-badge seal-badge-cobalt" style="margin-bottom: 4px;">Step 5 of 6</span>
+                <h3 style="font-size: 20px; margin: 0 0 4px;">Review Registration Details</h3>
+                <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;">Please carefully verify all contestant, contact, category, and artwork records before final submission.</p>
+              </div>
+
+              <!-- Dynamic Review Table Container -->
+              <div id="reg-review-summary-container"></div>
+
+              <!-- Consent & Privacy Declaration -->
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-radius: var(--radius-sm); padding: 18px; margin-bottom: 32px;">
+                <label style="display: flex; gap: 12px; align-items: flex-start; cursor: pointer;">
+                  <input type="checkbox" id="reg-consent-checkbox" style="margin-top: 3px; accent-color: var(--color-cinnabar);" required>
+                  <span style="font-size: 12px; color: var(--color-ink-charcoal); line-height: 1.5;">
+                    <strong>Parental / Guardian Consent & PDPA Declaration (监护人授权与隐私同意):</strong><br>
+                    I hereby declare that I am the legal parent/guardian of the applicant. I confirm that the submitted artwork is an authentic original creation by the applicant and give consent to the Singapore Nanyang Artists Society to process personal data for competition administration, jury scoring, certificate issuance, and exhibition catalog publishing in compliance with the Singapore Personal Data Protection Act (PDPA).
+                  </span>
+                </label>
+              </div>
+
+              <div style="display: flex; justify-content: space-between;">
+                <button type="button" class="btn btn-outline" data-action="prev-step">
+                  ← Back to Artwork Details
+                </button>
+                <button type="button" class="btn btn-primary" id="reg-submit-final-btn">
+                  ✓ Confirm & Submit Registration →
+                </button>
+              </div>
+            </div>
+
+            <!-- STEP 6: SUBMISSION SLIP & VOUCHER -->
+            <div class="step-panel" data-step="6">
+              <div style="margin-bottom: 24px; text-align: center;">
+                <span class="seal-badge seal-badge-emerald" style="margin-bottom: 4px; font-size: 13px;">✓ Registration Submitted Successfully</span>
+                <h3 style="font-size: 24px; margin: 4px 0;">Official Entry Voucher</h3>
+                <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;">Your entry has been recorded in the Society registry.</p>
+              </div>
+
+              <!-- Printable Registration Slip Container -->
+              <div id="reg-slip-container"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer Root -->
+  <div id="footer-root"></div>
+
+  <!-- Shared Bootloader & Registration Controller -->
+  <script type="module" src="../js/core/app.js"></script>
+  <script type="module" src="../js/competition-register.js"></script>
+</body>
+</html>
