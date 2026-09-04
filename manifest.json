@@ -1,0 +1,16 @@
+{
+  "name": "Nanyang Artists Society (Singapore)",
+  "short_name": "Nanyang Artists",
+  "description": "Singapore's Pioneer-Led Creative Arts & Cultural Learning Platform",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#C92A2A",
+  "icons": [
+    {
+      "src": "./assets/logo/logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}
