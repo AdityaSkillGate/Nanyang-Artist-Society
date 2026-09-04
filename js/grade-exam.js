@@ -42,10 +42,14 @@ export class GradeExamHub {
       const exploreLevelsText = `Explore Levels (1–${d.maxGrade}) →`;
       const examIntakeText = i18n.t('cta.register', 'Exam Intake');
 
+      const isRoot = !window.location.pathname.includes('/grade-examination/');
+      const detailPrefix = isRoot ? 'grade-detail.html' : 'discipline.html';
+      const fallbackLogo = isRoot ? 'assets/logo/logo.png' : '../assets/logo/logo.png';
+
       return `
         <div class="card" style="display: flex; flex-direction: column;">
           <div class="card-media" style="aspect-ratio: 16/9;">
-            <img src="${d.image}" alt="${title}" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+            <img src="${d.image}" alt="${title}" onerror="this.onerror=null; this.src='${fallbackLogo}';">
             <span class="card-badge">${d.category}</span>
           </div>
           <div class="card-body" style="display: flex; flex-direction: column; flex-grow: 1;">
@@ -61,7 +65,7 @@ export class GradeExamHub {
             </div>
 
             <div style="display: flex; gap: 8px; margin-top: auto;">
-              <a href="discipline.html?id=${d.id}" class="btn btn-outline btn-sm" style="flex: 1;">${exploreLevelsText}</a>
+              <a href="${detailPrefix}?id=${d.id}" class="btn btn-outline btn-sm" style="flex: 1;">${exploreLevelsText}</a>
               <a href="#register-section" class="btn btn-primary btn-sm">${examIntakeText}</a>
             </div>
           </div>

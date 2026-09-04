@@ -101,9 +101,10 @@
 
   /* Z-Index Hierarchy */
   --z-base: 1;
-  --z-sticky: 100;
-  --z-dropdown: 200;
-  --z-drawer: 300;
-  --z-modal: 400;
-  --z-toast: 500;
+  --z-subnav: 80;
+  --z-sticky: 1000;
+  --z-dropdown: 1200;
+  --z-drawer: 1300;
+  --z-modal: 1400;
+  --z-toast: 1500;
 }

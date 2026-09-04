@@ -4,11 +4,15 @@
 
 import { en } from '../locales/en.js';
 import { zh } from '../locales/zh.js';
-import { ms } from '../locales/ms.js';
-import { ta } from '../locales/ta.js';
 import { store } from './store.js';
 
-const dictionaries = { en, zh, ms, ta };
+export const SUPPORTED_LANGUAGES = ['en', 'zh-SG'];
+
+const dictionaries = {
+  en,
+  'zh-SG': zh,
+  zh
+};
 
 class I18nEngine {
   constructor() {

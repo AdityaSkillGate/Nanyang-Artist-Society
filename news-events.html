@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News & Events Feed | Singapore Nanyang Artists Society</title>
+  <meta name="description" content="Stay informed with announcements, open calls, exhibition openings, academic forums, and community events from the Singapore Nanyang Artists Society.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    .feed-tabs-bar {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 0;
+      margin-bottom: 24px;
+      white-space: nowrap;
+    }
+    .feed-tab-btn {
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      background: var(--color-warm-ivory);
+      border: 1px solid var(--color-paper-border);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .feed-tab-btn:hover,
+    .feed-tab-btn.active {
+      color: #FFFFFF;
+      background: var(--color-cinnabar);
+      border-color: var(--color-cinnabar);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Global Shell -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">News & Events</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Editorial Hero -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="section-subtitle">Communications Dispatch</span>
+        <h1 style="font-size: var(--font-size-4xl); margin-bottom: 12px;">News, Exhibitions & Society Events</h1>
+        <h2 style="font-size: var(--font-size-xl); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 600;">最新动态 · 展赛资讯 · 学术讲座与雅集</h2>
+        <p style="font-size: var(--font-size-md); color: var(--color-ink-muted); line-height: 1.6; max-width: 660px; margin: 0 auto;">
+          Follow our latest institutional milestones, salon exhibitions, masterclass schedules, and international cultural exchanges.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Feed Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Spotlight Featured Article / Event -->
+        <div id="feed-featured-hero" style="margin-bottom: 40px;">
+          <!-- Populated dynamically via js/news-events.js -->
+        </div>
+
+        <!-- Filter Controls Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;">
+          <div class="feed-tabs-bar" style="margin-bottom: 0;">
+            <button type="button" class="feed-tab-btn active" data-feed-filter="all">All Dispatches</button>
+            <button type="button" class="feed-tab-btn" data-feed-filter="news">News & Articles</button>
+            <button type="button" class="feed-tab-btn" data-feed-filter="events">Calendar Events</button>
+            <button type="button" class="feed-tab-btn" data-feed-filter="announcements">Official Notices</button>
+            <button type="button" class="feed-tab-btn" data-feed-filter="exhibitions">Exhibitions & Salons</button>
+          </div>
+
+          <div style="position: relative; min-width: 240px; flex-grow: 1; max-width: 320px;">
+            <input type="search" id="feed-search-input" class="form-input" placeholder="Search news and events..." style="padding-left: 36px; height: 40px; font-size: 13px;">
+            <span style="position: absolute; left: 12px; top: 11px; font-size: 14px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+          </div>
+        </div>
+
+        <!-- Result Status Badge -->
+        <div style="margin-bottom: 20px;">
+          <span id="feed-results-count" style="font-size: 13px; font-weight: 600; color: var(--color-ink-muted);">Loading dispatches...</span>
+        </div>
+
+        <!-- Feed Cards Grid -->
+        <div class="grid grid-cols-3" id="feed-cards-grid" style="gap: 24px;">
+          <!-- Populated dynamically via js/news-events.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="section section-ivory-dark" style="text-align: center;">
+      <div class="container container-narrow">
+        <h2 style="font-size: var(--font-size-3xl); margin-bottom: 12px;">Stay Updated with Society Newsletters</h2>
+        <p style="font-size: 15px; color: var(--color-ink-muted); margin-bottom: 24px;">
+          Subscribe to receive notifications when exhibition entries open and intake dates are published.
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html?type=enquiry" class="btn btn-primary btn-lg">Contact Editorial Secretariat →</a>
+          <a href="nanyang-star.html" class="btn btn-outline btn-lg">Explore Nanyang Star Competition</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/core/app.js"></script>
+  <script type="module" src="js/news-events.js"></script>
+</body>
+</html>

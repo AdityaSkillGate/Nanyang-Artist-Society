@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Art Courses & Creative Curriculums | Singapore Nanyang Artists Society</title>
+  <meta name="description" content="Explore studio art courses in Chinese Calligraphy, Traditional Shanshui Painting, Academic Sketching, Oil Painting, Children's Art, and Art Teacher Certification.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    .courses-filter-bar {
+      background: var(--color-gallery-white);
+      border: 1px solid var(--color-paper-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 36px;
+    }
+    .filter-pills-wrap {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .filter-pill-btn {
+      padding: 8px 18px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      background: var(--color-warm-ivory);
+      border: 1px solid var(--color-paper-border);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    .filter-pill-btn:hover,
+    .filter-pill-btn.active {
+      color: #FFFFFF;
+      background: var(--color-cinnabar);
+      border-color: var(--color-cinnabar);
+    }
+    .quiz-card-box {
+      background: var(--color-gallery-white);
+      border: 1px solid var(--color-paper-border);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Global Shell -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Art Courses</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Editorial Hero -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="section-subtitle">Studio Education</span>
+        <h1 style="font-size: var(--font-size-4xl); margin-bottom: 12px;">Art Courses & Creative Curriculums</h1>
+        <h2 style="font-size: var(--font-size-xl); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 600;">艺术课程与专业考级教学体系</h2>
+        <p style="font-size: var(--font-size-md); color: var(--color-ink-muted); line-height: 1.6; max-width: 660px; margin: 0 auto 20px;" data-i18n="courses.hero_desc">
+          From early sensory discovery in children's intellectual art to academic mastery in Chinese calligraphy, Shanshui landscapes, and oil painting.
+        </p>
+        <div style="display: flex; gap: 12px; justify-content: center;">
+          <a href="#finder" class="btn btn-outline btn-sm" data-i18n="courses.hero_quiz_cta">🎯 Take Course Finder Quiz</a>
+          <a href="contact.html?type=enquiry" class="btn btn-primary btn-sm" data-i18n="courses.hero_consult_cta">Book Studio Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Course Discovery Section -->
+    <section class="section">
+      <div class="container">
+        <!-- Interactive Multi-Criteria Filter Bar -->
+        <div class="courses-filter-bar">
+          <!-- Quick Search & Reset -->
+          <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 260px; position: relative;">
+              <input type="text" id="course-search-input" class="form-input" placeholder="Search by course title, discipline, or medium..." data-i18n-placeholder="courses.search_placeholder" style="width: 100%; padding: 10px 14px 10px 38px;">
+              <span style="position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" id="reset-filters-btn" data-i18n="btn.reset">↺ Reset Filters</button>
+          </div>
+
+          <!-- Primary Category Pills -->
+          <div style="margin-bottom: 8px;">
+            <span style="font-size: 11px; font-weight: 700; color: var(--color-ink-muted); text-transform: uppercase; letter-spacing: 0.08em; display: block; margin-bottom: 8px;" data-i18n="courses.filter_category_label">Primary Art Category:</span>
+            <div class="filter-pills-wrap">
+              <button type="button" class="filter-pill-btn active" data-filter-cat="all" data-i18n="courses.cat_all">All Categories</button>
+              <button type="button" class="filter-pill-btn" data-filter-cat="fine_arts" data-i18n="courses.cat_fine">Fine Arts (纯美术)</button>
+              <button type="button" class="filter-pill-btn" data-filter-cat="heritage_arts" data-i18n="courses.cat_heritage">Heritage Arts (传统书画与国画)</button>
+              <button type="button" class="filter-pill-btn" data-filter-cat="youth_arts" data-i18n="courses.cat_youth">Youth Arts (少儿美术)</button>
+              <button type="button" class="filter-pill-btn" data-filter-cat="professional_certification" data-i18n="courses.cat_cert">Professional Certification (师资培训)</button>
+            </div>
+          </div>
+
+          <!-- Secondary Filters Row -->
+          <div class="grid grid-cols-3" style="gap: 12px; border-top: 1px solid var(--color-paper-border); padding-top: 16px;">
+            <div>
+              <label for="filter-age-select" class="form-label" style="font-size: 11px;" data-i18n="courses.filter_age_label">Target Age Group:</label>
+              <select id="filter-age-select" class="form-select">
+                <option value="all" data-i18n="courses.age_all">All Age Brackets</option>
+                <option value="children" data-i18n="courses.age_children">Children (4–8 yrs)</option>
+                <option value="teens" data-i18n="courses.age_teens">Teens (9–15 yrs)</option>
+                <option value="adults" data-i18n="courses.age_adults">Adults & Lifelong Learners (16+ yrs)</option>
+              </select>
+            </div>
+            <div>
+              <label for="filter-level-select" class="form-label" style="font-size: 11px;" data-i18n="courses.filter_level_label">Skill Level:</label>
+              <select id="filter-level-select" class="form-select">
+                <option value="all" data-i18n="courses.level_all">All Skill Levels</option>
+                <option value="beginner" data-i18n="courses.level_beginner">Beginner Foundation</option>
+                <option value="intermediate" data-i18n="courses.level_intermediate">Intermediate Technique</option>
+                <option value="advanced" data-i18n="courses.level_advanced">Advanced Mastery</option>
+              </select>
+            </div>
+            <div>
+              <label for="filter-goal-select" class="form-label" style="font-size: 11px;" data-i18n="courses.filter_goal_label">Learning Objective:</label>
+              <select id="filter-goal-select" class="form-select">
+                <option value="all" data-i18n="courses.goal_all">All Learning Goals</option>
+                <option value="exam" data-i18n="courses.goal_exam">National Grade Examination Preparation</option>
+                <option value="leisure" data-i18n="courses.goal_leisure">Creative Passion & Leisure</option>
+                <option value="teaching" data-i18n="courses.goal_teaching">Art Educator Certification</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Status Badge -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+          <span id="courses-count-badge" style="font-size: 13px; font-weight: 600; color: var(--color-ink-muted);">Loading courses...</span>
+          <span style="font-size: 12px; color: var(--color-cinnabar); font-weight: 600;" data-i18n="courses.small_group_badge">Standardized Small-Group Studios (Max 12 pax)</span>
+        </div>
+
+        <!-- Courses Catalog Grid -->
+        <div class="grid grid-cols-3" id="courses-catalog-grid" style="gap: 24px;">
+          <!-- Populated dynamically via js/courses.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Embedded Course Finder Quiz -->
+    <section class="section section-ivory-dark" id="finder">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <span class="section-subtitle">Personalized Recommendation</span>
+          <h2 class="section-title" data-i18n="courses.quiz_title">Not Sure Which Course Fits?</h2>
+          <p class="section-desc" data-i18n="courses.quiz_subtitle">Answer 3 simple questions to find the perfect art pathway for your age and goals.</p>
+        </div>
+
+        <div class="quiz-card-box">
+          <div id="finder-quiz-container">
+            <!-- Step 1 -->
+            <div id="quiz-step-1">
+              <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;" data-i18n="courses.quiz_step1">Step 1 of 3</span>
+              <h3 style="font-size: 20px; margin-bottom: 16px;" data-i18n="courses.quiz_q1">Who is this art course for?</h3>
+              <div class="grid grid-cols-3" style="gap: 12px;">
+                <button type="button" class="btn btn-outline quiz-opt-btn" onclick="selectQuizAge('children')" data-i18n="courses.quiz_opt_child">
+                  👶 Young Child (Ages 4–8)
+                </button>
+                <button type="button" class="btn btn-outline quiz-opt-btn" onclick="selectQuizAge('teens')" data-i18n="courses.quiz_opt_teen">
+                  🎒 Teen / Youth (Ages 9–15)
+                </button>
+                <button type="button" class="btn btn-outline quiz-opt-btn" onclick="selectQuizAge('adults')" data-i18n="courses.quiz_opt_adult">
+                  🎨 Adult / Educator (Ages 16+)
+                </button>
+              </div>
+            </div>
+
+            <!-- Result Box (Hidden by default) -->
+            <div id="quiz-result" style="display: none; text-align: center; padding-top: 12px;">
+              <span class="seal-badge seal-badge-gold" style="margin-bottom: 12px;">Recommended Curriculums</span>
+              <h3 style="font-size: 22px; margin-bottom: 12px;" id="quiz-rec-title">Recommended Studio Pathway</h3>
+              <p style="font-size: 14px; color: var(--color-ink-muted); line-height: 1.6; margin-bottom: 24px;" id="quiz-rec-desc"></p>
+              <div style="display: flex; gap: 12px; justify-content: center;">
+                <button type="button" class="btn btn-outline btn-sm" onclick="resetQuiz()">↺ Retake Quiz</button>
+                <a href="contact.html?type=enquiry" class="btn btn-primary btn-sm" id="quiz-rec-cta">Book Placement Assessment →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Banner -->
+    <section class="section" style="background: var(--color-gallery-white); border-top: 1px solid var(--color-paper-border); text-align: center;">
+      <div class="container container-narrow">
+        <h2 style="font-size: var(--font-size-3xl); margin-bottom: 12px;">Need Direct Guidance from Our Secretariat?</h2>
+        <p style="font-size: 16px; color: var(--color-ink-muted); margin-bottom: 24px;">
+          Our academic coordinators can recommend suitable schedules, materials, and subsidized package options.
+        </p>
+        <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+          <a href="contact.html?type=enquiry" class="btn btn-primary btn-lg">Submit Course Enquiry →</a>
+          <a href="grade.html" class="btn btn-outline btn-lg">Explore National Grade Exam</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/core/app.js"></script>
+  <script type="module">
+    import { CoursesDiscovery } from './js/courses.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      const discovery = new CoursesDiscovery();
+      discovery.init();
+    });
+
+    window.selectQuizAge = function(age) {
+      const step1 = document.getElementById('quiz-step-1');
+      const resBox = document.getElementById('quiz-result');
+      const title = document.getElementById('quiz-rec-title');
+      const desc = document.getElementById('quiz-rec-desc');
+      const cta = document.getElementById('quiz-rec-cta');
+
+      step1.style.display = 'none';
+      resBox.style.display = 'block';
+
+      if (age === 'children') {
+        title.textContent = "Children's Intellectual Art & Creativity (少儿智力美术)";
+        desc.textContent = "Recommended for ages 4–8: Multidisciplinary sensory exploration, oil pastel blending, and 3D patented origami creativity to build spatial imagination.";
+        cta.href = "contact.html?course=Children%20Intellectual%20Art";
+      } else if (age === 'teens') {
+        title.textContent = "Academic Sketching or Chinese Calligraphy";
+        desc.textContent = "Recommended for ages 9–15: Rigorous foundational training in geometric proportion, chiaroscuro shading, or traditional bone-brush ink dynamics.";
+        cta.href = "contact.html?course=Academic%20Sketching";
+      } else {
+        title.textContent = "Masterclass Chinese Painting or Teacher Certification";
+        desc.textContent = "Recommended for adults and educators: Immersive Shanshui landscape brushwork, Lingnan bird-and-flower aesthetics, or professional pedagogy certification.";
+        cta.href = "contact.html?course=Chinese%20Painting";
+      }
+    };
+
+    window.resetQuiz = function() {
+      document.getElementById('quiz-step-1').style.display = 'block';
+      document.getElementById('quiz-result').style.display = 'none';
+    };
+  </script>
+</body>
+</html>

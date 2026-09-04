@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Article Reader | Singapore Nanyang Artists Society</title>
+  <meta name="description" content="Official editorial dispatch, exhibition dossier, and event information from the Singapore Nanyang Artists Society.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Global Shell -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="news-events.html">News & Events</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" id="breadcrumb-article-title" style="color: var(--color-ink-black); font-weight: 600;">Article Reader</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Article Content Section -->
+    <section class="section">
+      <div class="container" style="max-width: 860px;">
+        <article class="card" style="padding: 40px 36px; margin-bottom: 40px;">
+          <!-- Article Header Meta -->
+          <div style="margin-bottom: 24px;">
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+              <span class="seal-badge seal-badge-cobalt" id="article-category-badge">News</span>
+              <span style="font-size: 12px; color: var(--color-ink-muted);" id="article-meta-date">Date</span>
+              <span style="font-size: 12px; color: var(--color-ink-muted);" id="article-meta-author">Author / Location</span>
+            </div>
+
+            <h1 style="font-size: 30px; line-height: 1.3; margin: 0 0 6px; color: var(--color-ink-black);" id="article-title-en">
+              Loading article...
+            </h1>
+            <h2 style="font-size: 16px; color: var(--color-cinnabar); font-weight: 600; margin: 0;" id="article-title-zh">
+              请稍候...
+            </h2>
+          </div>
+
+          <!-- Hero Image -->
+          <div style="margin-bottom: 32px; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-card); background: var(--color-warm-ivory);">
+            <img src="assets/logo/logo.png" alt="Hero Image" id="article-hero-image" style="width: 100%; height: 380px; object-fit: cover;" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
+          </div>
+
+          <!-- Body Content Container -->
+          <div id="article-body-content" style="border-bottom: 1px solid var(--color-paper-border); padding-bottom: 24px; margin-bottom: 24px;">
+            <!-- Populated dynamically via js/article.js -->
+          </div>
+
+          <!-- Back Navigation -->
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+            <a href="news-events.html" class="btn btn-outline btn-sm">← Back to News & Events</a>
+            <div style="display: flex; gap: 8px;">
+              <a href="contact.html?type=enquiry" class="btn btn-primary btn-sm">Contact Secretariat</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/core/app.js"></script>
+  <script type="module" src="js/article.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese Calligraphy Grade Examination Details | Singapore Nanyang Artists Society</title>
+  <meta name="description" content="Official examination tasks, durations, writing tools, paper dimensions, scoring rubrics, and reference plates for Chinese Calligraphy Grade Examination.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    .metric-summary-card {
+      background: var(--color-gallery-white);
+      border: 1px solid var(--color-paper-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .metric-summary-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--color-ink-muted);
+      margin-bottom: 4px;
+      display: block;
+      font-weight: 700;
+    }
+    .metric-summary-value {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--color-ink-black);
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared Global Shell -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item"><a href="grade.html">Grade Examination</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" id="bc-track-title">Calligraphy Track</li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" id="bc-level-title" style="color: var(--color-ink-black); font-weight: 600;">Grade Level</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Editorial Hero Section -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="max-width: 860px;">
+          <div style="display: flex; gap: 8px; margin-bottom: 12px; align-items: center; flex-wrap: wrap;">
+            <span class="seal-badge seal-badge-gold" id="hero-track-badge">Track</span>
+            <span class="seal-badge" style="background: var(--color-cinnabar); color: #FFFFFF;">Standardized Syllabus · 考级大纲</span>
+          </div>
+
+          <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;" id="hero-grade-title">Examination Syllabus</h1>
+          <h2 style="font-size: var(--font-size-xl); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 700; font-family: var(--font-serif);" id="hero-grade-title-zh">考核标准</h2>
+
+          <p style="font-size: 15px; color: var(--color-ink-charcoal); line-height: 1.6; margin-bottom: 24px;" id="hero-overview">
+            Loading overview...
+          </p>
+
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="#artworks" class="btn btn-primary btn-sm">🖼️ View Reference Plates</a>
+            <a href="grade.html" class="btn btn-outline btn-sm">← Back to All Grades</a>
+            <a href="grade.html#register" class="btn btn-outline btn-sm" id="grade-enquiry-cta">Enquire for Exam Intake</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Top Summary Metric Cards (4 Pillars) -->
+    <section class="section-sm" style="background: var(--color-gallery-white); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div class="grid grid-cols-4" style="gap: 16px;">
+          <div class="metric-summary-card">
+            <span class="metric-summary-label">Character Requirement / 字数</span>
+            <p class="metric-summary-value" id="metric-character-count">Loading...</p>
+          </div>
+
+          <div class="metric-summary-card">
+            <span class="metric-summary-label">Exam Duration / 考核用时</span>
+            <p class="metric-summary-value" id="metric-duration">Loading...</p>
+          </div>
+
+          <div class="metric-summary-card">
+            <span class="metric-summary-label">Paper Specification / 用纸</span>
+            <p class="metric-summary-value" id="metric-paper">Loading...</p>
+          </div>
+
+          <div class="metric-summary-card">
+            <span class="metric-summary-label">Writing Tool / 指定工具</span>
+            <p class="metric-summary-value" id="metric-tool">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Information Hierarchy -->
+    <section class="section">
+      <div class="container container-narrow">
+        <!-- 1. Core Examination Task -->
+        <div style="margin-bottom: 32px;">
+          <h3 style="font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span>📋</span> Core Examination Task & Requirements (考核任务与要求)
+          </h3>
+          <div id="exam-task-content"></div>
+        </div>
+
+        <!-- 2. Assessment Criteria (笔画, 结体, 章法) -->
+        <div style="margin-bottom: 32px;">
+          <h3 style="font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span>⚖️</span> Assessment Criteria (考核评判要点)
+          </h3>
+          <div id="exam-criteria-content"></div>
+        </div>
+
+        <!-- 3. Expected Writing Skill Level (写字水平) -->
+        <div style="margin-bottom: 36px;">
+          <h3 style="font-size: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <span>🎯</span> Skill Level Standard (写字水平阶段评定)
+          </h3>
+          <div id="exam-skill-content"></div>
+        </div>
+
+        <!-- 4. Exemplary Artwork Reference Area (Multi-image plates) -->
+        <div id="artworks" style="margin-bottom: 36px;">
+          <div id="grade-artworks-container"></div>
+        </div>
+
+        <!-- 5. Connected Previous & Next Grade Navigation -->
+        <div id="grade-connected-nav"></div>
+
+        <!-- Final Intake Enquiry Action Box -->
+        <div class="card" style="padding: 28px; background: var(--color-warm-ivory); border: 2px solid var(--color-cinnabar); text-align: center; margin-top: 32px;">
+          <h3 style="font-size: 20px; margin: 0 0 8px;">Interested in Taking This Examination?</h3>
+          <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0 0 20px; max-width: 540px; margin-left: auto; margin-right: auto;">
+            Our academic advisors can guide candidate preparation, syllabus alignment, and test centre selection across Singapore.
+          </p>
+          <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <a href="contact.html?type=enquiry" class="btn btn-primary">Enquire About Examination Intake →</a>
+            <a href="grade.html#test-centres" class="btn btn-outline">Find Test Centre Locations</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/core/app.js"></script>
+  <script type="module" src="js/pages/grade-detail.js"></script>
+</body>
+</html>

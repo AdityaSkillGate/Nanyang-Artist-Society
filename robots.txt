@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /scratch/
+Disallow: /archive/
+
+Sitemap: https://nyart.org.sg/sitemap.xml

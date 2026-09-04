@@ -21,31 +21,49 @@
     <!-- ====================================================================
          SECTION 1: CINEMATIC HERO
          ==================================================================== -->
-    <section class="hero-cinematic" aria-label="Hero Showcase">
-      <div class="hero-media-backdrop">
-        <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1920&q=80" alt="Classical Chinese Painting & Contemporary Art" class="hero-bg-img">
-        <div class="hero-overlay-gradient"></div>
+    <!-- ====================================================================
+         SECTION 1: CINEMATIC HERO MEDIA SEQUENCE (5 SLIDES)
+         ==================================================================== -->
+    <section class="hero-cinematic hero-slider-wrap" id="hero-slider-wrap" aria-label="Hero Media Showcase">
+      <div class="hero-slider-track" id="hero-slider-track">
+        <!-- Initial Slide (Dynamically rendered & enhanced via js/modules/hero-slider.js) -->
+        <div class="hero-slide is-active">
+          <img src="assets/images/art-works/art-21.png" alt="Master Chinese Ink Landscape Painting" class="hero-slide-img">
+          <div class="hero-slide-overlay"></div>
+        </div>
       </div>
 
-      <div class="container hero-content">
-        <div class="hero-eyebrow">
+      <div class="container hero-content hero-slider-content">
+        <div class="hero-eyebrow text-stagger">
           <span class="seal-badge seal-badge-gold">Since 2002</span>
           <span class="seal-badge" style="background: rgba(186, 27, 29, 0.2); color: #FFA3A5; border-color: #BA1B1D;">Pioneer Liu Kang Inscribed</span>
+          <span class="seal-badge" id="hero-slide-tag" style="background: rgba(255, 255, 255, 0.12); color: #F5EFEB; border-color: rgba(255, 255, 255, 0.25);">
+            1/5 · Master Ink Landscape & Asian Heritage
+          </span>
         </div>
 
-        <h1 class="hero-title">
+        <h1 class="hero-title reveal-up">
           <span data-i18n="home.hero_title">Create. Learn. Achieve. Inspire.</span>
           <span class="hero-title-zh">以艺养心 · 启智树人 · 融贯中西</span>
         </h1>
 
-        <p class="hero-description" data-i18n="home.hero_desc">
+        <p class="hero-description reveal-up" data-i18n="home.hero_desc">
           Explore artistic learning, heritage arts, creative development and prestigious opportunities to showcase talent across Singapore and the world.
         </p>
 
-        <div class="hero-cta-wrap">
-          <a href="courses/index.html" class="btn btn-primary btn-lg" data-i18n="home.hero_explore">Explore Art Courses →</a>
-          <a href="competitions/nanyang-star.html" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4);" data-i18n="home.hero_nanyang_star">Discover Nanyang Star</a>
+        <div class="hero-cta-wrap reveal-up">
+          <a href="courses.html" class="btn btn-primary btn-lg" data-i18n="home.hero_explore">Explore Art Courses →</a>
+          <a href="nanyang-star.html" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4);" data-i18n="home.hero_nanyang_star">Discover Nanyang Star</a>
+          <a href="grade.html" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4);">Grade Exam (考级)</a>
         </div>
+      </div>
+
+      <!-- Hero Slide Controls & Indicators -->
+      <div class="hero-slider-controls" aria-label="Hero Slide Navigation">
+        <button type="button" class="hero-nav-arrow" id="hero-prev-btn" aria-label="Previous Slide">‹</button>
+        <div class="hero-pagination-dots" id="hero-pagination-dots"></div>
+        <button type="button" class="hero-nav-arrow" id="hero-next-btn" aria-label="Next Slide">›</button>
+        <button type="button" class="hero-pause-toggle" id="hero-pause-btn" aria-label="Pause Auto Scroll" title="Pause / Play Slides">⏸</button>
       </div>
     </section>
 
@@ -65,7 +83,7 @@
                 Foundations in Chinese ink, academic sketch, oil, and children intellectual art.
               </p>
             </div>
-            <a href="courses/index.html" class="btn btn-outline btn-sm" data-i18n="home.gate_courses_btn">Browse Catalog →</a>
+            <a href="courses.html" class="btn btn-outline btn-sm" data-i18n="home.gate_courses_btn">Browse Catalog →</a>
           </div>
 
           <!-- Gate 2: Grade Examination -->
@@ -78,7 +96,7 @@
                 Grades 1 to 9 standardized assessment supervised across accredited test centres.
               </p>
             </div>
-            <a href="grade-examination/index.html" class="btn btn-outline btn-sm" data-i18n="home.gate_grade_btn">Exam Pathway →</a>
+            <a href="grade.html" class="btn btn-outline btn-sm" data-i18n="home.gate_grade_btn">Exam Pathway →</a>
           </div>
 
           <!-- Gate 3: Nanyang Star -->
@@ -91,20 +109,20 @@
                 Premier international youth art competitions, gala exhibitions, and global awards.
               </p>
             </div>
-            <a href="competitions/nanyang-star.html" class="btn btn-outline btn-sm" data-i18n="home.gate_star_btn">Competition Hub →</a>
+            <a href="nanyang-star.html" class="btn btn-outline btn-sm" data-i18n="home.gate_star_btn">Competition Hub →</a>
           </div>
 
           <!-- Gate 4: Find an Event -->
           <div class="gate-card">
             <div>
               <div class="gate-icon">📅</div>
-              <h2 style="font-size: 20px; margin-bottom: 4px;" data-i18n="home.gate_events_title">Find an Event</h2>
+              <h2 style="font-size: 20px; margin-bottom: 4px;" data-i18n="home.gate_events_title">News & Events</h2>
               <h3 style="font-size: 13px; color: var(--color-cinnabar); margin-bottom: 8px;">展赛与大师讲座</h3>
               <p style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 16px;" data-i18n="home.gate_events_desc">
                 Masterclass workshops, calligraphy rubbings, and gallery tour dates.
               </p>
             </div>
-            <a href="events/index.html" class="btn btn-outline btn-sm" data-i18n="home.gate_events_btn">Event Calendar →</a>
+            <a href="news-events.html" class="btn btn-outline btn-sm" data-i18n="home.gate_events_btn">Event Calendar →</a>
           </div>
         </div>
       </div>
@@ -116,7 +134,7 @@
     <section class="section section-ivory-dark">
       <div class="container">
         <div class="section-header">
-          <span class="section-subtitle">Curriculum Framework</span>
+          <span class="section-subtitle" data-i18n="home.disciplines_subtitle">Curriculum Framework</span>
           <h2 class="section-title" data-i18n="home.disciplines_title">Visual Arts Disciplines & Pathways</h2>
           <p class="section-desc" data-i18n="home.disciplines_desc">
             Structured artistic progression from sensory childhood discovery to academic mastery.
@@ -125,47 +143,47 @@
 
         <div class="grid grid-cols-4" style="gap: 24px;">
           <!-- Pathway 1: Fine Arts -->
-          <a href="courses/index.html?cat=fine-arts" class="pathway-card">
+          <a href="courses.html?cat=fine_arts" class="pathway-card">
             <div class="pathway-icon-wrap">✏️</div>
-            <h3 class="pathway-title">Fine Arts</h3>
-            <span class="pathway-zh">纯美术与学院素描</span>
-            <p class="pathway-desc">
+            <h3 class="pathway-title" data-i18n="home.pathway1_title">Fine Arts</h3>
+            <span class="pathway-zh" data-i18n="home.pathway1_zh">纯美术与学院素描</span>
+            <p class="pathway-desc" data-i18n="home.pathway1_desc">
               Academic pencil sketching, plaster bust anatomical studies, watercolor washes, and Western oil compositions.
             </p>
-            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;">Learn More →</span>
+            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;" data-i18n="home.learn_more">Learn More →</span>
           </a>
 
           <!-- Pathway 2: Heritage Arts -->
-          <a href="courses/index.html?cat=heritage-arts" class="pathway-card">
+          <a href="courses.html?cat=heritage_arts" class="pathway-card">
             <div class="pathway-icon-wrap">🖌️</div>
-            <h3 class="pathway-title">Heritage Arts</h3>
-            <span class="pathway-zh">中国画与传统书法</span>
-            <p class="pathway-desc">
+            <h3 class="pathway-title" data-i18n="home.pathway2_title">Heritage Arts</h3>
+            <span class="pathway-zh" data-i18n="home.pathway2_zh">中国画与传统书法</span>
+            <p class="pathway-desc" data-i18n="home.pathway2_desc">
               Soft/hard pen calligraphy, Yan & Liu regular script, Shanshui landscapes, and Lingnan flower-and-bird painting.
             </p>
-            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;">Learn More →</span>
+            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;" data-i18n="home.learn_more">Learn More →</span>
           </a>
 
           <!-- Pathway 3: Youth Arts -->
-          <a href="courses/index.html?cat=youth-arts" class="pathway-card">
+          <a href="courses.html?cat=youth_arts" class="pathway-card">
             <div class="pathway-icon-wrap">🌟</div>
-            <h3 class="pathway-title">Youth Arts</h3>
-            <span class="pathway-zh">少儿智力美术与卡通</span>
-            <p class="pathway-desc">
+            <h3 class="pathway-title" data-i18n="home.pathway3_title">Youth Arts</h3>
+            <span class="pathway-zh" data-i18n="home.pathway3_zh">少儿智力美术与卡通</span>
+            <p class="pathway-desc" data-i18n="home.pathway3_desc">
               Sensory intellectual art, imaginative cartoon illustration, color theory, and patented 3D plastic origami sculpture.
             </p>
-            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;">Learn More →</span>
+            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;" data-i18n="home.learn_more">Learn More →</span>
           </a>
 
           <!-- Pathway 4: Professional Certification -->
-          <a href="grade-examination/index.html" class="pathway-card">
+          <a href="courses.html?cat=professional_certification" class="pathway-card">
             <div class="pathway-icon-wrap">🏅</div>
-            <h3 class="pathway-title">Certification</h3>
-            <span class="pathway-zh">全国考级与师资认证</span>
-            <p class="pathway-desc">
+            <h3 class="pathway-title" data-i18n="home.pathway4_title">Certification</h3>
+            <span class="pathway-zh" data-i18n="home.pathway4_zh">全国考级与师资认证</span>
+            <p class="pathway-desc" data-i18n="home.pathway4_desc">
               Progressive Grades 1 to 9 standardized assessment, verified certification credentials, and educator diplomas.
             </p>
-            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;">Learn More →</span>
+            <span style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600;" data-i18n="home.learn_more">Learn More →</span>
           </a>
         </div>
       </div>
@@ -182,7 +200,7 @@
             <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="home.featured_courses_title">Featured Art Studio Courses</h2>
             <p style="font-size: 15px; color: var(--color-ink-muted); margin: 0;" data-i18n="home.featured_courses_desc">Carefully structured studio curriculums taught by acclaimed master instructors.</p>
           </div>
-          <a href="courses/index.html" class="btn btn-outline" data-i18n="nav.courses_all">View All Courses Catalog →</a>
+          <a href="courses.html" class="btn btn-outline" data-i18n="nav.courses_all">View All Courses Catalog →</a>
         </div>
 
         <!-- Course Category Filter Pills -->
@@ -201,98 +219,211 @@
     </section>
 
     <!-- ====================================================================
-         SECTION 5: NATIONAL GRADE EXAMINATION 1 -> 9 PROGRESSION
+         SECTION 5: EXPLORE THE NINE-LEVEL JOURNEY (STATIC PROMOTIONAL PATHWAY)
          ==================================================================== -->
-    <section class="section section-ivory-dark">
+    <section class="section section-ivory-dark" aria-label="Explore the Nine-Level Journey">
       <div class="container">
-        <div class="section-header">
-          <span class="section-subtitle">Standardized Assessment</span>
-          <h2 class="section-title" data-i18n="home.grade_path_title">Grades 1 to 9 Visual Examination Pathway</h2>
-          <p class="section-desc" data-i18n="home.grade_path_desc">
-            Standardized examination progression across 6 verified disciplines. Click any grade stage below to inspect evaluation criteria and paper requirements.
+        <div class="section-header reveal-up">
+          <span class="section-subtitle">National Visual Arts & Calligraphy Progression</span>
+          <h2 class="section-title">Explore the Nine-Level Journey</h2>
+          <h3 style="font-size: 18px; color: var(--color-cinnabar); margin-top: 4px; font-weight: 500;">
+            探索一至九阶艺术成长之路
+          </h3>
+          <p class="section-desc">
+            A structured, progressive pathway in visual arts assessment and classical calligraphic mastery from foundational strokes to mature artistic expression. Click any grade to view its official syllabus and authentic reference plates.
           </p>
         </div>
 
-        <!-- Grade 1-9 Interactive Strip -->
-        <div class="grade-strip-container" role="tablist" aria-label="Grade Level Selector">
-          <button type="button" class="grade-node-btn active" data-grade="1" role="tab" aria-selected="true">
-            <span class="grade-num">1</span>
-            <span class="grade-label">Grade 1</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="2" role="tab" aria-selected="false">
-            <span class="grade-num">2</span>
-            <span class="grade-label">Grade 2</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="3" role="tab" aria-selected="false">
-            <span class="grade-num">3</span>
-            <span class="grade-label">Grade 3</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="4" role="tab" aria-selected="false">
-            <span class="grade-num">4</span>
-            <span class="grade-label">Grade 4</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="5" role="tab" aria-selected="false">
-            <span class="grade-num">5</span>
-            <span class="grade-label">Grade 5</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="6" role="tab" aria-selected="false">
-            <span class="grade-num">6</span>
-            <span class="grade-label">Grade 6</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="7" role="tab" aria-selected="false">
-            <span class="grade-num">7</span>
-            <span class="grade-label">Grade 7</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="8" role="tab" aria-selected="false">
-            <span class="grade-num">8</span>
-            <span class="grade-label">Grade 8</span>
-          </button>
-          <button type="button" class="grade-node-btn" data-grade="9" role="tab" aria-selected="false">
-            <span class="grade-num">9</span>
-            <span class="grade-label">Grade 9</span>
-          </button>
+        <!-- 9-Level Static Promotional Pathway Grid -->
+        <div class="grid grid-cols-3" style="gap: 20px; margin-bottom: 32px;">
+          <!-- Grade 1 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 1 · 一级</span>
+                <span style="font-size: 11px; background: rgba(186, 27, 29, 0.08); color: var(--color-cinnabar); padding: 2px 8px; border-radius: 4px; font-weight: 600;">Foundation · 基础启蒙</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Fundamental Brushwork</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Correct pen/brush grip, fundamental horizontal, vertical and dotting strokes. 50+ characters, 16K grid paper.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=1" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 1 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 2 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 2 · 二级</span>
+                <span style="font-size: 11px; background: rgba(186, 27, 29, 0.08); color: var(--color-cinnabar); padding: 2px 8px; border-radius: 4px; font-weight: 600;">Foundation · 基础启蒙</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Balance & Proportion</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Compound stroke combinations (pie, na, zhe) and spatial balance within Nine-Palace grid. 50+ characters.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=2" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 2 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 3 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 3 · 三级</span>
+                <span style="font-size: 11px; background: rgba(43, 76, 126, 0.08); color: var(--color-cobalt); padding: 2px 8px; border-radius: 4px; font-weight: 600;">Practice · 临摹实践</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Regular Script Discipline</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Rigorous Standard Regular Script imitation with four-character idioms and clean column alignment. 80+ characters.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=3" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 3 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 4 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 4 · 四级</span>
+                <span style="font-size: 11px; background: rgba(43, 76, 126, 0.08); color: var(--color-cobalt); padding: 2px 8px; border-radius: 4px; font-weight: 600;">Practice · 临摹实践</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Classical Tang Poetry</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Complete Tang quatrain composition (20 characters) with side inscription and 8K paper layout. 100+ characters.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=4" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 4 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 5 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 5 · 五级</span>
+                <span style="font-size: 11px; background: rgba(186, 27, 29, 0.08); color: var(--color-cinnabar); padding: 2px 8px; border-radius: 4px; font-weight: 600;">Development · 进阶研习</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Wei Stele & Master Models</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Northern Wei monument stele vigor or Yan Zhenqing standard copybook rigor on 8K layout. 100+ characters.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=5" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 5 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 6 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 6 · 六级</span>
+                <span style="font-size: 11px; background: rgba(186, 27, 29, 0.08); color: var(--color-cinnabar); padding: 2px 8px; border-radius: 4px; font-weight: 600;">Development · 进阶研习</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Script Versatility</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Clerical Script (隶书) or Running Script (行书) transitions with formal year and name signatures. 100+ characters.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=6" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 6 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 7 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 7 · 七级</span>
+                <span style="font-size: 11px; background: rgba(184, 134, 11, 0.12); color: #8A6805; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Technique · 笔法锤炼</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Running Script Tempo</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Semi-cursive running script (行书) poem scrolls with continuous stroke energy and rhythmic tempo. 120+ characters.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=7" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 7 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 8 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative;">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold">Grade 8 · 八级</span>
+                <span style="font-size: 11px; background: rgba(184, 134, 11, 0.12); color: #8A6805; padding: 2px 8px; border-radius: 4px; font-weight: 600;">Technique · 笔法锤炼</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Dual Script Couplets</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Choice of Seal, Clerical, or Running cursive couplet scrolls with long self-composed inscriptions. 120+ characters.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=8" class="btn btn-outline btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 8 Standards →
+              </a>
+            </div>
+          </div>
+
+          <!-- Grade 9 -->
+          <div class="card card-lift reveal-up" style="display: flex; flex-direction: column; justify-content: space-between; position: relative; border: 2px solid var(--color-muted-gold);">
+            <div>
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                <span class="seal-badge seal-badge-gold" style="background: var(--color-cinnabar); color: #fff; border-color: var(--color-cinnabar);">Grade 9 · 毕业九段</span>
+                <span style="font-size: 11px; background: rgba(186, 27, 29, 0.15); color: var(--color-cinnabar); padding: 2px 8px; border-radius: 4px; font-weight: 700;">Expression · 创作造诣</span>
+              </div>
+              <h3 style="font-size: 17px; margin-bottom: 6px;">Apex Graduation Scroll</h3>
+              <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 12px;">
+                Master classical scroll creation in dual distinct scripts, complete with scholarly seal carving appraisal and critique. 120+ words.
+              </p>
+            </div>
+            <div style="border-top: 1px solid var(--color-paper-border); padding-top: 12px;">
+              <a href="grade-detail.html?track=hard-pen&level=9" class="btn btn-primary btn-sm" style="width: 100%; text-align: center;">
+                Inspect Grade 9 Standards →
+              </a>
+            </div>
+          </div>
         </div>
 
-        <!-- Grade Live Inspector Card -->
-        <div class="grade-detail-card" id="grade-detail-card">
-          <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 16px; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
-            <div>
-              <span class="seal-badge seal-badge-gold" style="margin-bottom: 6px;">Evaluation Blueprint</span>
-              <h3 style="font-size: 22px; margin: 0;" id="grade-preview-title">Foundation Grade 1 (初级一阶)</h3>
-            </div>
-            <div style="display: flex; gap: 12px; align-items: center;">
-              <span style="font-size: 13px; color: var(--color-ink-muted);">Target Age: <strong id="grade-preview-age" style="color: var(--color-ink-black);">Ages 4–7 / Beginners</strong></span>
-              <a href="grade-examination/discipline.html?grade=1" class="btn btn-primary btn-sm" id="grade-preview-link">View Full Syllabus →</a>
-            </div>
+        <!-- Grade Examination Platform Promotional Hub -->
+        <div class="card reveal-up" style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); padding: 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Accredited National Platform</span>
+            <h3 style="font-size: 22px; margin-bottom: 6px;">Singapore National Visual Arts Grade Examination</h3>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 640px; line-height: 1.6;">
+              Administered across accredited testing centres in Singapore. Features 18 complete Chinese calligraphy levels, authentic master reference plates, and interactive level comparison.
+            </p>
           </div>
-
-          <div class="grid grid-cols-3" style="gap: 20px; margin-bottom: 20px;">
-            <div style="background: var(--color-warm-ivory); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-paper-border);">
-              <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--color-cinnabar);">Chinese Calligraphy (书法)</h4>
-              <p style="font-size: 13px; color: var(--color-ink-charcoal); line-height: 1.5; margin: 0;" id="grade-preview-calligraphy">
-                Fundamental brush grip, vertical & horizontal straight strokes (横、竖基本笔画及执笔规范).
-              </p>
-            </div>
-
-            <div style="background: var(--color-warm-ivory); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-paper-border);">
-              <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--color-cinnabar);">Chinese Painting (国画)</h4>
-              <p style="font-size: 13px; color: var(--color-ink-charcoal); line-height: 1.5; margin: 0;" id="grade-preview-painting">
-                Basic ink wash tonality, dotting and line tracing of fruit/vegetables (水墨浓淡初阶、蔬果写意点染).
-              </p>
-            </div>
-
-            <div style="background: var(--color-warm-ivory); padding: 16px; border-radius: var(--radius-sm); border: 1px solid var(--color-paper-border);">
-              <h4 style="font-size: 15px; margin-bottom: 6px; color: var(--color-cinnabar);">Academic Sketching (素描)</h4>
-              <p style="font-size: 13px; color: var(--color-ink-charcoal); line-height: 1.5; margin: 0;" id="grade-preview-sketch">
-                Simple geometric cube/sphere contouring and basic light-shadow division (几何单体线描与基本明暗区分).
-              </p>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 24px; font-size: 13px; color: var(--color-ink-muted); flex-wrap: wrap;">
-            <span>⏱️ <strong>Exam Duration:</strong> <span id="grade-preview-duration">60 mins</span></span>
-            <span>📄 <strong>Paper Requirement:</strong> <span id="grade-preview-paper">4-Foot Half Sheet / A4</span></span>
-            <span>🏢 <strong>Venue:</strong> Accredited Singapore Test Centres</span>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="grade.html" class="btn btn-primary">
+              Explore Examination Hub (考级中心) →
+            </a>
+            <a href="grade.html#grade-track-nav" class="btn btn-outline">
+              Compare Standards (标准对比)
+            </a>
           </div>
         </div>
       </div>
@@ -321,8 +452,8 @@
               </div>
 
               <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                <a href="competitions/nanyang-star.html" class="btn btn-primary" data-i18n="nav.nanyang_star_hub">Competition Hub →</a>
-                <a href="competitions/winners.html" class="btn btn-outline" data-i18n="nav.nanyang_star_winners">2020 Winner Archive</a>
+                <a href="nanyang-star.html" class="btn btn-primary" data-i18n="nav.nanyang_star_hub">Competition Hub →</a>
+                <a href="nanyang-star.html#winners" class="btn btn-outline" data-i18n="nav.nanyang_star_winners">2020 Winner Archive</a>
               </div>
             </div>
 
@@ -348,7 +479,7 @@
             <h2 class="section-title" style="margin-bottom: 4px;">Digital Art Museum & Exhibition Vault</h2>
             <p style="font-size: 15px; color: var(--color-ink-muted); margin: 0;">Masterpieces across Singapore Nanyang, Singapore KEC, and China Divisions.</p>
           </div>
-          <a href="gallery/index.html" class="btn btn-outline" data-i18n="nav.gallery">Explore Full Gallery →</a>
+          <a href="gallery.html" class="btn btn-outline" data-i18n="nav.gallery">Explore Full Gallery →</a>
         </div>
 
         <div class="grid grid-cols-3" style="gap: 24px;">
@@ -402,7 +533,7 @@
             <h2 class="section-title" style="margin-bottom: 4px;" data-i18n="home.faculty_spotlight_title">Master Faculty & Academic Mentors</h2>
             <p style="font-size: 15px; color: var(--color-ink-muted); margin: 0;" data-i18n="home.faculty_spotlight_desc">Distinguished Singaporean artists, calligraphers, and art educators leading society studios.</p>
           </div>
-          <a href="about/team.html" class="btn btn-outline" data-i18n="nav.about_team">View Faculty Directory →</a>
+          <a href="about.html#leadership" class="btn btn-outline" data-i18n="nav.about_team">View Faculty Directory →</a>
         </div>
 
         <div class="grid grid-cols-4" id="faculty-spotlight-grid" style="gap: 20px;">
@@ -467,7 +598,7 @@
         </div>
 
         <div style="text-align: center; margin-top: 32px;">
-          <a href="about/history.html" class="btn btn-outline">Read Complete Society History →</a>
+          <a href="about.html#timeline" class="btn btn-outline">Read Complete Society History →</a>
         </div>
       </div>
     </section>
@@ -483,7 +614,7 @@
             <h2 class="section-title" style="margin-bottom: 4px;">Upcoming Events & Society News</h2>
             <p style="font-size: 15px; color: var(--color-ink-muted); margin: 0;">Stay informed about registration dates, masterclasses, and exhibition open calls.</p>
           </div>
-          <a href="news/index.html" class="btn btn-outline">View All News & Events →</a>
+          <a href="news-events.html" class="btn btn-outline">View All News & Events →</a>
         </div>
 
         <div class="grid grid-cols-3" style="gap: 24px;">
@@ -494,7 +625,7 @@
               <p style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 16px;">
                 Registration across all 6 verified disciplines is now open across all 5 accredited Singapore test centres.
               </p>
-              <a href="grade-examination/index.html" class="btn btn-outline btn-sm">Intake Schedule →</a>
+              <a href="grade.html" class="btn btn-outline btn-sm">Intake Schedule →</a>
             </div>
           </div>
 
@@ -505,7 +636,7 @@
               <p style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 16px;">
                 Led by Dr. Teng Jiashu at the Singapore Federation of Art Societies gallery.
               </p>
-              <a href="events/index.html" class="btn btn-outline btn-sm">Reserve Seat →</a>
+              <a href="news-events.html" class="btn btn-outline btn-sm">Reserve Seat →</a>
             </div>
           </div>
 
@@ -516,7 +647,7 @@
               <p style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 16px;">
                 Connecting Singapore studios under unified assessment standards and joint exhibitions.
               </p>
-              <a href="societies/index.html" class="btn btn-outline btn-sm">Alliance Network →</a>
+              <a href="about.html#community" class="btn btn-outline btn-sm">Alliance Network →</a>
             </div>
           </div>
         </div>
@@ -535,8 +666,8 @@
           Whether beginning your first stroke in Chinese calligraphy, preparing for academic grade examinations, or submitting masterworks to international competitions, our secretariat and faculty are here to guide you.
         </p>
         <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-          <a href="courses/index.html" class="btn btn-primary btn-lg">Explore Studio Courses →</a>
-          <a href="contact/index.html" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4);">Enquire With Secretariat</a>
+          <a href="courses.html" class="btn btn-primary btn-lg">Explore Studio Courses →</a>
+          <a href="contact.html" class="btn btn-outline btn-lg" style="color: #FFFFFF; border-color: rgba(255, 255, 255, 0.4);">Enquire With Secretariat</a>
         </div>
       </div>
     </section>
@@ -544,6 +675,9 @@
 
   <!-- Shared Shell Footer Root -->
   <div id="footer-root"></div>
+
+  <!-- Entrance Popup Root -->
+  <div id="entrance-popup-root"></div>
 
   <!-- Shared Bootloader & Homepage Controller -->
   <script type="module" src="js/core/app.js"></script>

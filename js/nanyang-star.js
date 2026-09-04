@@ -44,11 +44,17 @@ export class NanyangStarController {
   }
 
   resolveImgUrl(url) {
-    if (!url) return '../assets/logo/logo.png';
+    const isRoot = !window.location.pathname.includes('/competitions/');
+    const fallback = isRoot ? 'assets/logo/logo.png' : '../assets/logo/logo.png';
+    if (!url) return fallback;
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
-    if (url.startsWith('../') || url.startsWith('./')) return url;
-    if (url.startsWith('/')) return url;
-    return '../' + url;
+    if (url.startsWith('./') || url.startsWith('/')) return url;
+    if (isRoot) {
+      return url.replace(/^\.\.\//, '');
+    } else {
+      if (url.startsWith('../')) return url;
+      return '../' + url;
+    }
   }
 
   async init() {
@@ -187,8 +193,10 @@ export class NanyangStarController {
   }
 
   renderLaureates() {
-    const container = document.getElementById('comp-laureates-grid');
+    const container = document.getElementById('comp-winners-grid') || document.getElementById('comp-laureates-grid');
     if (!container) return;
+
+    const isZh = (typeof localStorage !== 'undefined' && (localStorage.getItem('nas_user_language_pref') === 'zh-SG' || localStorage.getItem('nas_user_language_pref') === 'zh'));
 
     const divFilter = this.filterDivision;
     const catFilter = this.filterCategory;
@@ -204,36 +212,45 @@ export class NanyangStarController {
     if (filtered.length === 0) {
       container.innerHTML = `
         <div style="grid-column: 1 / -1; padding: 48px; text-align: center; background: var(--color-gallery-white); border: 1px dashed var(--color-paper-border-dark); border-radius: var(--radius-md);">
-          <p style="color: var(--color-ink-muted);">No laureate artworks match the selected filters. Please adjust your criteria.</p>
+          <p style="color: var(--color-ink-muted);">${isZh ? '暂无匹配当前筛选条件的获奖作品。' : 'No laureate artworks match the selected filters. Please adjust your criteria.'}</p>
         </div>
       `;
       return;
     }
 
-    container.innerHTML = filtered.map(w => `
-      <div class="comp-laureate-card">
-        <div style="position: relative; overflow: hidden; background: var(--color-warm-ivory-dark);">
-          <img src="${this.resolveImgUrl(w.imageUrl)}" alt="${w.artworkTitle_en}" class="comp-laureate-img" data-img-zoom="${this.resolveImgUrl(w.imageUrl)}" data-img-title="${w.artworkTitle_en} - ${w.candidateName_en}" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
-          <span class="comp-award-pill ${(w.awardTier || '').toLowerCase().includes('grand') ? 'comp-award-grand' : 'comp-award-gold'}" style="position: absolute; top: 12px; right: 12px;">
-            ${(w.awardTier || '').split(' (')[0]}
-          </span>
-        </div>
-        <div style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
-          <h4 style="font-size: 16px; margin: 0 0 2px;">${w.artworkTitle_en}</h4>
-          <h5 style="font-size: 12px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 10px;">${w.artworkTitle_zh}</h5>
+    container.innerHTML = filtered.map(w => {
+      const primaryTitle = isZh ? (w.artworkTitle_zh || w.artworkTitle_en) : w.artworkTitle_en;
+      const secondaryTitle = isZh ? (w.artworkTitle_en ? `<p style="font-size: 11px; color: var(--color-ink-muted); margin: 0 0 10px;">${w.artworkTitle_en}</p>` : '') : (w.artworkTitle_zh ? `<h5 style="font-size: 12px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 10px;">${w.artworkTitle_zh}</h5>` : '');
+      const primaryArtist = isZh ? (w.candidateName_zh || w.candidateName_en) : w.candidateName_en;
+      const secondaryArtist = isZh ? (w.candidateName_en ? ` (${w.candidateName_en})` : '') : (w.candidateName_zh ? ` (${w.candidateName_zh})` : '');
+      const awardTierClean = (w.awardTier || '').split(' (')[0];
+      const awardDisplay = isZh ? (awardTierClean === 'Grand Prize' ? '特等奖' : awardTierClean === 'Gold' ? '金奖' : awardTierClean === 'Silver' ? '银奖' : awardTierClean) : awardTierClean;
 
-          <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.4; margin-bottom: 12px;">
-            <p style="margin: 0 0 2px;"><strong>${w.candidateName_en}</strong>${w.candidateName_zh ? ' (' + w.candidateName_zh + ')' : ''}</p>
-            <p style="margin: 0 0 2px;">${w.schoolCity || w.school || w.region || '—'}</p>
-            <p style="margin: 0;">${w.medium || '—'}</p>
+      return `
+        <div class="comp-laureate-card">
+          <div style="position: relative; overflow: hidden; background: var(--color-warm-ivory-dark);">
+            <img src="${this.resolveImgUrl(w.imageUrl)}" alt="${primaryTitle}" class="comp-laureate-img" data-img-zoom="${this.resolveImgUrl(w.imageUrl)}" data-img-title="${primaryTitle} - ${primaryArtist}" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
+            <span class="comp-award-pill ${(w.awardTier || '').toLowerCase().includes('grand') ? 'comp-award-grand' : 'comp-award-gold'}" style="position: absolute; top: 12px; right: 12px;">
+              ${awardDisplay}
+            </span>
           </div>
+          <div style="padding: 18px; display: flex; flex-direction: column; flex-grow: 1;">
+            <h4 style="font-size: 16px; margin: 0 0 2px;">${primaryTitle}</h4>
+            ${secondaryTitle}
 
-          <div style="margin-top: auto; border-top: 1px solid var(--color-paper-border); padding-top: 10px; font-size: 11px; color: var(--color-ink-charcoal); font-style: italic;">
-            "${w.juryComment_en}"
+            <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.4; margin-bottom: 12px;">
+              <p style="margin: 0 0 2px;"><strong>${primaryArtist}</strong>${secondaryArtist}</p>
+              <p style="margin: 0 0 2px;">${w.schoolCity || w.school || w.region || '—'}</p>
+              <p style="margin: 0;">${w.medium || '—'}</p>
+            </div>
+
+            <div style="margin-top: auto; border-top: 1px solid var(--color-paper-border); padding-top: 10px; font-size: 11px; color: var(--color-ink-charcoal); font-style: italic;">
+              "${w.juryComment_en}"
+            </div>
           </div>
         </div>
-      </div>
-    `).join('');
+      `;
+    }).join('');
 
     // Bind Image Zoom Click
     const zoomableImgs = container.querySelectorAll('[data-img-zoom]');

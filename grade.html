@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinese Calligraphy Grade Examination (Grades 1–9) | Singapore Nanyang Artists Society</title>
+  <meta name="description" content="Explore a structured nine-level pathway in Hard-Pen and Soft-Pen Chinese Calligraphy. Official syllabus, assessment criteria, writing tools, and reference plates.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    .anchor-nav-bar {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--color-paper-border);
+      background: var(--color-gallery-white);
+      position: sticky;
+      top: 68px;
+      z-index: var(--z-subnav, 80);
+      white-space: nowrap;
+    }
+    .anchor-btn {
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--color-ink-muted);
+      text-decoration: none;
+      background: var(--color-warm-ivory);
+      border: 1px solid var(--color-paper-border);
+      transition: all var(--transition-fast);
+    }
+    .anchor-btn:hover,
+    .anchor-btn.active {
+      color: #FFFFFF;
+      background: var(--color-cinnabar);
+      border-color: var(--color-cinnabar);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Optional Cinematic Intro (<1s, skippable) -->
+  <div id="grade-cinematic-intro" class="grade-intro-overlay" aria-hidden="true">
+    <div class="intro-content">
+      <img src="assets/logo/logo.png" alt="Society Seal" class="intro-seal">
+      <h2 class="intro-title">中国书法 · 等级考试</h2>
+      <p class="intro-sub">CHINESE CALLIGRAPHY GRADE EXAMINATION (GRADES 1–9)</p>
+    </div>
+    <button type="button" class="intro-skip-btn" aria-label="Skip Intro">Skip Intro &times;</button>
+  </div>
+
+  <!-- Shared Global Shell -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Grade Examination</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Editorial Hero -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container container-narrow" style="text-align: center;">
+        <span class="seal-badge seal-badge-gold">Calligraphy Examination Standard · 书法考级标准</span>
+        <h1 style="font-size: var(--font-size-4xl); margin-bottom: 8px;">Chinese Calligraphy Grade Examination</h1>
+        <h2 style="font-size: var(--font-size-2xl); color: var(--color-cinnabar); margin-bottom: 16px; font-weight: 700; font-family: var(--font-serif);">中国书法等级考试标准体系</h2>
+        <p style="font-size: var(--font-size-md); color: var(--color-ink-muted); line-height: 1.6; max-width: 680px; margin: 0 auto 24px;">
+          Explore a structured nine-level pathway in Hard-Pen and Soft-Pen Chinese Calligraphy — establishing rigorous artistic criteria from foundational copybook imitation to mature multi-script creative composition.
+        </p>
+
+        <!-- Primary Track Switcher (Hard-Pen vs Soft-Pen) -->
+        <div class="grade-track-switch-wrapper" role="tablist" aria-label="Calligraphy Tracks">
+          <button type="button" class="grade-track-tab active" data-grade-track="hard-pen" role="tab" aria-selected="true">
+            <span class="tab-zh">硬笔书法</span>
+            <span>Hard-Pen (Grades 1–9)</span>
+          </button>
+          <button type="button" class="grade-track-tab" data-grade-track="soft-pen" role="tab" aria-selected="false">
+            <span class="tab-zh">软笔书法</span>
+            <span>Soft-Pen (Grades 1–9)</span>
+          </button>
+        </div>
+
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <button type="button" class="btn btn-outline btn-sm" data-open-compare="true">
+            ⚖️ Compare Grades (标准对比)
+          </button>
+          <a href="#test-centres" class="btn btn-outline btn-sm">📍 Test Centres</a>
+          <a href="#verify" class="btn btn-outline btn-sm">🔍 Verify Certificate</a>
+          <a href="#register" class="btn btn-primary btn-sm">Exam Intake Enquiry</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Anchor Navigation -->
+    <nav class="anchor-nav-bar" aria-label="Grade Exam Navigation">
+      <div class="container" style="display: flex; gap: 10px; overflow-x: auto;">
+        <a href="#roadmap" class="anchor-btn active">1–9 Visual Roadmap</a>
+        <a href="#levels-catalog" class="anchor-btn">Levels & Reference Plates</a>
+        <a href="#test-centres" class="anchor-btn">Accredited Test Centres</a>
+        <a href="#verify" class="anchor-btn">Certificate Verification</a>
+        <a href="#register" class="anchor-btn">Intake Registration</a>
+      </div>
+    </nav>
+
+    <!-- Section 1: Grades 1–9 Visual Progression Roadmap -->
+    <section class="section section-sm" id="roadmap">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 20px;">
+          <span class="section-subtitle">Progression Pathway</span>
+          <h2 class="section-title">Grades 1 to 9 Visual Roadmap</h2>
+          <p class="section-desc">Select any level below to inspect specific criteria, character requirements, and reference plates.</p>
+        </div>
+
+        <!-- 1–9 Progression Strip -->
+        <div class="grade-progression-wrapper">
+          <div class="grade-progression-track" id="grade-roadmap-strip">
+            <!-- Rendered dynamically via js/pages/grade.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: All 9 Grade Level Cards & Filter -->
+    <section class="section section-ivory-dark" id="levels-catalog">
+      <div class="container">
+        <!-- Search & Control Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 14px;">
+          <div>
+            <h2 style="font-size: 24px; margin: 0 0 4px;">Syllabus Standards & Reference Plates</h2>
+            <p style="font-size: 13px; color: var(--color-ink-muted); margin: 0;">
+              Authoritative syllabus specifications transcribed directly from Chinese Calligraphy assessment criteria.
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <div style="position: relative; width: 260px;">
+              <input type="search" id="grade-search-input" placeholder="Filter by script, task, or tools..." class="form-input" style="padding-left: 32px; height: 38px; font-size: 13px;">
+              <span style="position: absolute; left: 10px; top: 10px; font-size: 14px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+            <button type="button" class="btn btn-outline btn-sm" data-open-compare="true">
+              ⚖️ Compare Standards
+            </button>
+          </div>
+        </div>
+
+        <!-- Cards Grid (Populated dynamically) -->
+        <div class="grade-grid" id="grade-cards-grid">
+          <!-- Populated via js/pages/grade.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Accredited Test Centres Query Tool -->
+    <section class="section" id="test-centres">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-subtitle">Singapore Examination Venues</span>
+          <h2 class="section-title">Accredited Test Centre Directory</h2>
+          <p class="section-desc">Locate official test centres, verified studios, and satellite examination halls across Singapore.</p>
+        </div>
+
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 28px; box-shadow: var(--shadow-card); margin-bottom: 24px;">
+          <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 260px;">
+              <input type="search" id="centre-search-input" placeholder="Search by centre name, district (e.g. Jurong, Tampines, Eunos), or postal code..." class="form-input" style="padding-left: 38px; height: 44px;">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 15px; color: var(--color-ink-muted);" aria-hidden="true">📍</span>
+            </div>
+            <select id="centre-discipline-select" class="form-select" style="max-width: 200px; height: 44px;">
+              <option value="all">All Disciplines</option>
+              <option value="Calligraphy">Chinese Calligraphy</option>
+              <option value="Painting">Chinese Painting</option>
+              <option value="Sketching">Sketching</option>
+              <option value="Watercolor">Watercolor / Gouache</option>
+            </select>
+            <select id="centre-grade-select" class="form-select" style="max-width: 160px; height: 44px;">
+              <option value="all">All Tiers (1–9)</option>
+              <option value="foundation">Grades 1–3</option>
+              <option value="intermediate">Grades 4–6</option>
+              <option value="advanced">Grades 7–9</option>
+            </select>
+            <button type="button" class="btn btn-outline" id="centre-reset-btn">↺ Reset</button>
+          </div>
+
+          <div style="font-size: 13px; color: var(--color-ink-muted); margin-bottom: 16px;" id="centre-results-count">
+            Showing all accredited Singapore test centres
+          </div>
+
+          <!-- Test Centres Result Grid -->
+          <div class="grid grid-cols-2" id="test-centres-list-container" style="gap: 16px;">
+            <!-- Populated dynamically via js/test-centres.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Certificate Verification Portal -->
+    <section class="section section-ivory-dark" id="verify">
+      <div class="container container-narrow">
+        <div class="section-header">
+          <span class="section-subtitle">Official Verification Engine</span>
+          <h2 class="section-title">Certificate & Grade Result Verification</h2>
+          <p class="section-desc">Verify authentic credentials issued by the Singapore Nanyang Artists Society Examination Board.</p>
+        </div>
+
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-card); margin-bottom: 24px;">
+          <form id="cert-verify-form" style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 260px;">
+              <input type="text" id="cert-search-input" placeholder="Enter Certificate ID (e.g. NAS-2025-0891) or Candidate Name..." class="form-input" style="padding-left: 38px; height: 46px; text-transform: uppercase;" required>
+              <span style="position: absolute; left: 14px; top: 13px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">🛡️</span>
+            </div>
+            <button type="submit" class="btn btn-primary" style="padding: 0 24px; height: 46px; font-weight: 700;">Verify Credential</button>
+          </form>
+
+          <div style="font-size: 12px; color: var(--color-ink-muted); margin-bottom: 16px;">
+            💡 <em>Tip: Try searching sample credentials: <code style="background: var(--color-warm-ivory); padding: 2px 6px; border-radius: 3px; cursor: pointer;" onclick="document.getElementById('cert-search-input').value='NAS-2025-0891'; document.getElementById('cert-verify-form').dispatchEvent(new Event('submit'));">NAS-2025-0891</code> or <code style="background: var(--color-warm-ivory); padding: 2px 6px; border-radius: 3px; cursor: pointer;" onclick="document.getElementById('cert-search-input').value='Tan Wei Ling'; document.getElementById('cert-verify-form').dispatchEvent(new Event('submit'));">Tan Wei Ling</code></em>
+          </div>
+
+          <div id="cert-result-container">
+            <!-- Populated dynamically via js/exam-verify.js -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Exam Intake Registration Form -->
+    <section class="section" id="register">
+      <div class="container container-narrow">
+        <div class="card" style="padding: 36px; border: 2px solid var(--color-cinnabar); box-shadow: var(--shadow-card);">
+          <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;">Official Examination Board</span>
+          <h2 style="font-size: 26px; margin-bottom: 6px;">Register for Upcoming Examination Intake</h2>
+          <p style="font-size: 14px; color: var(--color-ink-muted); margin-bottom: 24px;">
+            Intakes are held biannually in June and November. Please submit your registration interest below.
+          </p>
+
+          <form onsubmit="event.preventDefault(); alert('Thank you for your exam registration submission. Our examination board coordinator will reach out to you with candidate docket details.'); this.reset();" style="display: flex; flex-direction: column; gap: 16px;">
+            <div class="grid grid-cols-2" style="gap: 12px;">
+              <div>
+                <label class="form-label">Candidate Full Name *:</label>
+                <input type="text" class="form-input" required placeholder="e.g. Ethan Lim">
+              </div>
+              <div>
+                <label class="form-label">Candidate NRIC / Birth Cert / Passport (Last 4) *:</label>
+                <input type="text" class="form-input" required placeholder="e.g. 567A">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2" style="gap: 12px;">
+              <div>
+                <label class="form-label">Target Examination Discipline *:</label>
+                <select class="form-select" required>
+                  <option value="">Select Discipline</option>
+                  <option value="hard-pen" selected>Hard-Pen Calligraphy (硬笔书法)</option>
+                  <option value="soft-pen">Soft-Pen Calligraphy (软笔书法)</option>
+                  <option value="painting">Chinese Painting (国画)</option>
+                  <option value="sketching">Academic Sketching (素描)</option>
+                  <option value="watercolor">Watercolor & Gouache (色彩)</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label">Target Grade Level *:</label>
+                <select class="form-select" required>
+                  <option value="1">Grade 1 (Level 01)</option>
+                  <option value="2">Grade 2 (Level 02)</option>
+                  <option value="3">Grade 3 (Level 03)</option>
+                  <option value="4">Grade 4 (Level 04)</option>
+                  <option value="5">Grade 5 (Level 05)</option>
+                  <option value="6">Grade 6 (Level 06)</option>
+                  <option value="7">Grade 7 (Level 07)</option>
+                  <option value="8">Grade 8 (Level 08)</option>
+                  <option value="9">Grade 9 (Level 09)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2" style="gap: 12px;">
+              <div>
+                <label class="form-label">Parent / Contact Phone *:</label>
+                <input type="tel" class="form-input" required placeholder="+65 9123 4567">
+              </div>
+              <div>
+                <label class="form-label">Contact Email *:</label>
+                <input type="email" class="form-input" required placeholder="name@example.com">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="padding: 12px; font-weight: 700; font-size: 15px; margin-top: 8px;">
+              Submit Examination Intake Registration →
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/core/app.js"></script>
+  <script type="module" src="js/pages/grade.js"></script>
+  <script type="module">
+    import { TestCentresSearch } from './js/test-centres.js';
+    import { ExamVerificationController } from './js/exam-verify.js';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      new TestCentresSearch().init();
+      new ExamVerificationController().init();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!-- ENTRANCE POPUP MODAL COMPONENT (MUSEUM-GRADE VISITOR WELCOME) -->
+<div class="entrance-popup-backdrop" id="entrance-popup-backdrop" role="dialog" aria-modal="true" aria-labelledby="entrance-popup-title">
+  <div class="entrance-popup-card">
+    <button type="button" class="entrance-popup-close" id="entrance-popup-close-btn" aria-label="Close Announcement Dialog">
+      ✕
+    </button>
+    <img src="{{BASE_PATH}}assets/images/looking-into-the-future-2020-panner.png" alt="Nanyang Star Exhibition Banner" class="entrance-popup-img">
+    <div class="entrance-popup-body">
+      <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+        <span class="seal-badge seal-badge-gold">Since 2002</span>
+        <span class="seal-badge" style="background: rgba(186, 27, 29, 0.15); color: var(--color-cinnabar); border-color: var(--color-cinnabar);">Artistic Excellence</span>
+      </div>
+      <h2 style="font-size: 24px; font-family: var(--font-serif-en, serif); margin: 0 0 6px;" id="entrance-popup-title">
+        Discover Your Creative Path
+      </h2>
+      <h3 style="font-size: 14px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 14px;">
+        探索艺术成长之路 · 融古贯今
+      </h3>
+      <p style="font-size: 14px; color: var(--color-ink-muted); line-height: 1.6; margin-bottom: 24px;">
+        Explore accredited visual arts courses, standardized Grades 1–9 Chinese Calligraphy examinations, and prestigious international youth art exhibitions under the Singapore Nanyang Artists Society.
+      </p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="{{BASE_PATH}}courses.html" class="btn btn-primary btn-sm" style="flex: 1; min-width: 140px; text-align: center;">
+          Explore Courses (课程) →
+        </a>
+        <a href="{{BASE_PATH}}grade.html" class="btn btn-outline btn-sm" style="flex: 1; min-width: 140px; text-align: center;">
+          Grade Exam Hub (考级) →
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

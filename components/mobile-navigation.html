@@ -15,7 +15,7 @@
       </button>
     </div>
 
-    <!-- Drawer Body / Navigation Accordion -->
+    <!-- Drawer Body / Navigation List -->
     <div class="mobile-drawer-body">
       <nav class="mobile-nav-list" aria-label="Mobile Primary Navigation">
         <!-- 1. Home -->
@@ -23,100 +23,55 @@
           <a href="{{BASE_PATH}}index.html" class="mobile-nav-link" data-route="home" data-i18n="nav_home">Home</a>
         </div>
 
-        <!-- 2. About Accordion -->
-        <div class="mobile-nav-accordion">
-          <button type="button" class="mobile-accordion-toggle" aria-expanded="false">
-            <span data-i18n="nav_about">About Society</span>
-            <span class="accordion-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="mobile-accordion-panel" hidden>
-            <a href="{{BASE_PATH}}about/index.html" class="mobile-sublink" data-i18n="nav_about_story">Our Story & Mission</a>
-            <a href="{{BASE_PATH}}about/history.html" class="mobile-sublink" data-i18n="nav_about_history">History & Liu Kang</a>
-            <a href="{{BASE_PATH}}about/team.html" class="mobile-sublink" data-i18n="nav_about_team">Leadership & Team</a>
-            <a href="{{BASE_PATH}}societies/index.html" class="mobile-sublink" data-i18n="nav_about_societies">Art Societies Network</a>
-          </div>
-        </div>
-
-        <!-- 3. Art Courses Accordion -->
-        <div class="mobile-nav-accordion">
-          <button type="button" class="mobile-accordion-toggle" aria-expanded="false">
-            <span data-i18n="nav_courses">Art Courses</span>
-            <span class="accordion-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="mobile-accordion-panel" hidden>
-            <a href="{{BASE_PATH}}courses/index.html" class="mobile-sublink" data-i18n="nav_courses_all">All Courses Catalog</a>
-            <a href="{{BASE_PATH}}courses/finder.html" class="mobile-sublink" data-i18n="nav_courses_finder">Course Finder Quiz</a>
-          </div>
-        </div>
-
-        <!-- 4. Grade Examination Accordion -->
-        <div class="mobile-nav-accordion">
-          <button type="button" class="mobile-accordion-toggle" aria-expanded="false">
-            <span data-i18n="nav_grade">Grade Examination</span>
-            <span class="accordion-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="mobile-accordion-panel" hidden>
-            <a href="{{BASE_PATH}}grade-examination/index.html" class="mobile-sublink" data-i18n="nav_grade_path">Grades 1–9 Pathway</a>
-            <a href="{{BASE_PATH}}grade-examination/assessment-viewer.html" class="mobile-sublink" data-i18n="nav_grade_viewer">Assessment Viewer</a>
-            <a href="{{BASE_PATH}}grade-examination/test-centres.html" class="mobile-sublink" data-i18n="nav_grade_centres">Test Centre Query</a>
-            <a href="{{BASE_PATH}}grade-examination/verify.html" class="mobile-sublink" data-i18n="nav_grade_verify">Verify Certificate</a>
-          </div>
-        </div>
-
-        <!-- 5. Competitions & Nanyang Star Accordion -->
-        <div class="mobile-nav-accordion">
-          <button type="button" class="mobile-accordion-toggle" aria-expanded="false">
-            <span data-i18n="nav_nanyang_star">Nanyang Star</span>
-            <span class="accordion-arrow" aria-hidden="true">▾</span>
-          </button>
-          <div class="mobile-accordion-panel" hidden>
-            <a href="{{BASE_PATH}}competitions/nanyang-star.html" class="mobile-sublink" data-i18n="nav_nanyang_star_hub">Competition Hub</a>
-            <a href="{{BASE_PATH}}competitions/winners.html" class="mobile-sublink" data-i18n="nav_nanyang_star_winners">2020 Winner Archive</a>
-            <a href="{{BASE_PATH}}competitions/submit.html" class="mobile-sublink" data-i18n="nav_nanyang_star_submit">Submit Artwork</a>
-          </div>
-        </div>
-
-        <!-- 6. Art Societies -->
+        <!-- 2. About -->
         <div class="mobile-nav-item">
-          <a href="{{BASE_PATH}}societies/index.html" class="mobile-nav-link" data-route="societies" data-i18n="nav_about_societies">Art Societies</a>
+          <a href="{{BASE_PATH}}about.html" class="mobile-nav-link" data-route="about" data-i18n="nav_about">About Society</a>
         </div>
 
-        <!-- 7. Gallery -->
+        <!-- 3. Art Courses -->
         <div class="mobile-nav-item">
-          <a href="{{BASE_PATH}}gallery/index.html" class="mobile-nav-link" data-route="gallery" data-i18n="nav_gallery">Digital Art Museum</a>
+          <a href="{{BASE_PATH}}courses.html" class="mobile-nav-link" data-route="courses" data-i18n="nav_courses">Art Courses</a>
         </div>
 
-        <!-- 8. News & Events -->
+        <!-- 4. Grade Examination -->
         <div class="mobile-nav-item">
-          <a href="{{BASE_PATH}}news/index.html" class="mobile-nav-link" data-route="news" data-i18n="nav_news">News & Events</a>
+          <a href="{{BASE_PATH}}grade.html" class="mobile-nav-link" data-route="grade" data-i18n="nav_grade">Grade Examination</a>
         </div>
 
-        <!-- 9. Resources -->
+        <!-- 5. Nanyang Star -->
         <div class="mobile-nav-item">
-          <a href="{{BASE_PATH}}resources/index.html" class="mobile-nav-link" data-route="resources" data-i18n="nav_resources">Resources & FAQ</a>
+          <a href="{{BASE_PATH}}nanyang-star.html" class="mobile-nav-link" data-route="nanyang-star" data-i18n="nav.nanyang_star">Nanyang Star</a>
         </div>
 
-        <!-- 10. Contact -->
+        <!-- 6. Gallery -->
         <div class="mobile-nav-item">
-          <a href="{{BASE_PATH}}contact/index.html" class="mobile-nav-link" data-route="contact" data-i18n="nav_contact">Contact</a>
+          <a href="{{BASE_PATH}}gallery.html" class="mobile-nav-link" data-route="gallery" data-i18n="nav_gallery">Digital Gallery</a>
+        </div>
+
+        <!-- 7. News & Events -->
+        <div class="mobile-nav-item">
+          <a href="{{BASE_PATH}}news-events.html" class="mobile-nav-link" data-route="news-events" data-i18n="nav_news">News & Events</a>
+        </div>
+
+        <!-- 8. Contact -->
+        <div class="mobile-nav-item">
+          <a href="{{BASE_PATH}}contact.html" class="mobile-nav-link" data-route="contact" data-i18n="nav_contact">Contact</a>
         </div>
       </nav>
 
-      <!-- Language Selector inside Drawer -->
+      <!-- Language Selector inside Drawer (English & Singapore Chinese Only) -->
       <div class="mobile-drawer-section">
         <span class="mobile-section-label">Language / 语言:</span>
-        <div class="lang-selector mobile-lang-grid" role="group" aria-label="Mobile language selector">
-          <button type="button" class="lang-btn active" data-lang="en">English</button>
-          <button type="button" class="lang-btn" data-lang="zh">中文</button>
-          <button type="button" class="lang-btn" data-lang="ms">Melayu</button>
-          <button type="button" class="lang-btn" data-lang="ta">தமிழ்</button>
+        <div class="lang-selector mobile-lang-grid" role="group" aria-label="Mobile language selector" style="grid-template-columns: 1fr 1fr;">
+          <button type="button" class="lang-btn active" data-lang="en" aria-current="true">English</button>
+          <button type="button" class="lang-btn" data-lang="zh-SG" aria-current="false">中文</button>
         </div>
       </div>
 
       <!-- Quick Dual CTA -->
       <div class="mobile-drawer-cta">
-        <a href="{{BASE_PATH}}contact/index.html" class="btn btn-outline" style="width: 100%;" data-i18n="cta_enquire">Enquire Now</a>
-        <a href="{{BASE_PATH}}contact/index.html" class="btn btn-primary" style="width: 100%;" data-i18n="cta_register">Register Intake</a>
+        <a href="{{BASE_PATH}}contact.html?type=enquiry" class="btn btn-outline" style="width: 100%;" data-i18n="cta_enquire">Enquire Now</a>
+        <a href="{{BASE_PATH}}contact.html?type=registration" class="btn btn-primary" style="width: 100%;" data-i18n="cta_register">Register Intake</a>
       </div>
 
       <!-- Quick Verified Contact Info -->

@@ -1,14 +1,38 @@
 /* ==========================================================================
-   NANYANG ARTISTS SOCIETY — PURPOSEFUL ANIMATIONS & TRANSITIONS
-   Restrained, Museum-Grade Micro-Interactions
+   NANYANG ARTISTS SOCIETY — CREATIVE MOTION & VISUAL SYSTEM
+   Aesthetic: Singapore Fine Art Institution, Museum-Grade Editorial,
+              Delicate Asian Ink Sensibility & Restrained Luxury.
    ========================================================================== */
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* --------------------------------------------------------------------------
+   1. CROSS-DOCUMENT VIEW TRANSITIONS (MODERN MPA NAVIGATION)
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root) {
+    animation: 0.28s cubic-bezier(0.4, 0, 1, 1) both mpaPageExit;
+  }
+
+  ::view-transition-new(root) {
+    animation: 0.38s cubic-bezier(0.16, 1, 0.3, 1) both mpaPageEnter;
+  }
 }
 
-@keyframes fadeInUp {
+@keyframes mpaPageExit {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes mpaPageEnter {
   from {
     opacity: 0;
     transform: translateY(12px);
@@ -19,10 +43,119 @@
   }
 }
 
-@keyframes fadeInDown {
+/* --------------------------------------------------------------------------
+   2. SMOOTH SCROLLING, SCROLL PROGRESS & FLOATING CONTROLS
+   -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px; /* Offset for sticky navigation bar */
+}
+
+/* Thin Editorial Scroll Progress Indicator */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2.5px;
+  background: linear-gradient(90deg, var(--color-cinnabar, #BA1B1D) 0%, var(--color-muted-gold, #C5A059) 60%, var(--color-cinnabar, #BA1B1D) 100%);
+  z-index: 10000;
+  transform-origin: 0% 50%;
+  transform: scaleX(0);
+  transition: transform 0.08s ease-out;
+  pointer-events: none;
+  box-shadow: 0 1px 4px rgba(186, 27, 29, 0.25);
+}
+
+/* Floating Back to Top Button */
+.scroll-top-float-btn {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid var(--color-paper-border, #E5DFC9);
+  color: var(--color-ink-charcoal, #2C2523);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 980;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.2s ease;
+  box-shadow: 0 6px 18px -4px rgba(28, 25, 23, 0.14);
+}
+
+.scroll-top-float-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  animation: floatButtonBob 4s ease-in-out infinite;
+}
+
+.scroll-top-float-btn:hover {
+  background: var(--color-cinnabar, #BA1B1D);
+  color: #FFFFFF;
+  border-color: var(--color-cinnabar, #BA1B1D);
+  box-shadow: 0 10px 24px -4px rgba(186, 27, 29, 0.35);
+  transform: translateY(-4px) scale(1.06);
+}
+
+@keyframes floatButtonBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* Universal Page Load Entrance Glide */
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+body.page-loaded {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO OPENING CHOREOGRAPHY (SMOOTH & GRACEFUL OPENING)
+   -------------------------------------------------------------------------- */
+/* Homepage Hero Opening Animation Sequence */
+.hero-slider-wrap .hero-slide.is-active .hero-slide-img {
+  animation: heroOpeningBackdrop 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+             kenBurnsSubtle 14s ease-in-out infinite 1.4s alternate;
+}
+
+@keyframes heroOpeningBackdrop {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: scale(1.06);
+    filter: brightness(0.4) contrast(1.15) blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(0.68) contrast(1.08) blur(0);
+  }
+}
+
+.hero-slider-content .hero-eyebrow {
+  animation: heroOpeningEyebrow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.12s both;
+}
+
+@keyframes heroOpeningEyebrow {
+  from {
+    opacity: 0;
+    transform: translateY(-14px);
   }
   to {
     opacity: 1;
@@ -30,43 +163,860 @@
   }
 }
 
-@keyframes marqueeLoop {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+.hero-slider-content .hero-title {
+  animation: heroOpeningTitle 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.24s both;
 }
 
-@keyframes sealStamp {
-  0% {
-    transform: scale(1.15);
-    opacity: 0.8;
+@keyframes heroOpeningTitle {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(3px);
   }
-  100% {
-    transform: scale(1);
+  to {
     opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn var(--transition-base) forwards;
+.hero-slider-content .hero-title-zh {
+  animation: heroOpeningTitleZh 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.36s both;
 }
 
-.animate-fade-up {
-  animation: fadeInUp var(--transition-slow) forwards;
+@keyframes heroOpeningTitleZh {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-stamp {
-  animation: sealStamp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.hero-slider-content .hero-description {
+  animation: heroOpeningDesc 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.48s both;
 }
 
-/* Accessibility: Respect Reduced Motion Preferences */
+@keyframes heroOpeningDesc {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-slider-content .hero-cta-wrap {
+  animation: heroOpeningCta 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+}
+
+@keyframes heroOpeningCta {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-slider-controls {
+  animation: fadeIn 0.9s ease 0.72s both;
+}
+
+/* Inner Pages Editorial Hero Opening Choreography */
+.section-sm .container-narrow > span.section-subtitle,
+.section-sm .container-narrow > .seal-badge,
+.section-sm .container-narrow > div > .seal-badge {
+  animation: heroOpeningEyebrow 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+}
+
+.section-sm .container-narrow > h1 {
+  animation: heroOpeningTitle 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.22s both;
+}
+
+.section-sm .container-narrow > h2 {
+  animation: heroOpeningTitleZh 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.34s both;
+}
+
+.section-sm .container-narrow > p {
+  animation: heroOpeningDesc 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.44s both;
+}
+
+/* --------------------------------------------------------------------------
+   4. FLOATING EFFECTS (ORGANIC, CALMING & ARTISTIC)
+   -------------------------------------------------------------------------- */
+/* Floating Red Seal Stamp & Traditional Heritage Badges */
+.seal-badge,
+.floating-seal {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.seal-badge-gold {
+  animation: floatingSeal 5s ease-in-out infinite;
+}
+
+.floating-seal {
+  animation: floatingSeal 5.5s ease-in-out infinite;
+}
+
+@keyframes floatingSeal {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(-0.5deg);
+  }
+}
+
+/* Floating AI Art Assistant Launcher (Calm Breathing Glow & Float) */
+#nas-assistant-launcher,
+.assistant-floating-launcher {
+  animation: floatingAssistant 4.5s ease-in-out infinite !important;
+}
+
+@keyframes floatingAssistant {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 8px 24px rgba(186, 27, 29, 0.35);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 16px 32px rgba(186, 27, 29, 0.46);
+  }
+}
+
+#nas-assistant-launcher:hover,
+.assistant-floating-launcher:hover {
+  transform: translateY(-8px) scale(1.06) !important;
+  box-shadow: 0 20px 38px rgba(186, 27, 29, 0.55) !important;
+}
+
+/* Floating Gate Icons & Stat Emblems */
+.gate-card .gate-icon {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: floatingIconGentle 5s ease-in-out infinite alternate;
+}
+
+.gate-card:hover .gate-icon {
+  transform: translateY(-6px) scale(1.15) rotate(3deg);
+}
+
+@keyframes floatingIconGentle {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+/* Floating Tag Pill (Hero Slider Counter) */
+#hero-slide-tag {
+  animation: floatingSlideTag 6s ease-in-out infinite alternate;
+}
+
+@keyframes floatingSlideTag {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+
+/* Floating Utility Classes */
+.float-gentle {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+.float-slow {
+  animation: floatSlow 7s ease-in-out infinite;
+}
+
+.float-delayed {
+  animation: floatGentle 5s ease-in-out infinite 1.5s;
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-7px) rotate(0.6deg); }
+}
+
+/* --------------------------------------------------------------------------
+   5. REUSABLE SCROLL-REVEAL & STAGGER ENGINE
+   -------------------------------------------------------------------------- */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-up.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  will-change: opacity;
+}
+
+.reveal-fade.is-revealed {
+  opacity: 1;
+}
+
+.mask-reveal {
+  clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  transition: clip-path 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: clip-path;
+}
+
+.mask-reveal.is-revealed {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.ink-reveal {
+  opacity: 0;
+  filter: blur(4px);
+  transform: scale(0.98);
+  transition: opacity 0.85s ease-out, filter 0.85s ease-out, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ink-reveal.is-revealed {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.soft-scale {
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.soft-scale.is-revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered Children Transitions */
+.text-stagger > * {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.text-stagger.is-revealed > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
+.text-stagger.is-revealed > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
+.text-stagger.is-revealed > *:nth-child(3) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
+.text-stagger.is-revealed > *:nth-child(4) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
+.text-stagger.is-revealed > *:nth-child(5) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
+
+/* --------------------------------------------------------------------------
+   6. INTERACTIVE ELEMENT TRANSITIONS & ELEVATION
+   -------------------------------------------------------------------------- */
+/* Buttons: Tactile Feedback & Gentle Elevation */
+.btn {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.97) translateY(0);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 20px -4px rgba(186, 27, 29, 0.42);
+}
+
+.btn-outline:hover {
+  box-shadow: 0 6px 16px -4px rgba(28, 25, 23, 0.12);
+}
+
+/* Cards: Silk Lift & Multi-Layered Shadows */
+.card,
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
+  will-change: transform, box-shadow;
+}
+
+.card:hover,
+.card-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 36px -8px rgba(28, 25, 23, 0.12),
+              0 6px 14px -4px rgba(28, 25, 23, 0.06);
+}
+
+/* Gate Cards (Action Hub) */
+.gate-card {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  will-change: transform, box-shadow;
+}
+
+.gate-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px -6px rgba(28, 25, 23, 0.11);
+}
+
+/* Navigation Links: Silk Ink Underline Indicator */
+.main-nav .nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.main-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  background: var(--color-cinnabar, #BA1B1D);
+  transform: scaleX(0);
+  transform-origin: 50% 50%;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-nav .nav-link:hover::after,
+.main-nav .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* Filter Pills & Interactive Tabs */
+.filter-pill,
+.filter-pill-btn,
+.about-subnav-btn,
+.grade-track-pill {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.2s ease,
+              border-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease;
+}
+
+.filter-pill:hover,
+.filter-pill-btn:hover,
+.about-subnav-btn:hover,
+.grade-track-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(28, 25, 23, 0.08);
+}
+
+.filter-pill:active,
+.filter-pill-btn:active,
+.about-subnav-btn:active,
+.grade-track-pill:active {
+  transform: scale(0.96);
+}
+
+/* --------------------------------------------------------------------------
+   7. 3D PERSPECTIVE TILT (DESKTOP)
+   -------------------------------------------------------------------------- */
+.tilt-card-container {
+  perspective: 1200px;
+}
+
+.tilt-card {
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+/* Layered Artwork Card Animation */
+.artwork-interactive-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-gallery-white);
+  border: 1px solid var(--color-paper-border);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.artwork-interactive-card:hover,
+.artwork-interactive-card.is-tapped {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px -6px rgba(28, 25, 23, 0.14);
+}
+
+.artwork-interactive-card .card-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: #111;
+}
+
+.artwork-interactive-card .card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artwork-interactive-card:hover .card-media img,
+.artwork-interactive-card.is-tapped .card-media img {
+  transform: scale(1.04);
+}
+
+.artwork-interactive-card .card-overlay-cta {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(28, 25, 23, 0.85) 0%, rgba(28, 25, 23, 0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.artwork-interactive-card:hover .card-overlay-cta,
+.artwork-interactive-card.is-tapped .card-overlay-cta {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   8. HERO MEDIA AUTO-SCROLL SLIDER & KEN BURNS
+   -------------------------------------------------------------------------- */
+.hero-slider-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #1A1412;
+}
+
+.hero-slider-track {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
+  will-change: opacity;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+
+.hero-slide-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  animation: kenBurnsSubtle 12s ease-in-out infinite alternate;
+  filter: brightness(0.68) contrast(1.08);
+}
+
+@keyframes kenBurnsSubtle {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04) translate(-0.5%, -0.5%); }
+  100% { transform: scale(1); }
+}
+
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 30%, rgba(28, 25, 23, 0.35) 0%, rgba(20, 16, 15, 0.88) 100%),
+              linear-gradient(to right, rgba(20, 16, 15, 0.92) 0%, rgba(20, 16, 15, 0.65) 55%, rgba(20, 16, 15, 0.8) 100%);
+}
+
+.hero-slider-content {
+  position: relative;
+  z-index: 10;
+  padding: var(--space-12) 0;
+}
+
+.hero-slider-controls {
+  position: absolute;
+  bottom: 24px;
+  right: 32px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(28, 25, 23, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-nav-arrow {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 4px 6px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.hero-nav-arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.hero-pagination-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+
+.hero-dot.is-active {
+  width: 22px;
+  border-radius: 4px;
+  background: var(--color-cinnabar, #BA1B1D);
+}
+
+.hero-pause-toggle {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 6px;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.hero-pause-toggle:hover {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   9. CHINESE ART VISUAL LANGUAGE & ACCENTS
+   -------------------------------------------------------------------------- */
+.ink-stroke-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: var(--space-8) auto;
+  width: 100%;
+  max-width: 260px;
+  position: relative;
+}
+
+.ink-stroke-divider::before,
+.ink-stroke-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(186, 27, 29, 0.4), transparent);
+}
+
+.ink-stroke-icon {
+  margin: 0 12px;
+  font-size: 14px;
+  color: var(--color-cinnabar, #BA1B1D);
+}
+
+.seal-framed {
+  position: relative;
+}
+
+.seal-framed::after {
+  content: '南洋';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid var(--color-cinnabar, #BA1B1D);
+  color: var(--color-cinnabar, #BA1B1D);
+  font-family: var(--font-serif-zh, "Noto Serif SC", serif);
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+  padding: 2px;
+  border-radius: 2px;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: floatingSeal 6s ease-in-out infinite;
+}
+
+.paper-wash-bg {
+  background-color: var(--color-warm-ivory, #F9F7F2);
+  background-image: radial-gradient(rgba(28, 25, 23, 0.025) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* --------------------------------------------------------------------------
+   10. ENTRANCE POPUP MODAL & ANIMATION
+   -------------------------------------------------------------------------- */
+.entrance-popup-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 16, 15, 0.72);
+  backdrop-filter: blur(6px);
+  z-index: 1050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.entrance-popup-backdrop.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.entrance-popup-card {
+  background: var(--color-gallery-white, #FFFFFF);
+  border-radius: var(--radius-lg, 12px);
+  max-width: 580px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--color-paper-border, #E5DFC9);
+  transform: scale(0.96) translateY(12px);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.entrance-popup-backdrop.is-visible .entrance-popup-card {
+  transform: scale(1) translateY(0);
+}
+
+.entrance-popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  background: rgba(28, 25, 23, 0.6);
+  color: #fff;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+
+.entrance-popup-close:hover {
+  background: var(--color-cinnabar, #BA1B1D);
+}
+
+.entrance-popup-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  object-position: center 30%;
+  background: #222;
+}
+
+.entrance-popup-body {
+  padding: 28px 32px;
+}
+
+/* --------------------------------------------------------------------------
+   11. SKELETON SHIMMER LOADERS & ARTISTIC ERROR STATES
+   -------------------------------------------------------------------------- */
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #f0ede6 25%, #faf8f4 50%, #f0ede6 75%);
+  background-size: 200% 100%;
+  animation: shimmerWave 1.8s infinite;
+  border-radius: var(--radius-sm, 6px);
+}
+
+@keyframes shimmerWave {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton-box {
+  width: 100%;
+  height: 200px;
+  border-radius: var(--radius-md, 8px);
+}
+
+.skeleton-line {
+  height: 14px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.art-error-state {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--color-warm-ivory, #F9F7F2);
+  border: 1px dashed var(--color-paper-border, #E5DFC9);
+  border-radius: var(--radius-lg, 12px);
+  margin: 24px 0;
+}
+
+.art-error-icon {
+  font-size: 36px;
+  margin-bottom: 12px;
+  display: block;
+  animation: floatingIconGentle 4s ease-in-out infinite alternate;
+}
+
+/* --------------------------------------------------------------------------
+   12. SEAMLESS MARQUEE REFINEMENT
+   -------------------------------------------------------------------------- */
+.announcement-bar:hover .announcement-track,
+.announcement-bar.is-paused .announcement-track {
+  animation-play-state: paused !important;
+}
+
+/* --------------------------------------------------------------------------
+   13. ACCESSIBILITY: STRICT REDUCED MOTION SUPPORT
+   -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
+    animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+    transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .marquee-track {
+  
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    opacity: 1 !important;
+  }
+
+  .reveal-up,
+  .reveal-fade,
+  .mask-reveal,
+  .ink-reveal,
+  .soft-scale,
+  .text-stagger > *,
+  .hero-slider-content .hero-eyebrow,
+  .hero-slider-content .hero-title,
+  .hero-slider-content .hero-title-zh,
+  .hero-slider-content .hero-description,
+  .hero-slider-content .hero-cta-wrap,
+  .hero-slider-controls {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    filter: none !important;
     animation: none !important;
+  }
+
+  .hero-slide-img {
+    animation: none !important;
+  }
+
+  .announcement-track {
+    animation: none !important;
+  }
+
+  .tilt-card {
+    transform: none !important;
+  }
+
+  .seal-badge-gold,
+  .floating-seal,
+  #nas-assistant-launcher,
+  .assistant-floating-launcher,
+  .gate-icon,
+  #hero-slide-tag,
+  .float-gentle,
+  .float-slow,
+  .float-delayed,
+  .scroll-top-float-btn {
+    animation: none !important;
+  }
+
+  .scroll-progress-bar {
+    display: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. MOBILE OPTIMIZATIONS (360px - 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  .hero-slider-wrap {
+    min-height: 480px;
+  }
+  
+  .hero-slider-controls {
+    bottom: 16px;
+    right: 16px;
+    padding: 4px 10px;
+    gap: 8px;
+  }
+
+  .scroll-top-float-btn {
+    bottom: 20px;
+    left: 18px;
+    width: 38px;
+    height: 38px;
+    font-size: 15px;
+  }
+
+  .entrance-popup-card {
+    max-width: 92%;
+    border-radius: var(--radius-md, 8px);
+  }
+
+  .entrance-popup-body {
+    padding: 20px;
+  }
+
+  .entrance-popup-img {
+    height: 150px;
   }
 }

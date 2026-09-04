@@ -28,7 +28,7 @@ export class GlobalSearchService {
             filterCategory: 'courses',
             title: `${c.title_en || c.title || ''} ${c.title_zh ? '(' + c.title_zh + ')' : ''}`,
             snippet: c.tagline_en || c.description_en || c.description || '',
-            url: `courses/detail.html?id=${c.id || c.slug}`,
+            url: `course-detail.html?id=${c.id || c.slug}`,
             thumbnail: c.hero_image || c.image || '',
             keywords: `${c.title_en} ${c.title_zh} ${c.category} ${c.target_audience_en}`
           });
@@ -51,7 +51,7 @@ export class GlobalSearchService {
             filterCategory: 'artists',
             title: `${nameEn} ${nameZh ? '(' + nameZh + ')' : ''}`,
             snippet: `${role} · ${disc} · ${bio ? bio.slice(0, 100) + '...' : ''}`,
-            url: `artists/detail.html?id=${p.id}`,
+            url: `about.html#team`,
             thumbnail: p.photo_url || p.portrait || '',
             keywords: `${nameEn} ${nameZh} ${role} ${disc} ${p.category || ''}`
           });
@@ -69,7 +69,7 @@ export class GlobalSearchService {
             filterCategory: 'courses',
             title: `${d.name_en || d.name || ''} ${d.name_zh ? '(' + d.name_zh + ')' : ''}`,
             snippet: d.overview_en || d.description || 'Official 1–9 grade syllabus & evaluation standards.',
-            url: `grade-examination/index.html#${d.id}`,
+            url: `grade.html#disciplines`,
             thumbnail: d.image || '',
             keywords: `${d.name_en} ${d.name_zh} grade exam syllabus criteria`
           });
@@ -86,7 +86,7 @@ export class GlobalSearchService {
             filterCategory: 'competitions',
             title: `${comp.title} (${comp.year})`,
             snippet: comp.theme ? `Theme: "${comp.theme}" · ${comp.description || ''}` : comp.description || '',
-            url: comp.id === 'COMP-2020-01' ? 'competitions/winners.html' : 'competitions/nanyang-star.html',
+            url: `nanyang-star.html`,
             thumbnail: comp.poster || '',
             keywords: `${comp.title} ${comp.theme} ${comp.year} nanyang star competition`
           });
@@ -103,7 +103,7 @@ export class GlobalSearchService {
             filterCategory: 'competitions',
             title: `${w.name} ${w.chineseName ? '(' + w.chineseName + ')' : ''} — ${w.award}`,
             snippet: `Artwork: "${w.artwork}" · Group: ${w.ageGroup} (${w.year})`,
-            url: `competitions/winners.html`,
+            url: `nanyang-star.html#winners`,
             thumbnail: w.artwork_image || '',
             keywords: `${w.name} ${w.chineseName} ${w.artwork} ${w.award} ${w.ageGroup} laureate`
           });
@@ -120,7 +120,7 @@ export class GlobalSearchService {
             filterCategory: 'artwork',
             title: `${art.title} ${art.title_zh ? '(' + art.title_zh + ')' : ''}`,
             snippet: `By ${art.artist} (${art.year}) · ${art.discipline || art.category} · ${art.award ? '★ ' + art.award : ''}`,
-            url: `gallery/index.html?artId=${art.id}`,
+            url: `artwork.html?id=${art.id}`,
             thumbnail: art.image || '',
             keywords: `${art.title} ${art.title_zh} ${art.artist} ${art.discipline} ${art.category}`
           });
@@ -137,7 +137,7 @@ export class GlobalSearchService {
             filterCategory: 'news',
             title: `${n.title} ${n.title_zh ? '(' + n.title_zh + ')' : ''}`,
             snippet: n.excerpt || n.excerpt_zh || '',
-            url: `news/detail.html?id=${n.slug}`,
+            url: `article.html?id=${n.slug}`,
             thumbnail: n.image || '',
             keywords: `${n.title} ${n.title_zh} ${n.category} ${n.author} ${n.tags ? n.tags.join(' ') : ''}`
           });
@@ -154,7 +154,7 @@ export class GlobalSearchService {
             filterCategory: 'events',
             title: `${e.title} ${e.title_zh ? '(' + e.title_zh + ')' : ''}`,
             snippet: `📅 ${e.date} · ⏰ ${e.time} · 📍 ${e.location}`,
-            url: `events/detail.html?id=${e.slug}`,
+            url: `article.html?type=event&id=${e.slug}`,
             thumbnail: e.image || '',
             keywords: `${e.title} ${e.title_zh} ${e.eventType} ${e.location}`
           });
@@ -171,7 +171,7 @@ export class GlobalSearchService {
             filterCategory: 'courses',
             title: `${d.title} ${d.title_zh ? '(' + d.title_zh + ')' : ''}`,
             snippet: `Category: ${d.category} · Format: ${d.fileFormat} (${d.fileSize})`,
-            url: `resources/index.html?docId=${d.id}`,
+            url: `about.html#resources`,
             thumbnail: d.thumbnail || '',
             keywords: `${d.title} ${d.title_zh} ${d.category} ${d.fileFormat} download syllabus`
           });

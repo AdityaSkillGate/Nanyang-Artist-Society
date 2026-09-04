@@ -7,6 +7,7 @@
 import { i18n } from '../services/i18n.js';
 import { search } from '../services/search.js';
 import { assistant } from '../services/assistant.js';
+import { animationsEngine } from '../modules/animations.js';
 import { SITE_CONFIG } from '../config/site.js';
 
 export class AppBootloader {
@@ -114,6 +115,13 @@ export class AppBootloader {
       const html = await this.fetchComponent('footer');
       if (html) footerRoot.innerHTML = html;
     }
+
+    // 7. Mount Entrance Popup Modal
+    let popupRoot = document.getElementById('entrance-popup-root');
+    if (popupRoot) {
+      const popupHtml = await this.fetchComponent('entrance-popup');
+      if (popupHtml) popupRoot.innerHTML = popupHtml;
+    }
   }
 
 
@@ -129,11 +137,15 @@ export class AppBootloader {
       link.removeAttribute('aria-current');
     });
 
-    const isHome = this.basePath === './' || 
-                   currentPath === '/' || 
-                   (currentPath.endsWith('/index.html') && !currentPath.replace(/\/index\.html$/, '').split('/').filter(s => s && s !== 'nanyang-artist-society').length);
+    // Check for Home route
+    const isHome = currentPath === '/' || 
+                   currentPath.endsWith('/index.html') ||
+                   currentPath.endsWith('/nanyang-artist-society/') ||
+                   currentPath.endsWith('/nanyang-artist-society');
 
-    if (isHome) {
+    const isRootIndex = isHome && !['/about', '/courses', '/grade', '/competitions', '/gallery', '/news', '/events', '/contact'].some(sub => currentPath.includes(sub));
+
+    if (isRootIndex) {
       document.querySelectorAll('[data-route="home"]').forEach(link => {
         link.classList.add('active');
         link.setAttribute('aria-current', 'page');
@@ -141,16 +153,21 @@ export class AppBootloader {
       return;
     }
 
-    // Determine active route name from path
-    const routes = [
-      'contact', 'about', 'courses', 'grade-examination', 'competitions',
-      'societies', 'gallery', 'news', 'events', 'resources'
+    // Determine active route name from root V2 filenames and legacy subpaths
+    const routeRules = [
+      { route: 'about', match: ['about.html', '/about'] },
+      { route: 'courses', match: ['courses.html', 'course-detail.html', '/courses'] },
+      { route: 'grade', match: ['grade.html', 'grade-detail.html', '/grade-examination'] },
+      { route: 'nanyang-star', match: ['nanyang-star.html', '/competitions'] },
+      { route: 'gallery', match: ['gallery.html', 'artwork.html', '/gallery'] },
+      { route: 'news-events', match: ['news-events.html', 'article.html', '/news', '/events'] },
+      { route: 'contact', match: ['contact.html', '/contact'] }
     ];
 
     let matchedRoute = null;
-    for (const r of routes) {
-      if (currentPath.includes(`/${r}/`)) {
-        matchedRoute = r;
+    for (const rule of routeRules) {
+      if (rule.match.some(m => currentPath.includes(m))) {
+        matchedRoute = rule.route;
         break;
       }
     }
@@ -463,23 +480,25 @@ export class AppBootloader {
 
     const langCodeMap = {
       en: 'EN',
-      zh: '中文',
-      ms: 'BM',
-      ta: 'தமிழ்'
+      'zh-SG': '中文',
+      zh: '中文'
     };
 
     const updateActiveButtons = (currentLang) => {
+      const isZh = (currentLang === 'zh-SG' || currentLang === 'zh');
       // 1. Update text label on header dropdown button
       const codeLabels = document.querySelectorAll('#lang-current-code, .lang-current-code');
       codeLabels.forEach(el => {
-        el.textContent = langCodeMap[currentLang] || currentLang.toUpperCase();
+        el.textContent = isZh ? '中文' : 'EN';
       });
 
       // 2. Update active class on dropdown items & standard buttons
       const langItems = document.querySelectorAll('.lang-dropdown-item, .lang-btn, [data-lang]');
       langItems.forEach(item => {
         const lang = item.getAttribute('data-lang');
-        item.classList.toggle('active', lang === currentLang);
+        const isActive = (lang === currentLang) || (isZh && (lang === 'zh-SG' || lang === 'zh'));
+        item.classList.toggle('active', isActive);
+        item.setAttribute('aria-current', isActive ? 'true' : 'false');
       });
     };
 
@@ -517,7 +536,7 @@ export class AppBootloader {
         const targetLang = langBtn.getAttribute('data-lang');
         if (targetLang) {
           i18n.setLanguage(targetLang);
-          updateActiveButtons(targetLang);
+          updateActiveButtons(i18n.getLanguage());
           closeAllDropdowns();
         }
         return;
@@ -556,6 +575,7 @@ export class AppBootloader {
     this.initLanguageSwitcher();
     if (i18n && typeof i18n.init === 'function') i18n.init();
     if (assistant && typeof assistant.init === 'function') assistant.init();
+    if (animationsEngine && typeof animationsEngine.init === 'function') animationsEngine.init();
   }
 }
 

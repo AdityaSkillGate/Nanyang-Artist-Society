@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Art Gallery & Online Museum | Singapore Nanyang Artists Society</title>
+  <meta name="description" content="Explore digital collections of faculty masterworks and youth competition laureates across 30 authentic division artworks, 7-axis filters, and 3 museum viewing modes.">
+  <link rel="icon" type="image/png" href="assets/logo/logo.png">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Shared Global Shell -->
+  <div id="announcement-root"></div>
+  <div id="header-root"></div>
+
+  <main class="site-main">
+    <!-- Breadcrumb Navigation -->
+    <div style="background: var(--color-warm-ivory-dark); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container breadcrumb-nav">
+        <ol class="breadcrumb-list">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-separator">/</li>
+          <li class="breadcrumb-item" aria-current="page" style="color: var(--color-ink-black); font-weight: 600;">Digital Gallery</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Gallery Hero & Mode Switcher Bar -->
+    <section class="section section-sm" style="background: var(--color-warm-ivory); border-bottom: 1px solid var(--color-paper-border);">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px;">
+          <div>
+            <span class="seal-badge seal-badge-gold" style="margin-bottom: 8px;" data-i18n="gallery.curated_badge">Curated Online Museum</span>
+            <h1 style="font-size: var(--font-size-3xl); margin-bottom: 4px;" data-i18n="gallery.hero_title">Digital Art Gallery & Master Roster</h1>
+            <h2 style="font-size: var(--font-size-md); color: var(--color-cinnabar); margin-bottom: 8px; font-weight: 600;" data-i18n="gallery.hero_subtitle">南洋艺术数字美术馆 · 名家与学员杰作展 (30 Authentic Works)</h2>
+            <p style="font-size: 14px; color: var(--color-ink-muted); margin: 0; max-width: 620px;" data-i18n="gallery.hero_desc">
+              Featuring 30 authentic division artworks: Singapore Nanyang (1–10), Singapore KEC (11–20), and China Division (21–30).
+            </p>
+          </div>
+
+          <!-- Viewing Mode Switcher -->
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 6px;">
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--color-ink-muted);" data-i18n="gallery.view_mode_label">Gallery View Mode:</span>
+            <div class="gallery-mode-switch">
+              <button type="button" class="gallery-mode-btn active" data-gallery-mode="masonry" data-i18n="gallery.mode_masonry">
+                🏛️ Masonry Grid
+              </button>
+              <button type="button" class="gallery-mode-btn" data-gallery-mode="editorial" data-i18n="gallery.mode_editorial">
+                📖 Editorial Salon
+              </button>
+              <button type="button" class="gallery-mode-btn" data-gallery-mode="fullscreen" data-i18n="gallery.mode_fullscreen">
+                🎬 Immersion Darkroom
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7-Axis Discovery Filters Panel -->
+    <section class="section">
+      <div class="container">
+        <div style="background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-xl); padding: 24px; box-shadow: var(--shadow-card); margin-bottom: 28px;">
+          <!-- Top Row: Search Input -->
+          <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap;">
+            <div style="position: relative; flex-grow: 1; min-width: 260px;">
+              <input type="search" id="gallery-search-input" placeholder="Search by title (e.g. Mountain Ridge), artist name, medium, or curatorial notes..." class="form-input" style="padding-left: 40px; height: 44px;" aria-label="Search artworks" data-i18n-placeholder="gallery.search_placeholder">
+              <span style="position: absolute; left: 14px; top: 12px; font-size: 16px; color: var(--color-ink-muted);" aria-hidden="true">🔍</span>
+            </div>
+            <button type="button" class="btn btn-outline" id="gallery-reset-btn" data-i18n="gallery.reset_btn">
+              ↺ Reset 7-Axis Filters
+            </button>
+          </div>
+
+          <!-- Secondary Filters Row (6 Select Dropdowns) -->
+          <div class="grid grid-cols-6" style="gap: 10px; border-top: 1px solid var(--color-paper-border); padding-top: 16px;">
+            <!-- 1. Category -->
+            <div>
+              <label for="gallery-category-select" class="form-label" style="font-size: 11px;" data-i18n="gallery.lbl_category">Category:</label>
+              <select id="gallery-category-select" class="form-select" style="font-size: 11px;">
+                <option value="all" data-i18n="gallery.opt_cat_all">All Categories</option>
+                <option value="fine_arts" data-i18n="gallery.opt_cat_fine">Fine Arts</option>
+                <option value="heritage_arts" data-i18n="gallery.opt_cat_heritage">Heritage Arts</option>
+                <option value="youth_arts" data-i18n="gallery.opt_cat_youth">Youth Arts</option>
+              </select>
+            </div>
+
+            <!-- 2. Artist Type -->
+            <div>
+              <label for="gallery-artist-type-select" class="form-label" style="font-size: 11px;" data-i18n="gallery.lbl_artist">Artist:</label>
+              <select id="gallery-artist-type-select" class="form-select" style="font-size: 11px;">
+                <option value="all" data-i18n="gallery.opt_art_all">All Creators</option>
+                <option value="faculty_master" data-i18n="gallery.opt_art_master">Master Faculty</option>
+                <option value="student_laureate" data-i18n="gallery.opt_art_laureate">Student Laureates</option>
+              </select>
+            </div>
+
+            <!-- 3. Discipline -->
+            <div>
+              <label for="gallery-discipline-select" class="form-label" style="font-size: 11px;" data-i18n="gallery.lbl_discipline">Discipline:</label>
+              <select id="gallery-discipline-select" class="form-select" style="font-size: 11px;">
+                <option value="all" data-i18n="gallery.opt_disc_all">All Disciplines</option>
+                <option value="Oil Painting">Oil Painting</option>
+                <option value="Chinese Painting">Chinese Painting</option>
+                <option value="Chinese Calligraphy">Chinese Calligraphy</option>
+                <option value="Academic Sketching">Academic Sketching</option>
+                <option value="Watercolor">Watercolor</option>
+                <option value="Children Fine Arts">Children Art</option>
+              </select>
+            </div>
+
+            <!-- 4. Year -->
+            <div>
+              <label for="gallery-year-select" class="form-label" style="font-size: 11px;" data-i18n="gallery.lbl_year">Year:</label>
+              <select id="gallery-year-select" class="form-select" style="font-size: 11px;">
+                <option value="all" data-i18n="gallery.opt_year_all">All Years</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2020">2020</option>
+              </select>
+            </div>
+
+            <!-- 5. Competition & Division -->
+            <div>
+              <label for="gallery-competition-select" class="form-label" style="font-size: 11px;" data-i18n="gallery.lbl_division">Division / Region:</label>
+              <select id="gallery-competition-select" class="form-select" style="font-size: 11px;">
+                <option value="all" data-i18n="gallery.opt_div_all">All Divisions (全部分区)</option>
+                <option value="singapore_nanyang" data-i18n="gallery.opt_div_sg">Singapore Nanyang (南洋赛区 1-10)</option>
+                <option value="singapore_kec" data-i18n="gallery.opt_div_kec">Singapore KEC (KEC赛区 11-20)</option>
+                <option value="china" data-i18n="gallery.opt_div_cn">China Division (中国赛区 21-30)</option>
+                <option value="Nanyang Star 2024">Nanyang Star 2024</option>
+              </select>
+            </div>
+
+            <!-- 6. Exhibition -->
+            <div>
+              <label for="gallery-exhibition-select" class="form-label" style="font-size: 11px;" data-i18n="gallery.lbl_exhibition">Exhibition:</label>
+              <select id="gallery-exhibition-select" class="form-select" style="font-size: 11px;">
+                <option value="all" data-i18n="gallery.opt_exh_all">All Exhibitions</option>
+                <option value="FAS">FAS Annual Salon</option>
+                <option value="Retrospective">Masters Retrospective</option>
+                <option value="Laureates">Nanyang Star Laureates</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Result Status Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <span style="font-size: 14px; font-weight: 700; color: var(--color-ink-black);" id="gallery-results-count">
+            Loading gallery collection...
+          </span>
+          <span style="font-size: 12px; color: var(--color-ink-muted);" data-i18n="gallery.high_res_note">
+            High-Resolution Museum Scans with Color Calibration · Click any artwork for pan/zoom
+          </span>
+        </div>
+
+        <!-- Active Gallery Stage -->
+        <div id="gallery-stage-container">
+          <!-- Populated dynamically via js/gallery.js -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Master Lightbox Modal -->
+  <div id="gallery-lightbox-modal" class="gallery-lightbox-overlay" style="display: none;">
+    <!-- Top Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; color: #FFFFFF; width: 100%;">
+      <div>
+        <h3 id="lightbox-art-title" style="font-size: 17px; margin: 0; font-weight: 600;">Artwork Title</h3>
+        <p id="lightbox-art-meta" style="font-size: 12px; color: #9CA3AF; margin: 2px 0 0;">Artist Details</p>
+      </div>
+
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <span id="lightbox-index-badge" style="font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px;">1 / 30</span>
+        <button type="button" class="btn btn-outline btn-sm" id="lightbox-zoom-in-btn" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);" title="Zoom In (+)">🔍+</button>
+        <button type="button" class="btn btn-outline btn-sm" id="lightbox-zoom-out-btn" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);" title="Zoom Out (-)">🔍-</button>
+        <button type="button" class="btn btn-outline btn-sm" id="lightbox-zoom-reset-btn" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);" title="Reset (0)">↺</button>
+        <span id="lightbox-zoom-badge" style="font-size: 11px; font-weight: 700; color: #9CA3AF;">100%</span>
+        <button type="button" class="btn btn-outline btn-sm" id="lightbox-fullscreen-btn" style="color: #FFFFFF; border-color: rgba(255,255,255,0.3);" title="Toggle Fullscreen (F)">⛶</button>
+        <a href="#" id="lightbox-artwork-page-btn" class="btn btn-primary btn-sm" style="font-size: 11px; padding: 4px 10px;">Artwork Page →</a>
+        <button type="button" class="lightbox-nav-btn" id="lightbox-close-btn" aria-label="Close lightbox" style="margin-left: 8px;">✕</button>
+      </div>
+    </div>
+
+    <!-- Center Canvas Stage with Navigation Arrows -->
+    <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; height: 75vh; position: relative;">
+      <button type="button" class="lightbox-nav-btn" id="lightbox-prev-btn" aria-label="Previous artwork" title="Previous (Left Arrow)">◀</button>
+
+      <div id="lightbox-viewport" style="flex-grow: 1; height: 100%; display: flex; justify-content: center; align-items: center; overflow: hidden; cursor: grab;">
+        <img id="lightbox-canvas-img" src="assets/logo/logo.png" alt="Artwork High Resolution" style="max-height: 90%; max-width: 90%; object-fit: contain; transition: transform 0.1s ease-out; border-radius: var(--radius-xs);" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
+      </div>
+
+      <button type="button" class="lightbox-nav-btn" id="lightbox-next-btn" aria-label="Next artwork" title="Next (Right Arrow)">▶</button>
+    </div>
+
+    <!-- Bottom Guidance -->
+    <div style="text-align: center; font-size: 11px; color: #9CA3AF;">
+      Keyboard: <code>←</code> Previous · <code>→</code> Next · <code>+</code> / <code>-</code> Zoom · <code>0</code> Reset · <code>F</code> Fullscreen · <code>ESC</code> Close
+    </div>
+  </div>
+
+  <!-- Shared Footer -->
+  <div id="footer-root"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/core/app.js"></script>
+  <script type="module">
+    import { DigitalGallery } from './js/gallery.js';
+    document.addEventListener('DOMContentLoaded', () => {
+      new DigitalGallery().init();
+    });
+  </script>
+</body>
+</html>

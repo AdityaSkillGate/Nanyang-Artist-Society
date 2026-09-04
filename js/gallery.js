@@ -49,11 +49,17 @@ export class DigitalGallery {
   }
 
   resolveImgUrl(url) {
-    if (!url) return '../assets/logo/logo.png';
+    const isRoot = !window.location.pathname.includes('/gallery/');
+    const fallback = isRoot ? 'assets/logo/logo.png' : '../assets/logo/logo.png';
+    if (!url) return fallback;
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
-    if (url.startsWith('../') || url.startsWith('./')) return url;
-    if (url.startsWith('/')) return url;
-    return '../' + url;
+    if (url.startsWith('./') || url.startsWith('/')) return url;
+    if (isRoot) {
+      return url.replace(/^\.\.\//, '');
+    } else {
+      if (url.startsWith('../')) return url;
+      return '../' + url;
+    }
   }
 
   bindControls() {
@@ -260,9 +266,11 @@ export class DigitalGallery {
       return matchQuery && matchCat && matchArtistType && matchYear && matchDisc && matchComp && matchExh;
     });
 
+    const isZh = (i18n.getLanguage ? (i18n.getLanguage() === 'zh-SG' || i18n.getLanguage() === 'zh') : false);
+
     const countBadge = document.getElementById('gallery-results-count');
     if (countBadge) {
-      countBadge.textContent = `Showing ${this.filteredArtworks.length} masterpiece${this.filteredArtworks.length === 1 ? '' : 's'}`;
+      countBadge.textContent = isZh ? `共展示 ${this.filteredArtworks.length} 幅馆藏杰作` : `Showing ${this.filteredArtworks.length} masterpiece${this.filteredArtworks.length === 1 ? '' : 's'}`;
     }
 
     this.renderActiveMode();
@@ -272,16 +280,18 @@ export class DigitalGallery {
     const container = document.getElementById('gallery-stage-container');
     if (!container) return;
 
+    const isZh = (i18n.getLanguage ? (i18n.getLanguage() === 'zh-SG' || i18n.getLanguage() === 'zh') : false);
+
     if (this.filteredArtworks.length === 0) {
       container.innerHTML = `
         <div style="padding: 60px 24px; text-align: center; background: var(--color-gallery-white); border: 1px dashed var(--color-paper-border-dark); border-radius: var(--radius-md);">
           <div style="font-size: 42px; margin-bottom: 8px;">🖼️</div>
-          <h3 style="font-size: 20px; margin-bottom: 4px;">No Artworks Found</h3>
+          <h3 style="font-size: 20px; margin-bottom: 4px;">${isZh ? '未找到匹配的艺术作品' : 'No Artworks Found'}</h3>
           <p style="font-size: 14px; color: var(--color-ink-muted); max-width: 480px; margin: 0 auto 16px;">
-            No artworks match your selected 7-axis filters. Please try relaxing your parameters or resetting filters.
+            ${isZh ? '当前筛选条件下暂无展品，请尝试放宽筛选条件或重置筛选器。' : 'No artworks match your selected 7-axis filters. Please try relaxing your parameters or resetting filters.'}
           </p>
           <button type="button" class="btn btn-outline" onclick="document.getElementById('gallery-reset-btn').dispatchEvent(new Event('click'))">
-            ↺ Reset Filters
+            ↺ ${isZh ? '重置全部筛选' : 'Reset Filters'}
           </button>
         </div>
       `;
@@ -298,21 +308,29 @@ export class DigitalGallery {
   }
 
   renderMasonry(container) {
+    const isZh = (i18n.getLanguage ? (i18n.getLanguage() === 'zh-SG' || i18n.getLanguage() === 'zh') : false);
     container.innerHTML = `
       <div class="gallery-masonry-grid">
-        ${this.filteredArtworks.map((art, idx) => `
+        ${this.filteredArtworks.map((art, idx) => {
+          const mainTitle = isZh ? (art.title_zh || art.title) : art.title;
+          const subTitle = isZh ? (art.title ? `<p style="font-size: 11px; color: var(--color-ink-muted); margin: 0 0 8px;">${art.title}</p>` : '') : (art.title_zh ? `<h5 style="font-size: 12px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 8px;">${art.title_zh}</h5>` : '');
+          const mainArtist = isZh ? (art.artist_zh || art.artist) : art.artist;
+          const subArtist = isZh ? (art.artist ? ` (${art.artist})` : '') : (art.artist_zh ? ` (${art.artist_zh})` : '');
+          const awardText = isZh ? (art.awardTier === 'Grand Prize' ? '特等奖' : art.award || '典藏佳作') : (art.award || 'Laureate');
+
+          return `
           <div class="gallery-masonry-item">
             <div style="position: relative; overflow: hidden; background: var(--color-warm-ivory-dark);">
-              <img src="${this.resolveImgUrl(art.imageUrl)}" alt="${art.title}" class="gallery-masonry-img" loading="lazy" data-art-index="${idx}" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+              <img src="${this.resolveImgUrl(art.imageUrl)}" alt="${mainTitle}" class="gallery-masonry-img" loading="lazy" data-art-index="${idx}" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
               <span class="seal-badge ${art.awardTier === 'Grand Prize' ? 'seal-badge-gold' : 'seal-badge-cobalt'}" style="position: absolute; top: 12px; left: 12px;">
-                ${art.award || 'Laureate'}
+                ${awardText}
               </span>
             </div>
             <div style="padding: 16px;">
-              <h4 style="font-size: 16px; margin: 0 0 2px;">${art.title}</h4>
-              <h5 style="font-size: 12px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 8px;">${art.title_zh}</h5>
+              <h4 style="font-size: 16px; margin: 0 0 2px;">${mainTitle}</h4>
+              ${subTitle}
               <p style="font-size: 12px; color: var(--color-ink-muted); margin: 0 0 6px;">
-                <strong>${art.artist}</strong> (${art.artist_zh}) · ${art.year}
+                <strong>${mainArtist}</strong>${subArtist} · ${art.year}
               </p>
               <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--color-ink-charcoal); margin: 0;">
                 <span>${art.discipline}</span>
@@ -320,21 +338,31 @@ export class DigitalGallery {
               </div>
             </div>
           </div>
-        `).join('')}
+        `;
+        }).join('')}
       </div>
     `;
     this.bindArtworkClicks(container);
   }
 
   renderEditorial(container) {
+    const isZh = (i18n.getLanguage ? (i18n.getLanguage() === 'zh-SG' || i18n.getLanguage() === 'zh') : false);
     container.innerHTML = `
       <div class="gallery-editorial-list">
-        ${this.filteredArtworks.map((art, idx) => `
+        ${this.filteredArtworks.map((art, idx) => {
+          const mainTitle = isZh ? (art.title_zh || art.title) : art.title;
+          const subTitle = isZh ? (art.title ? `<p style="font-size: 12px; color: var(--color-ink-muted); margin: 0 0 14px;">${art.title}</p>` : '') : (art.title_zh ? `<h4 style="font-size: 14px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 14px;">${art.title_zh}</h4>` : '');
+          const mainArtist = isZh ? (art.artist_zh || art.artist) : art.artist;
+          const subArtist = isZh ? (art.artist ? ` (${art.artist})` : '') : (art.artist_zh ? ` (${art.artist_zh})` : '');
+          const awardText = isZh ? (art.awardTier === 'Grand Prize' ? '特等奖典藏' : art.award || '展区杰出佳作') : (art.award || 'Laureate Showcase');
+          const desc = isZh ? (art.description_zh || art.description) : art.description;
+
+          return `
           <div class="gallery-editorial-card">
             <div style="position: relative; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-card); background: var(--color-warm-ivory-dark);">
-              <img src="${this.resolveImgUrl(art.imageUrl)}" alt="${art.title}" style="width: 100%; height: 380px; object-fit: cover; cursor: pointer;" loading="lazy" data-art-index="${idx}" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
+              <img src="${this.resolveImgUrl(art.imageUrl)}" alt="${mainTitle}" style="width: 100%; height: 380px; object-fit: cover; cursor: pointer;" loading="lazy" data-art-index="${idx}" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
               <span class="seal-badge ${art.awardTier === 'Grand Prize' ? 'seal-badge-gold' : 'seal-badge-cobalt'}" style="position: absolute; top: 12px; left: 12px;">
-                ${art.award || 'Laureate Showcase'}
+                ${awardText}
               </span>
             </div>
             <div>
@@ -343,26 +371,27 @@ export class DigitalGallery {
                 <span class="seal-badge seal-badge-gold">${art.division || ''}</span>
                 <span style="font-size: 11px; font-weight: 700; color: var(--color-ink-muted); background: var(--color-warm-ivory); padding: 2px 8px; border-radius: 2px;">${art.year}</span>
               </div>
-              <h3 style="font-size: 22px; margin: 0 0 2px;">${art.title}</h3>
-              <h4 style="font-size: 14px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 14px;">${art.title_zh}</h4>
+              <h3 style="font-size: 22px; margin: 0 0 2px;">${mainTitle}</h3>
+              ${subTitle}
 
               <div style="background: var(--color-warm-ivory); border-radius: var(--radius-xs); padding: 12px; font-size: 12px; color: var(--color-ink-charcoal); line-height: 1.5; margin-bottom: 16px; border: 1px solid var(--color-paper-border);">
-                <p style="margin: 0 0 4px;">👤 <strong>Artist:</strong> ${art.artist} (${art.artist_zh})</p>
-                <p style="margin: 0 0 4px;">🎨 <strong>Medium:</strong> ${art.medium}</p>
-                <p style="margin: 0 0 4px;">📐 <strong>Dimensions:</strong> ${art.dimensions}</p>
-                ${art.award ? `<p style="margin: 0; color: var(--color-cinnabar);">🏅 <strong>Honour:</strong> ${art.award}</p>` : ''}
+                <p style="margin: 0 0 4px;">👤 <strong>${isZh ? '创作者' : 'Artist'}:</strong> ${mainArtist}${subArtist}</p>
+                <p style="margin: 0 0 4px;">🎨 <strong>${isZh ? '画种媒介' : 'Medium'}:</strong> ${art.medium}</p>
+                <p style="margin: 0 0 4px;">📐 <strong>${isZh ? '尺幅规格' : 'Dimensions'}:</strong> ${art.dimensions}</p>
+                ${art.award ? `<p style="margin: 0; color: var(--color-cinnabar);">🏅 <strong>${isZh ? '参展荣誉' : 'Honour'}:</strong> ${awardText}</p>` : ''}
               </div>
 
               <p style="font-size: 13px; color: var(--color-ink-charcoal); line-height: 1.6; margin-bottom: 16px;">
-                ${art.description}
+                ${desc}
               </p>
 
               <button type="button" class="btn btn-outline btn-sm" data-art-index="${idx}">
-                🔍 Inspect High-Resolution Scan
+                🔍 ${isZh ? '查看高保真原画放大' : 'Inspect High-Resolution Scan'}
               </button>
             </div>
           </div>
-        `).join('')}
+        `;
+        }).join('')}
       </div>
     `;
     this.bindArtworkClicks(container);
@@ -458,6 +487,11 @@ export class DigitalGallery {
 
     if (countBadge) {
       countBadge.textContent = `${this.currentLightboxIndex + 1} / ${this.filteredArtworks.length}`;
+    }
+
+    const pageLink = document.getElementById('lightbox-artwork-page-btn');
+    if (pageLink) {
+      pageLink.href = `artwork.html?id=${art.id}`;
     }
   }
 

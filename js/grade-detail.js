@@ -13,17 +13,26 @@ export class GradeDetailController {
 
   async init() {
     const params = new URLSearchParams(window.location.search);
-    const discParam = params.get('id') || params.get('discipline') || 'DISC-CLG';
-    const gradeParam = parseInt(params.get('grade'), 10);
+    let discParam = params.get('id') || params.get('discipline') || params.get('track') || 'DISC-CLG';
+    if (discParam === 'hard-pen' || discParam === 'soft-pen') {
+      discParam = 'DISC-CLG';
+    }
+    const gradeParam = parseInt(params.get('grade') || params.get('level'), 10);
 
     try {
       this.disciplines = await dataAdapter.getTable('Disciplines');
       this.gradeLevels = await dataAdapter.getTable('GradeLevels');
 
-      if (window.location.pathname.includes('grade.html')) {
-        this.renderGradeLevelView(discParam, gradeParam);
+      if (window.location.pathname.includes('grade-detail.html')) {
+        if (gradeParam) {
+          this.renderGradeLevelView(discParam, gradeParam);
+        } else {
+          this.renderDisciplineView(discParam);
+        }
       } else if (window.location.pathname.includes('discipline.html')) {
         this.renderDisciplineView(discParam);
+      } else {
+        this.renderGradeLevelView(discParam, gradeParam);
       }
     } catch (err) {
       console.error('[GradeDetailController] Init error:', err);
@@ -65,6 +74,9 @@ export class GradeDetailController {
     // Render Grades 1 to Max Level Grid
     const levelsGrid = document.getElementById('disc-levels-grid');
     if (levelsGrid) {
+      const isRoot = !window.location.pathname.includes('/grade-examination/');
+      const linkPrefix = isRoot ? 'grade-detail.html' : 'grade.html';
+
       const levels = [];
       for (let g = 1; g <= disc.maxGrade; g++) {
         const found = this.gradeLevels.find(gl => gl.discipline_id === disc.id && gl.grade === g);
@@ -89,7 +101,7 @@ export class GradeDetailController {
           <p style="font-size: 13px; color: var(--color-ink-muted); line-height: 1.5; margin-bottom: 16px; flex-grow: 1;">
             ${lvl.overview}
           </p>
-          <a href="grade.html?discipline=${disc.id}&grade=${lvl.grade}" class="btn btn-outline btn-sm">
+          <a href="${linkPrefix}?id=${disc.id}&grade=${lvl.grade}" class="btn btn-outline btn-sm">
             View Scoring Rubric & Task →
           </a>
         </div>

@@ -209,19 +209,23 @@ export class CoursesDiscovery {
     const countBadge = document.getElementById('courses-count-badge');
     if (!grid) return;
 
+    const isZh = (i18n.getLanguage() === 'zh-SG' || i18n.getLanguage() === 'zh');
+
     if (countBadge) {
-      countBadge.textContent = `Showing ${this.filteredCourses.length} of ${this.courses.length} courses`;
+      countBadge.textContent = isZh 
+        ? `共显示 ${this.courses.length} 门专业课程中的 ${this.filteredCourses.length} 门`
+        : `Showing ${this.filteredCourses.length} of ${this.courses.length} courses`;
     }
 
     if (this.filteredCourses.length === 0) {
       grid.innerHTML = `
         <div style="grid-column: 1 / -1; text-align: center; padding: 64px 20px; background: var(--color-gallery-white); border: 1px solid var(--color-paper-border); border-radius: var(--radius-md);">
           <div style="font-size: 48px; margin-bottom: 12px;">🎨</div>
-          <h3 style="font-size: 20px; margin-bottom: 8px;">No matching art courses found</h3>
+          <h3 style="font-size: 20px; margin-bottom: 8px;">${isZh ? '未找到符合条件的艺术课程' : 'No matching art courses found'}</h3>
           <p style="font-size: 14px; color: var(--color-ink-muted); margin-bottom: 24px; max-width: 460px; margin-left: auto; margin-right: auto;">
-            We couldn't find any courses matching your specific search and filter criteria. Try adjusting or clearing your filters.
+            ${isZh ? '当前筛选条件下暂无课程，请尝试重置筛选或调整搜索关键词。' : "We couldn't find any courses matching your specific search and filter criteria. Try adjusting or clearing your filters."}
           </p>
-          <button type="button" class="btn btn-primary btn-sm" id="empty-reset-btn">Clear All Filters</button>
+          <button type="button" class="btn btn-primary btn-sm" id="empty-reset-btn">${isZh ? '重置全部筛选' : 'Clear All Filters'}</button>
         </div>
       `;
       const emptyReset = document.getElementById('empty-reset-btn');
@@ -229,43 +233,120 @@ export class CoursesDiscovery {
       return;
     }
 
-    const viewCourseText = i18n.t('btn.view_details', 'View Course →');
-    const enquireText = i18n.t('btn.enquire', 'Enquire');
+    const viewCourseText = isZh ? '查看详情 →' : i18n.t('btn.view_details', 'View Details →');
+    const enquireText = isZh ? '课程咨询' : i18n.t('btn.enquire', 'Enquire Course');
+    const levelLabel = isZh ? '难度等级:' : 'Level:';
+    const formatLabel = isZh ? '授课形式:' : 'Format:';
+
+    const isRoot = !window.location.pathname.includes('/courses/');
+    const detailPrefix = isRoot ? 'course-detail.html' : 'detail.html';
+    const contactPrefix = isRoot ? 'contact.html' : '../contact/index.html';
+    const fallbackLogo = isRoot ? 'assets/logo/logo.png' : '../assets/logo/logo.png';
 
     grid.innerHTML = this.filteredCourses.map(c => {
-      const title = i18n.getField(c, 'title') || c.title_en || c.title || '';
-      const summary = i18n.getField(c, 'shortDescription') || i18n.getField(c, 'short_summary') || c.shortDescription || c.short_summary || '';
+      const primaryTitle = isZh ? (c.title_zh || c.title) : (c.title_en || c.title || '');
+      const secondaryTitle = isZh 
+        ? (c.title_en ? `<p style="font-size: 12.5px; color: var(--color-ink-muted); margin-bottom: 8px;">${c.title_en}</p>` : '')
+        : (c.title_zh ? `<p style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600; margin-bottom: 8px;">${c.title_zh}</p>` : '');
+
+      const summary = isZh
+        ? (c.shortDescription_zh || c.short_summary_zh || c.excerpt_zh || c.shortDescription || c.short_summary || '')
+        : (c.shortDescription || c.short_summary || '');
+
+      const ageBadge = this._formatAge(c.age_range, isZh);
+      const disciplineBadge = this._formatDiscipline(c.discipline, isZh);
+      const levelText = this._formatLevel(c.skillLevel, isZh);
+      const formatText = this._formatFormat(c.class_format, isZh);
 
       return `
         <div class="card course-card">
           <div class="card-media">
-            <img src="${c.thumbnail_url || c.image}" alt="${title}" loading="lazy" onerror="this.onerror=null; this.src='../assets/logo/logo.png';">
-            <span class="course-badge">${c.age_range || 'All Ages'}</span>
+            <img src="${c.thumbnail_url || c.image}" alt="${primaryTitle}" loading="lazy" onerror="this.onerror=null; this.src='${fallbackLogo}';">
+            <span class="course-badge">${ageBadge}</span>
           </div>
           <div class="card-body">
-            <div style="display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap;">
-              <span class="seal-badge">${c.discipline || 'Fine Arts'}</span>
-              ${c.contentStatus === 'client_confirmation_required' ? '<span class="seal-badge seal-badge-gold" style="font-size: 10px;">Client Confirmation</span>' : ''}
+            <div style="display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap;">
+              <span class="seal-badge">${disciplineBadge}</span>
+              ${c.contentStatus === 'client_confirmation_required' ? `<span class="seal-badge seal-badge-gold" style="font-size: 10px;">${isZh ? '官方核准' : 'Client Confirmation'}</span>` : ''}
             </div>
 
-            <h3 class="card-title" style="font-size: 18px; margin-bottom: 4px;">${title}</h3>
-            ${c.title_zh ? `<p style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600; margin-bottom: 8px;">${c.title_zh}</p>` : ''}
+            <h3 class="card-title">${primaryTitle}</h3>
+            ${secondaryTitle}
             <p class="card-text">${summary}</p>
             
             <div class="course-meta-grid">
-              <div><strong>Level:</strong> <span style="text-transform: capitalize;">${c.skillLevel || 'All'}</span></div>
-              <div><strong>Format:</strong> ${c.class_format || 'Studio'}</div>
+              <div><strong>${levelLabel}</strong> <span>${levelText}</span></div>
+              <div><strong>${formatLabel}</strong> <span>${formatText}</span></div>
             </div>
             
-            <div style="margin-top: 12px; display: flex; gap: 8px;">
-              <a href="detail.html?id=${c.id}" class="btn btn-outline btn-sm" style="flex: 1;">${viewCourseText}</a>
-              <a href="../contact/index.html?course=${encodeURIComponent(c.title_en || title)}" class="btn btn-primary btn-sm">${enquireText}</a>
+            <div class="course-card-actions">
+              <a href="${detailPrefix}?id=${c.id}" class="btn btn-outline btn-sm" style="flex: 1;">${viewCourseText}</a>
+              <a href="${contactPrefix}?course=${encodeURIComponent(c.title_en || primaryTitle)}" class="btn btn-primary btn-sm">${enquireText}</a>
             </div>
           </div>
         </div>
       `;
     }).join('');
   }
+
+  _formatAge(ageStr, isZh) {
+    if (!ageStr) return isZh ? '全年龄' : 'All Ages';
+    if (!isZh) return ageStr;
+    const map = {
+      'Ages 13+ / Adults': '13岁+ / 成人',
+      'Ages 9+ / Teens & Adults': '9岁+ / 青少年与成人',
+      'Ages 8+ / Teens': '8岁+ / 青少年',
+      'Ages 8+ / Teens & Adults': '8岁+ / 青少年与成人',
+      'Ages 7+ to Adults': '7岁+ / 青少年与成人',
+      'Ages 7–12 / Primary': '7–12岁 / 少儿进阶',
+      'Ages 4–8 / Children': '4–8岁 / 儿童启智',
+      'Ages 3–8 Years': '3–8岁 / 少儿启蒙',
+      'Ages 3-8 Years': '3–8岁 / 少儿启蒙',
+      'Ages 16+ / Educators': '16岁+ / 师资研修'
+    };
+    return map[ageStr] || ageStr;
+  }
+
+  _formatDiscipline(disc, isZh) {
+    if (!disc) return isZh ? '纯美术' : 'Fine Arts';
+    if (!isZh) return disc;
+    const map = {
+      'Oil Painting': '油画研习',
+      'Academic Sketching': '学院派素描',
+      'Watercolor & Gouache': '水彩水粉',
+      'Chinese Calligraphy': '中国书法',
+      'Chinese Ink & Shanshui': '水墨山水',
+      'Children Intellectual Art': '少儿启智美术',
+      'Art Educator Certification': '师资认证'
+    };
+    return map[disc] || disc;
+  }
+
+  _formatLevel(lvl, isZh) {
+    if (!lvl) return isZh ? '全阶段' : 'All Levels';
+    if (!isZh) return lvl.charAt(0).toUpperCase() + lvl.slice(1);
+    const map = {
+      'beginner': '入门基础',
+      'intermediate': '进阶研习',
+      'advanced': '高阶研修',
+      'all': '全阶段'
+    };
+    return map[lvl.toLowerCase()] || lvl;
+  }
+
+  _formatFormat(fmt, isZh) {
+    if (!fmt) return isZh ? '工作室制' : 'Studio';
+    if (!isZh) return fmt;
+    const map = {
+      'Studio Masterclass': '大师工作室',
+      'Studio Practical': '实践工坊',
+      'Studio Workshop': '研习工作坊',
+      'Specialized Studio': '专业工作室',
+      'Foundational Workshop': '基础启蒙班'
+    };
+    return map[fmt] || fmt;
+  }
+
 
   renderLoadingState() {
     const grid = document.getElementById('courses-catalog-grid');

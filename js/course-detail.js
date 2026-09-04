@@ -196,13 +196,16 @@ export class CourseDetailPage {
         other.id !== c.id && (other.category === c.category || other.target_group === c.target_group)
       ).slice(0, 2);
 
+      const isRoot = !window.location.pathname.includes('/courses/');
+      const detailPrefix = isRoot ? 'course-detail.html' : 'detail.html';
+
       relatedGrid.innerHTML = related.map(rel => `
         <div class="card" style="padding: 16px;">
           <span class="seal-badge" style="margin-bottom: 6px; align-self: flex-start;">${rel.discipline}</span>
           <h4 style="font-size: 15px; margin: 0 0 2px;">${rel.title_en}</h4>
           <p style="font-size: 12px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 8px;">${rel.title_zh || ''}</p>
           <p style="font-size: 12px; color: var(--color-ink-muted); margin: 0 0 12px; line-height: 1.4;">${rel.shortDescription || rel.short_summary}</p>
-          <a href="detail.html?id=${rel.id}" class="btn btn-outline btn-sm">View Syllabus →</a>
+          <a href="${detailPrefix}?id=${rel.id}" class="btn btn-outline btn-sm">View Syllabus →</a>
         </div>
       `).join('');
     }
@@ -258,6 +261,8 @@ export class CourseDetailPage {
 
   renderMissingId() {
     const main = document.getElementById('course-detail-main');
+    const isRoot = !window.location.pathname.includes('/courses/');
+    const catalogUrl = isRoot ? 'courses.html' : 'index.html';
     if (main) {
       main.innerHTML = `
         <section class="section section-lg" style="text-align: center;">
@@ -267,7 +272,7 @@ export class CourseDetailPage {
             <p style="font-size: 16px; color: var(--color-ink-muted); margin-bottom: 24px;">
               Please select an art course from our complete studio curriculum catalog.
             </p>
-            <a href="index.html" class="btn btn-primary btn-lg">Browse All Art Courses →</a>
+            <a href="${catalogUrl}" class="btn btn-primary btn-lg">Browse All Art Courses →</a>
           </div>
         </section>
       `;
