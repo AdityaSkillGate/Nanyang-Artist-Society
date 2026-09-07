@@ -17,6 +17,10 @@ export class AboutPageController {
   }
 
   async init() {
+    // 1. Render leadership immediately so CEO card is guaranteed present with zero delay
+    this.renderLeadership();
+    this.bindAnchorNav();
+
     try {
       const [people, milestones, organizations] = await Promise.all([
         dataAdapter.getTable('People'),
@@ -33,17 +37,19 @@ export class AboutPageController {
       this.bindAllianceFilters();
       this.renderSocieties();
       this.initTimeline();
-      this.bindAnchorNav();
-
-      window.addEventListener('nas:languageChanged', () => {
-        this.renderLeadership();
-        this.renderFaculty();
-        this.renderSocieties();
-        this.renderActiveMilestone();
-      });
     } catch (err) {
       console.error('[AboutPageController] Init error:', err);
+      this.renderLeadership();
+      this.renderFaculty();
+      this.renderSocieties();
     }
+
+    window.addEventListener('nas:languageChanged', () => {
+      this.renderLeadership();
+      this.renderFaculty();
+      this.renderSocieties();
+      this.renderActiveMilestone();
+    });
   }
 
   bindAnchorNav() {
@@ -81,44 +87,146 @@ export class AboutPageController {
   }
 
   renderLeadership() {
-    const container = document.getElementById('about-leadership-grid');
+    const container = document.getElementById('about-leadership-container') || document.getElementById('about-leadership-grid');
     if (!container) return;
 
     const isZh = (i18n.getLanguage() === 'zh-SG' || i18n.getLanguage() === 'zh');
-    const leaders = this.people.filter(p => p.category === 'executive_board');
-    const specLabel = isZh ? '专业领域:' : 'Specialization:';
+    // Only display CEO & Director Dr. Teng Jiashu with a premium and professional theme
+    const ceo = this.people.find(p => p.id === 'PPL-TENG-01' || p.slug === 'dr-teng-jiashu') || {
+      name_en: "Dr. Teng Jiashu",
+      name_zh: "滕家述",
+      role_title_en: "CEO / Director",
+      role_title_zh: "首席执行官 / 总监",
+      role_type: "CEO / Director",
+      discipline_specialty: "Oil Painting, Chinese Painting, Calligraphy, Public Sculpture, Brain Development",
+      photo_url: "assets/Dr. Teng Jiashu.png"
+    };
 
-    container.innerHTML = leaders.map(p => {
-      const primaryName = isZh ? (p.name_zh || p.name_en) : p.name_en;
-      const secondaryName = isZh ? (p.name_en ? `<p style="font-size: 12.5px; color: var(--color-ink-muted); margin: 0 0 4px;">${p.name_en}</p>` : '') : (p.name_zh ? `<h4 style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600; margin: 0 0 4px;">${p.name_zh}</h4>` : '');
-      const roleTitle = isZh ? (p.role_title_zh || p.role_title_en) : p.role_title_en;
-      const roleBadge = isZh ? (p.role_type_zh || '执行理事') : (p.role_type || 'Executive Council');
-      const bio = isZh ? (p.bio_zh || p.bio_en) : p.bio_en;
-      const specialty = isZh ? (p.discipline_specialty_zh || p.discipline_specialty || '传统书画与美育') : (p.discipline_specialty || 'Traditional Fine Arts & Education');
+    const primaryName = isZh ? (ceo.name_zh || ceo.name_en) : ceo.name_en;
+    const secondaryName = isZh ? (ceo.name_en || '') : (ceo.name_zh || '');
+    const fullRole = isZh 
+      ? '首席执行官 / 总监 · 南洋亚洲学院创办人 · 南洋美术家协会创会会长 (2002)' 
+      : 'CEO / Director · Founder of Nanyang Asia College · Founder & President of Nanyang Artists Society (2002)';
+    const bio = isZh ? (ceo.bio_zh || ceo.bio_en) : ceo.bio_en;
+    const specialty = isZh 
+      ? '写实油画与人物肖像、传统山水与花鸟、五体书法与螳螂腿隶书、大型公共雕塑、大脑智力潜能开发' 
+      : (ceo.discipline_specialty || 'Oil Painting, Chinese Shanshui Landscape, Calligraphy (5 Scripts & Mantis-Leg), Public Sculpture, Brain Development');
 
-      return `
-        <div class="card" style="padding: 24px; display: flex; flex-direction: column; height: 100%;">
-          <div style="display: flex; gap: 16px; align-items: flex-start; margin-bottom: 16px;">
-            <img src="${p.photo_url || 'assets/logo/logo.png'}" alt="${primaryName}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--color-gold); flex-shrink: 0;" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
-            <div>
-              <span class="seal-badge seal-badge-gold" style="margin-bottom: 4px; font-size: 10px;">${roleBadge}</span>
-              <h3 style="font-size: 17px; margin: 0 0 2px;">${primaryName}</h3>
-              ${secondaryName}
-              <p style="font-size: 12px; color: var(--color-ink-muted); margin: 0; font-weight: 600;">${roleTitle}</p>
+    container.innerHTML = `
+      <div class="ceo-leadership-executive-card">
+        <div class="ceo-leadership-grid">
+          <!-- Left Column: Executive Portrait & Direct Governance Credentials -->
+          <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+            <div style="position: relative; width: 100%; max-width: 280px; margin-bottom: 20px;">
+              <div style="width: 100%; aspect-ratio: 4/5; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 16px 36px rgba(0,0,0,0.15); border: 2px solid var(--color-gold); background: #FAF9F5;">
+                <img src="${ceo.photo_url || 'assets/Dr. Teng Jiashu.png'}" alt="${primaryName}" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
+              </div>
+              <div style="position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); width: 92%; z-index: 5;">
+                <span style="font-size: 11.5px; padding: 6px 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.18); width: 100%; text-align: center; display: block; white-space: nowrap; background: #FFFFFF; color: #8A6514; border: 1.5px solid #C5A059; border-radius: 9999px; font-weight: 700; letter-spacing: 0.3px;">
+                  ${isZh ? 'CEO / Director · 首席执行官 / 总监' : 'CEO / Director · Executive Leadership'}
+                </span>
+              </div>
+            </div>
+
+            <!-- Society Maintenance Sole Authority Badge -->
+            <div style="background: linear-gradient(135deg, rgba(184, 51, 42, 0.08) 0%, rgba(197, 160, 89, 0.12) 100%); border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 8px; padding: 12px 14px; width: 100%; max-width: 280px; margin-top: 8px; margin-bottom: 16px; text-align: center;">
+              <span style="font-size: 11px; font-weight: 700; color: var(--color-cinnabar); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 3px;">
+                ${isZh ? '🏛️ 协会全权主持与总监领航' : '🏛️ Executive Society Leadership'}
+              </span>
+              <span style="font-size: 11.5px; color: var(--color-ink-charcoal); line-height: 1.4; display: block;">
+                ${isZh ? '全面主持南洋美术家协会行政管理、考级评审与百年美育体系建设。' : 'Sole Executive Custodian guiding Society governance, national examinations, and artistic heritage.'}
+              </span>
+            </div>
+
+            <!-- Verification Pills -->
+            <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 280px; text-align: left;">
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-left: 3px solid var(--color-cinnabar); padding: 8px 12px; border-radius: 4px; font-size: 11.5px; color: var(--color-ink-charcoal);">
+                <strong style="color: var(--color-cinnabar); display: block; margin-bottom: 2px;">🏛️ SSG / CPE EduTrust:</strong>
+                <span>${isZh ? '新加坡精深局/私立教育委 4年EduTrust教育信托认证' : '4-Year EduTrust Certified (Nanyang Asia College)'}</span>
+              </div>
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-left: 3px solid var(--color-gold); padding: 8px 12px; border-radius: 4px; font-size: 11.5px; color: var(--color-ink-charcoal);">
+                <strong style="color: var(--color-gold); display: block; margin-bottom: 2px;">🖌️ Master Lineage (2002):</strong>
+                <span>${isZh ? '受南洋画派先驱大师刘抗先生亲炙指导创立协会' : 'Mentored by Pioneer Master Liu Kang (2002)'}</span>
+              </div>
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-left: 3px solid var(--color-cobalt); padding: 8px 12px; border-radius: 4px; font-size: 11.5px; color: var(--color-ink-charcoal);">
+                <strong style="color: var(--color-cobalt); display: block; margin-bottom: 2px;">🌟 Global Distinction:</strong>
+                <span>${isZh ? '1997年荣获入选《世界名人录》 (Who’s Who in the World)' : 'Who’s Who in the World Inductee (1997)'}</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 18px; width: 100%; max-width: 280px; display: flex; flex-direction: column; gap: 8px;">
+              <a href="artist-detail.html?id=dr-teng-jiashu" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;">
+                ${isZh ? '查看完整生平与艺术典藏 →' : 'View Master Biography & Portfolio →'}
+              </a>
+              <a href="courses.html" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;">
+                ${isZh ? '探索名家导师研修课' : 'Explore Masterclass Studios'}
+              </a>
             </div>
           </div>
 
-          <div style="background: var(--color-warm-ivory); border-radius: var(--radius-xs); padding: 10px; font-size: 11.5px; color: var(--color-ink-charcoal); line-height: 1.4; margin-bottom: 12px; border: 1px solid var(--color-paper-border);">
-            <strong style="color: var(--color-ink-black); display: block; margin-bottom: 2px;">${specLabel}</strong>
-            ${specialty}
-          </div>
+          <!-- Right Column: Titles, Verified Bio & 4 Core Pillars -->
+          <div style="display: flex; flex-direction: column;">
+            <div style="margin-bottom: 18px; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 16px;">
+              <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
+                <h3 style="font-size: 28px; margin: 0; color: var(--color-ink-black); font-weight: 700;">${primaryName}</h3>
+                ${secondaryName ? `<span style="font-size: 20px; font-family: var(--font-serif); color: var(--color-cinnabar); font-weight: 700;">${secondaryName}</span>` : ''}
+              </div>
+              <p style="font-size: 14.5px; font-weight: 600; color: var(--color-ink-charcoal); margin: 4px 0 10px;">
+                ${fullRole}
+              </p>
+              <div style="background: var(--color-warm-ivory); border-radius: 6px; padding: 10px 14px; font-size: 12.5px; border: 1px solid var(--color-paper-border); color: var(--color-ink-charcoal);">
+                <strong style="color: var(--color-cinnabar);">${isZh ? '专业造诣与涉足领域：' : 'Specialization & Mastery: '}</strong>
+                ${specialty}
+              </div>
+            </div>
 
-          <p style="font-size: 12.5px; color: var(--color-ink-charcoal); line-height: 1.55; margin: 0 0 16px; flex-grow: 1;">
-            ${bio}
-          </p>
+            <!-- Comprehensive Verified Biography -->
+            <p style="font-size: 14px; color: var(--color-ink-charcoal); line-height: 1.75; margin-bottom: 22px; text-align: justify;">
+              ${bio}
+            </p>
+
+            <!-- 4-Pillar Mastery Grid -->
+            <div class="ceo-pillars-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;">
+                  ${isZh ? '🏛️ 高等教育管理与EduTrust信托' : '🏛️ Tertiary Education & EduTrust'}
+                </div>
+                <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;">
+                  ${isZh ? '30余年潜心创办高等院校与教育科研，南洋亚洲学院荣膺新加坡精深技能发展局（SSG）/ 私立教育委员会（CPE）4年EduTrust教育信托认证。' : '30+ years dedicated to tertiary education management research. Nanyang Asia College is the preferred AEIS training institute, awarded 4-year EduTrust certification by SSG / CPE.'}
+                </div>
+              </div>
+
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;">
+                  ${isZh ? '🖌️ 先驱亲炙与协会创立传承' : '🖌️ Pioneer Mentorship & Society Heritage'}
+                </div>
+                <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;">
+                  ${isZh ? '2002年在南洋画派先驱大师刘抗先生的亲自指导下创立南洋美术家协会，承续南洋艺术风范，凝聚区域艺术菁英。' : 'Founded the Nanyang Artists Society in 2002 under the direct mentorship of pioneer master Liu Kang, championing the enduring Nanyang art spirit.'}
+                </div>
+              </div>
+
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;">
+                  ${isZh ? '✒️ 独创螳螂腿隶书与雨林画派' : '✒️ Calligraphy Innovation & Rainforest Style'}
+                </div>
+                <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;">
+                  ${isZh ? '楷隶行草篆诸体兼通，独创“螳螂腿隶书”；融通中西写实油画与水墨，与门生共同开拓“热带雨林画派”崭新图式。' : 'Master of five calligraphy scripts, creator of "Mantis-Leg Clerical Script", and co-pioneer of the distinctive "Tropical Rainforest Painting Style".'}
+                </div>
+              </div>
+
+              <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;">
+                  ${isZh ? '🗿 里程碑雕塑巨作与大脑智力开发' : '🗿 Monumental Sculptures & Brain Intelligence'}
+                </div>
+                <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;">
+                  ${isZh ? '为南洋小学创作大型雕塑《团结·奋飞》，为柔佛宽柔二小创作《孔子像》；创立大脑智力潜能开发课程，培育大批学子跻身世界顶尖学府。' : 'Sculpted "Unity and Soaring High" for Nanyang Primary and Confucius for Foon Yew; pioneer of brain intelligence and memory potential development curriculums.'}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      `;
-    }).join('');
+      </div>
+    `;
   }
 
   renderFaculty() {
@@ -377,7 +485,11 @@ export class AboutPageController {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const controller = new AboutPageController();
-  controller.init();
-});
+const aboutController = new AboutPageController();
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => aboutController.init());
+  } else {
+    aboutController.init();
+  }
+}
