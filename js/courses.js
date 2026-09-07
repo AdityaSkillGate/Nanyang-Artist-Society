@@ -277,6 +277,10 @@ export class CoursesDiscovery {
             <div class="course-meta-grid">
               <div><strong>${levelLabel}</strong> <span>${levelText}</span></div>
               <div><strong>${formatLabel}</strong> <span>${formatText}</span></div>
+              <div style="grid-column: 1 / -1; border-top: 1px solid var(--color-paper-border); padding-top: 8px; margin-top: 4px; display: flex; justify-content: space-between; align-items: center; font-size: 11.5px; flex-wrap: wrap; gap: 4px;">
+                <span>💰 <strong>${isZh ? '学费' : 'Fee'}:</strong> <span style="color: var(--color-cinnabar); font-weight: 700;">Group $50 | 1:1 $80</span> (2 hrs)</span>
+                <span class="seal-badge seal-badge-gold" style="font-size: 10px; padding: 2px 6px;">${c.materials ? (isZh ? (c.materials_zh || c.materials) : c.materials) : (isZh ? '自备画材' : 'Self-contained')}</span>
+              </div>
             </div>
             
             <div class="course-card-actions">

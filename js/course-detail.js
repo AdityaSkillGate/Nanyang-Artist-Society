@@ -95,9 +95,39 @@ export class CourseDetailPage {
     if (assessEl) assessEl.textContent = c.assessment || 'National Examination Grade Alignment';
     if (instNameEl) instNameEl.textContent = c.instructor || 'Senior Society Faculty';
 
-    // 4. Overview Description
+    // 4. Overview Description & Objectives
     const fullDescEl = document.getElementById('course-full-description');
-    if (fullDescEl) fullDescEl.textContent = c.description || c.shortDescription || '';
+    if (fullDescEl) {
+      const objText = c.objectives || c.description || c.shortDescription || '';
+      fullDescEl.textContent = objText;
+    }
+
+    // 4.5 Course Charges & Payment Instructions
+    const chargesTbody = document.getElementById('course-charges-tbody');
+    const materialsPill = document.getElementById('course-materials-pill');
+    const paymentList = document.getElementById('course-payment-instructions-list');
+
+    if (chargesTbody) {
+      const charges = c.charges && c.charges.length > 0 ? c.charges : [
+        { category: 'Group', fee: 'S$ 50', duration: '2 hrs' },
+        { category: '1 to 1', fee: 'S$ 80', duration: '2 hrs' }
+      ];
+      chargesTbody.innerHTML = charges.map(ch => `
+        <tr style="border-bottom: 1px solid var(--color-paper-border);">
+          <td style="padding: 12px 14px; font-weight: 600; color: var(--color-ink-black);">${ch.category}</td>
+          <td style="padding: 12px 14px; font-weight: 700; color: var(--color-cinnabar); font-size: 15px;">${ch.fee}</td>
+          <td style="padding: 12px 14px; color: var(--color-ink-muted);">${ch.duration}</td>
+        </tr>
+      `).join('');
+    }
+
+    if (materialsPill) {
+      materialsPill.textContent = c.materials ? `🎨 ${c.materials}` : '🎨 Self-contained Materials';
+    }
+
+    if (paymentList && c.paymentInstructions && c.paymentInstructions.length > 0) {
+      paymentList.innerHTML = c.paymentInstructions.map(pi => `<li>${pi.replace(/^\d+[\.\)]\s*/, '')}</li>`).join('');
+    }
 
     // 5. Learning Outcomes List
     const outcomesList = document.getElementById('course-outcomes-list');
