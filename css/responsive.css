@@ -233,7 +233,7 @@ html[lang="ta"] .lang-btn {
 @media (max-width: 639px) {
   /* Strict mobile viewport bounds */
   html, body {
-    overflow-x: hidden !important;
+    overflow-x: clip !important;
     max-width: 100vw !important;
     width: 100% !important;
   }

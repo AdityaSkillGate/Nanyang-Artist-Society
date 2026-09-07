@@ -3,10 +3,10 @@
    Aggregating all modular CSS layers in architectural cascade order
    ========================================================================== */
 
-@import url('variables.css?v=mf3');
-@import url('base.css?v=mf3');
-@import url('layout.css?v=mf3');
-@import url('components.css?v=mf3');
-@import url('animations.css?v=mf3');
-@import url('responsive.css?v=mf3');
-@import url('grade.css?v=mf3');
+@import url('variables.css?v=mf4');
+@import url('base.css?v=mf4');
+@import url('layout.css?v=mf4');
+@import url('components.css?v=mf4');
+@import url('animations.css?v=mf4');
+@import url('responsive.css?v=mf4');
+@import url('grade.css?v=mf4');
