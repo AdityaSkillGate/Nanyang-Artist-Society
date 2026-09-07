@@ -18,6 +18,11 @@
       padding: 12px 0;
       margin-bottom: 24px;
       white-space: nowrap;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .feed-tabs-bar::-webkit-scrollbar {
+      display: none;
     }
     .feed-tab-btn {
       padding: 8px 18px;
@@ -35,6 +40,29 @@
       color: #FFFFFF;
       background: var(--color-cinnabar);
       border-color: var(--color-cinnabar);
+    }
+    .feed-featured-card {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      background: var(--color-gallery-white, #FFFFFF);
+      border: 1px solid var(--color-paper-border, #E5DFC9);
+      border-radius: var(--radius-xl, 20px);
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(18, 19, 22, 0.06);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .feed-featured-card:hover {
+      box-shadow: 0 16px 36px rgba(18, 19, 22, 0.12), 0 3px 8px rgba(197, 160, 89, 0.15);
+      border-color: var(--color-gold, #C5A059);
+    }
+    @media (max-width: 860px) {
+      .feed-featured-card {
+        grid-template-columns: 1fr;
+      }
+      .feed-featured-card .event-media-wrap {
+        height: 220px !important;
+        min-height: 220px !important;
+      }
     }
   </style>
 </head>

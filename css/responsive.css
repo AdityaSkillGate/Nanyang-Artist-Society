@@ -275,3 +275,80 @@ html[lang="ta"] .lang-btn {
     display: none !important;
   }
 }
+
+/* ==========================================================================
+   VIEWPORT ENHANCEMENTS: CONTACT & CEO SHOWCASE
+   ========================================================================== */
+
+/* Contact Page Grid */
+.contact-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+@media (max-width: 900px) {
+  .contact-main-grid {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .contact-main-grid .card {
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .contact-form-row {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .contact-main-grid .card {
+    padding: 20px !important;
+  }
+}
+
+/* Home Section 8: CEO Showcase Responsive */
+@media (max-width: 900px) {
+  .ceo-grid-layout {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .ceo-portrait-column {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  .ceo-showcase-card {
+    padding: 24px !important;
+  }
+  .ceo-pillars-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 639px) {
+  .ceo-showcase-card {
+    padding: 18px !important;
+  }
+  .ceo-portrait-column {
+    max-width: 240px;
+  }
+}
+
+/* Course Detail Page Responsive Grid */
+.course-detail-layout-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+@media (max-width: 960px) {
+  .course-detail-layout-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+

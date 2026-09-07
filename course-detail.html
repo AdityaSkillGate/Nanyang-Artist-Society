@@ -94,16 +94,59 @@
     <!-- MAIN BODY: Content Sections & Sticky Enquiry Form -->
     <section class="section">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 48px; align-items: flex-start;">
+        <div class="course-detail-layout-grid">
           <!-- Left Column: Core Content Sections -->
           <div>
-            <!-- 3. OVERVIEW -->
+            <!-- 3. OVERVIEW / OBJECTIVES -->
             <div style="margin-bottom: 36px;">
-              <span class="section-subtitle">Pedagogical Overview</span>
-              <h2 style="font-size: 24px; margin-bottom: 12px;">Curriculum Philosophy & Background</h2>
-              <p style="font-size: 15px; color: var(--color-ink-charcoal); line-height: 1.7;" id="course-full-description">
+              <span class="section-subtitle">Pedagogical Overview & Objectives</span>
+              <h2 style="font-size: 24px; margin-bottom: 12px;">Curriculum Objectives & Course Philosophy</h2>
+              <div style="font-size: 15px; color: var(--color-ink-charcoal); line-height: 1.7; white-space: pre-line;" id="course-full-description">
                 Description...
-              </p>
+              </div>
+            </div>
+
+            <!-- 3.5 OFFICIAL CHARGES, MATERIALS & PAYMENT TERMS -->
+            <div id="course-charges-section" style="background: var(--color-gallery-white); border: 2px solid var(--color-paper-border); border-radius: var(--radius-md); padding: 24px; margin-bottom: 36px; box-shadow: var(--shadow-sm);">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                <div>
+                  <span class="seal-badge seal-badge-cinnabar" style="margin-bottom: 6px;">Official Fee Schedule & Terms</span>
+                  <h3 style="font-size: 20px; margin: 0;">Course Charges & Payment Terms</h3>
+                  <p style="font-size: 13px; color: var(--color-cinnabar); font-weight: 600; margin: 2px 0 0;">课程收费标准 · 自备画材说明 · 缴费优惠指引</p>
+                </div>
+                <div id="course-materials-badge-container">
+                  <span class="seal-badge seal-badge-gold" id="course-materials-pill" style="font-size: 12px; padding: 6px 12px;">🎨 Self-contained Materials</span>
+                </div>
+              </div>
+
+              <!-- Charges Table -->
+              <div style="overflow-x: auto; margin-bottom: 20px;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;" id="course-charges-table">
+                  <thead>
+                    <tr style="background: var(--color-warm-ivory); border-bottom: 2px solid var(--color-paper-border);">
+                      <th style="padding: 10px 14px; font-weight: 700; color: var(--color-ink-black);">Category / 类别</th>
+                      <th style="padding: 10px 14px; font-weight: 700; color: var(--color-cinnabar);">Fee (S$) / 学费</th>
+                      <th style="padding: 10px 14px; font-weight: 700; color: var(--color-ink-black);">Duration / 时长</th>
+                    </tr>
+                  </thead>
+                  <tbody id="course-charges-tbody">
+                    <!-- Populated dynamically via js/course-detail.js -->
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- Payment Instructions & Discounts -->
+              <div style="background: var(--color-warm-ivory); border-radius: var(--radius-sm); border: 1px solid var(--color-paper-border); padding: 16px;">
+                <h4 style="font-size: 14px; margin: 0 0 8px; color: var(--color-ink-black); display: flex; align-items: center; gap: 6px;">
+                  <span>💳</span>
+                  <span>Payment Instructions & Multi-Term Discounts / 缴费指引与优惠:</span>
+                </h4>
+                <ol style="margin: 0; padding-left: 20px; font-size: 13.5px; color: var(--color-ink-charcoal); line-height: 1.6;" id="course-payment-instructions-list">
+                  <li>Every Payment at least 3 months. (每期学费至少按3个月缴纳)</li>
+                  <li>One-time payment for half a year, S$50 discount. (一次性缴纳半年学费，立减 S$50)</li>
+                  <li>One-time payment for one year, S$150 discount. (一次性缴纳全年学费，立减 S$150)</li>
+                </ol>
+              </div>
             </div>
 
             <!-- 4. LEARNING OUTCOMES -->
