@@ -6,7 +6,7 @@
   <title>About Us — History, Mission, Leadership & Community | Singapore Nanyang Artists Society</title>
   <meta name="description" content="Learn about the Singapore Nanyang Artists Society, established in 2002 under pioneer Liu Kang's guidance. Meet our executive board, master faculty, affiliated societies, and explore our 2012–2026 milestones.">
   <link rel="icon" type="image/png" href="assets/logo/logo.png">
-  <link rel="stylesheet" href="css/main.css?v=mf2">
+  <link rel="stylesheet" href="css/main.css?v=mf3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet">
@@ -156,7 +156,119 @@
         </div>
 
         <div id="about-leadership-container">
-          <!-- Populated dynamically via js/about.js -->
+          <div class="ceo-leadership-executive-card">
+            <div class="ceo-leadership-grid">
+              <!-- Left Column: Executive Portrait & Direct Governance Credentials -->
+              <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+                <div style="position: relative; width: 100%; max-width: 280px; margin-bottom: 20px;">
+                  <div style="width: 100%; aspect-ratio: 4/5; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 16px 36px rgba(0,0,0,0.15); border: 2px solid var(--color-gold); background: #FAF9F5;">
+                    <img src="assets/Dr. Teng Jiashu.png" alt="Dr. Teng Jiashu (滕家述)" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;" onerror="this.onerror=null; this.src='assets/logo/logo.png';">
+                  </div>
+                  <div style="position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%); width: 92%; z-index: 5;">
+                    <span style="font-size: 11.5px; padding: 6px 12px; box-shadow: 0 4px 14px rgba(0,0,0,0.18); width: 100%; text-align: center; display: block; white-space: nowrap; background: #FFFFFF; color: #8A6514; border: 1.5px solid #C5A059; border-radius: 9999px; font-weight: 700; letter-spacing: 0.3px;" data-i18n="about.ceo_badge_lead">
+                      CEO / Director · Executive Leadership
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Society Maintenance Sole Authority Badge -->
+                <div style="background: linear-gradient(135deg, rgba(184, 51, 42, 0.08) 0%, rgba(197, 160, 89, 0.12) 100%); border: 1px solid rgba(197, 160, 89, 0.3); border-radius: 8px; padding: 12px 14px; width: 100%; max-width: 280px; margin-top: 8px; margin-bottom: 16px; text-align: center;">
+                  <span style="font-size: 11px; font-weight: 700; color: var(--color-cinnabar); text-transform: uppercase; letter-spacing: 0.5px; display: block; margin-bottom: 3px;" data-i18n="about.ceo_auth_title">
+                    🏛️ Executive Society Leadership
+                  </span>
+                  <span style="font-size: 11.5px; color: var(--color-ink-charcoal); line-height: 1.4; display: block;" data-i18n="about.ceo_auth_desc">
+                    Sole Executive Custodian guiding Society governance, national examinations, and artistic heritage.
+                  </span>
+                </div>
+
+                <!-- Verification Pills -->
+                <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 280px; text-align: left;">
+                  <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-left: 3px solid var(--color-cinnabar); padding: 8px 12px; border-radius: 4px; font-size: 11.5px; color: var(--color-ink-charcoal);">
+                    <strong style="color: var(--color-cinnabar); display: block; margin-bottom: 2px;" data-i18n="about.ceo_edutrust_label">🏛️ SSG / CPE EduTrust:</strong>
+                    <span data-i18n="about.ceo_edutrust_desc">4-Year EduTrust Certified (Nanyang Asia College)</span>
+                  </div>
+                  <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-left: 3px solid var(--color-gold); padding: 8px 12px; border-radius: 4px; font-size: 11.5px; color: var(--color-ink-charcoal);">
+                    <strong style="color: var(--color-gold); display: block; margin-bottom: 2px;" data-i18n="about.ceo_heritage_label">🖌️ Master Lineage (2002):</strong>
+                    <span data-i18n="about.ceo_heritage_desc">Mentored by Pioneer Master Liu Kang</span>
+                  </div>
+                  <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); border-left: 3px solid var(--color-cobalt); padding: 8px 12px; border-radius: 4px; font-size: 11.5px; color: var(--color-ink-charcoal);">
+                    <strong style="color: var(--color-cobalt); display: block; margin-bottom: 2px;" data-i18n="about.ceo_whoswho_label">🌟 Global Distinction:</strong>
+                    <span data-i18n="about.ceo_whoswho_desc">Who's Who in the World Inductee (1997)</span>
+                  </div>
+                </div>
+
+                <div style="margin-top: 18px; width: 100%; max-width: 280px; display: flex; flex-direction: column; gap: 8px;">
+                  <a href="artist-detail.html?id=dr-teng-jiashu" class="btn btn-primary btn-sm" style="width: 100%; justify-content: center;" data-i18n="about.ceo_btn_profile">
+                    View Master Biography & Portfolio →
+                  </a>
+                  <a href="courses.html" class="btn btn-outline btn-sm" style="width: 100%; justify-content: center;" data-i18n="about.ceo_btn_courses">
+                    Explore Masterclass Studios
+                  </a>
+                </div>
+              </div>
+
+              <!-- Right Column: Titles, Verified Bio & 4 Core Pillars -->
+              <div style="display: flex; flex-direction: column;">
+                <div style="margin-bottom: 18px; border-bottom: 1px solid var(--color-paper-border); padding-bottom: 16px;">
+                  <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 4px;">
+                    <h3 style="font-size: 28px; margin: 0; color: var(--color-ink-black); font-weight: 700;" data-i18n="about.ceo_name">Dr. Teng Jiashu</h3>
+                    <span style="font-size: 20px; font-family: var(--font-serif); color: var(--color-cinnabar); font-weight: 700;" data-i18n="about.ceo_name_zh">滕家述 博士</span>
+                  </div>
+                  <p style="font-size: 14.5px; font-weight: 600; color: var(--color-ink-charcoal); margin: 4px 0 10px;" data-i18n="about.ceo_role">
+                    CEO / Director · Founder of Nanyang Asia College · Founder & President of Nanyang Artists Society (2002)
+                  </p>
+                  <div style="background: var(--color-warm-ivory); border-radius: 6px; padding: 10px 14px; font-size: 12.5px; border: 1px solid var(--color-paper-border); color: var(--color-ink-charcoal);">
+                    <strong style="color: var(--color-cinnabar);" data-i18n="about.ceo_specialty_label">Specialization & Mastery: </strong>
+                    <span data-i18n="about.ceo_specialty_desc">Realism Oil Painting & Portraiture, Traditional Shanshui Landscape & Bird-and-Flower, Five Calligraphy Scripts & Mantis-Leg Clerical Script, Monumental Public Sculpture, Brain Intelligence & Potential Development</span>
+                  </div>
+                </div>
+
+                <!-- Comprehensive Verified Biography -->
+                <p style="font-size: 14px; color: var(--color-ink-charcoal); line-height: 1.75; margin-bottom: 22px; text-align: justify;" data-i18n="about.ceo_bio">
+                  Since establishing his first education center in Singapore in 1993, Dr. Teng was inducted into Who’s Who in the World in 1997. He has been deeply involved in the fields of education and the arts, winning multiple authoritative industry awards. For over 30 years, he has dedicated himself to founding tertiary colleges, committing to education management research, and striving to develop the education sector. Today, Nanyang Asia College has become a preferred training institute for AEIS parents in Singapore and has been awarded the 4-year EduTrust certification by the SkillsFuture Singapore (SSG) / Committee for Private Education (CPE), successfully laying a solid cornerstone for the college’s centennial development. At the same time, he is also a renowned artist. In 2002, under the guidance of Mr. Liu Kang, the founder of the Nanyang Art Style, he founded the Nanyang Artists Association. Dr. Teng is highly proficient in Chinese calligraphy, mastering Regular script, Clerical script, Running script, Cursive script, and Seal script, and is able to blend these various styles into his calligraphic creations. He also innovated the “Mantis-Leg Clerical Script.” Integrating Chinese and Western methodologies, he is skilled in realism, oil painting, figure painting, and portraiture, having painted portraits for numerous prominent figures. He is equally proficient in traditional Chinese landscape, flower, and bird paintings, and has collaborated with his students to pioneer the “Tropical Rainforest Painting Style.” Furthermore, he excels in sculpting, having created the large-scale sculpture Unity and Soaring High for Nanyang Primary School in Singapore, and the Confucius sculpture for the Second Affiliate Primary School of Foon Yew in Johor, Malaysia. He also founded brain intelligence development courses, nurturing numerous top students who have successfully entered world-class, prestigious universities.
+                </p>
+
+                <!-- 4-Pillar Mastery Grid -->
+                <div class="ceo-pillars-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                  <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;" data-i18n="about.ceo_pillar1_title">
+                      🏛️ Tertiary Education & EduTrust
+                    </div>
+                    <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;" data-i18n="about.ceo_pillar1_desc">
+                      30+ years dedicated to tertiary education management research. Nanyang Asia College is the preferred AEIS training institute, awarded 4-year EduTrust certification by SSG / CPE.
+                    </div>
+                  </div>
+
+                  <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;" data-i18n="about.ceo_pillar2_title">
+                      🖌️ Pioneer Mentorship & Society Heritage
+                    </div>
+                    <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;" data-i18n="about.ceo_pillar2_desc">
+                      Founded the Nanyang Artists Society in 2002 under the direct mentorship of pioneer master Liu Kang, championing the enduring Nanyang art spirit.
+                    </div>
+                  </div>
+
+                  <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;" data-i18n="about.ceo_pillar3_title">
+                      ✒️ Calligraphy Innovation & Rainforest Style
+                    </div>
+                    <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;" data-i18n="about.ceo_pillar3_desc">
+                      Master of five calligraphy scripts, creator of 'Mantis-Leg Clerical Script', and co-pioneer of the distinctive 'Tropical Rainforest Painting Style'.
+                    </div>
+                  </div>
+
+                  <div style="background: var(--color-warm-ivory); border: 1px solid var(--color-paper-border); padding: 14px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 13.5px; font-weight: 700; color: var(--color-ink-black); margin-bottom: 4px;" data-i18n="about.ceo_pillar4_title">
+                      🗿 Monumental Sculptures & Brain Intelligence
+                    </div>
+                    <div style="font-size: 12px; color: var(--color-ink-muted); line-height: 1.5;" data-i18n="about.ceo_pillar4_desc">
+                      Sculpted 'Unity and Soaring High' for Nanyang Primary and Confucius for Foon Yew; pioneer of brain intelligence and memory potential development curriculums.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
