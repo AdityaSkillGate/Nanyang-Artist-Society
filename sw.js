@@ -1,10 +1,10 @@
 /**
  * NANYANG ARTISTS SOCIETY — PRODUCTION PWA SERVICE WORKER
- * Cache Version: v2.4.0
+ * Cache Version: v2.7.0
  * Cache Strategy: Stale-While-Revalidate for Static Assets, Network-First for API/CMS.
  */
 
-const CACHE_NAME = 'nas-static-cache-v2.5.0';
+const CACHE_NAME = 'nas-static-cache-v2.7.0';
 
 const PRECACHE_ASSETS = [
   './',
@@ -50,15 +50,11 @@ self.addEventListener('fetch', (event) => {
   const request = event.request;
   const url = new URL(request.url);
 
-  // 1. API Calls & Admin CMS: Network-First (Never serve stale CMS data)
-  if (url.pathname.includes('/admin/') || url.search.includes('action=') || request.method !== 'GET') {
+  // 1. API Calls, Admin CMS & HTML Components: Network-First (Never serve stale UI components or CMS data)
+  if (url.pathname.includes('/admin/') || url.pathname.includes('/components/') || url.search.includes('action=') || request.method !== 'GET') {
     event.respondWith(
       fetch(request).catch(() => {
-        return new Response(JSON.stringify({
-          success: false,
-          error: "You are currently offline. Please reconnect to sync latest live data.",
-          code: "OFFLINE_503"
-        }), { headers: { 'Content-Type': 'application/json' } });
+        return caches.match(request);
       })
     );
     return;
