@@ -4,8 +4,21 @@
  */
 
 import { CHINESE_CALLIGRAPHY_GRADES } from '../data/sample/grades.js';
+import { SEED_DATA } from '../data/seed-data.js';
+
+// Enrich default courses with local high-res art assets
+const ENRICHED_COURSES = (SEED_DATA.Courses || []).map(c => {
+  if (c.id === 'CRS-CIA') return { ...c, category: 'youth-arts', thumbnail_url: 'assets/images/art-works/chinese-children-art.png' };
+  if (c.id === 'CRS-CTN') return { ...c, category: 'youth-arts', thumbnail_url: 'assets/images/art-works/Creative-Cartoon-art.png' };
+  if (c.id === 'CRS-HDC') return { ...c, category: 'youth-arts', thumbnail_url: 'assets/images/art-works/art-11.png' };
+  if (c.id === 'CRS-CHP') return { ...c, category: 'heritage-arts', thumbnail_url: 'assets/images/art-works/oil-panting.png' };
+  if (c.id === 'CRS-SKT') return { ...c, category: 'fine-arts', thumbnail_url: 'assets/images/art-works/sketch-art.png' };
+  if (c.id === 'CRS-SHU') return { ...c, category: 'heritage-arts', thumbnail_url: 'assets/images/art-works/art-1.png' };
+  return c;
+});
 
 export const DB_DATA = {
+  Courses: ENRICHED_COURSES,
   ChineseCalligraphyGrades: CHINESE_CALLIGRAPHY_GRADES,
   News: [
     {
@@ -670,25 +683,28 @@ export const DB_DATA = {
       slug: "dr-teng-jiashu",
       name_en: "Dr. Teng Jiashu",
       name_zh: "滕家述",
-      role_title_en: "President & Artistic Director",
-      role_title_zh: "会长 / 艺术总监",
-      role_type: "President",
+      role_title_en: "CEO / Director",
+      role_title_zh: "首席执行官 / 总监",
+      role_type: "CEO / Director",
       category: "executive_board",
-      discipline_specialty: "Oil Painting, Chinese Shanshui Landscape, Calligraphy, Public Sculpture",
-      bio_en: "字成夏，1962年生。油画家、中国画画家、书法家、雕塑家。Dr. Teng has dedicated over four decades to visual arts education and cross-cultural dialogue across Southeast Asia. His work bridges European classical chiaroscuro with the rhythmic bone-brush vitality of Chinese ink wash.",
-      bio_zh: "字成夏，1962年生。当代著名油画家、国画山水大家、书法家与公共雕塑家。四十余年来致力于南洋艺术教育与跨文化交流，开创融汇中西的南洋画风。",
-      photo_url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+      discipline_specialty: "Oil Painting, Chinese Painting, Calligraphy, Public Sculpture, Brain Development",
+      bio_en: "Since establishing his first education center in Singapore in 1993, Dr. Teng was inducted into the Who’s Who in the World in 1997. He has been deeply involved in the fields of education and the arts, winning multiple authoritative industry awards. For over 30 years, he has dedicated himself to founding tertiary colleges, committing to education management research, and striving to develop the education sector. Today, Nanyang Asia College has become a preferred training institute for AEIS parents in Singapore and has been awarded the 4-year EduTrust certification by the SkillsFuture Singapore (SSG) / Committee for Private Education (CPE), successfully laying a solid cornerstone for the college’s centennial development. At the same time, he is also a renowned artist. In 2002, under the guidance of Mr. Liu Kang, the founder of the Nanyang Art Style, he founded the Nanyang Artists Association. Dr. Teng is highly proficient in Chinese calligraphy, mastering Regular script, Clerical script, Running script, Cursive script, and Seal script, and is able to blend these various styles into his calligraphic creations. He also innovated the “Mantis-Leg Clerical Script.” Integrating Chinese and Western methodologies, he is skilled in realism, oil painting, figure painting, and portraiture, having painted portraits for numerous prominent figures. He is equally proficient in traditional Chinese landscape, flower, and bird paintings, and has collaborated with his students to pioneer the “Tropical Rainforest Painting Style.” Furthermore, he excels in sculpting, having created the large-scale sculpture Unity and Soaring High for Nanyang Primary School in Singapore, and the Confucius sculpture for the Second Affiliate Primary School of Foon Yew in Johor, Malaysia. He also founded brain intelligence development courses, nurturing numerous top students who have successfully entered world-class, prestigious universities.",
+      bio_zh: "自1993年在新加坡创立第一所教育中心以来，滕家述博士于1997年入选《世界名人录》。他深耕教育与艺术领域，屡获多项行业权威奖项。30多年来，他致力于创办高等院校，潜心于教育管理研究，积极推动教育事业发展。如今，南洋亚洲学院已成为新加坡AEIS家长的首选培训学院，并荣获新加坡精深技能发展局（SSG）/ 私立教育委员会（CPE）颁发的4年EduTrust教育信托认证，为学院百年发展奠定了坚实基石。同时，他也是一位蜚声海内外的杰出艺术家。2002年在南洋画派先驱刘抗先生的指导下创立南洋美术家协会。滕博士精研中国书法，楷、隶、行、草、篆诸体皆精，融通各家之长，更独创“螳螂腿隶书”。他融汇中西绘画技法，擅长写实油画与人物肖像，曾为多位社会名流绘制肖像；深谙中国传统山水及花鸟画法度，与学生共同开创“热带雨林画派”；精于雕塑创作，为新加坡南洋小学创作大型雕塑《团结·奋飞》，为马来西亚柔佛宽柔二小创作《孔子像》；他更创立大脑智力潜能开发课程，培育出众多考入世界顶尖名校的优秀学子。",
+      photo_url: "assets/Dr. Teng Jiashu.png",
       exhibitions: [
-        "Singapore Federation of Art Societies Annual Grand Salon (2024)",
-        "Nanjing International Art Biennale Invitational (2023)",
-        "Tokyo Asia Contemporary Oil Painting Salon (2022)",
-        "Singapore National Monument Sculpture Exhibition (2018)"
+        "Singapore Federation of Art Societies Annual Grand Salon",
+        "Nanjing International Art Biennale Invitational",
+        "Tokyo Asia Contemporary Oil Painting Salon",
+        "Singapore National Monument Sculpture Exhibition"
       ],
       achievements: [
-        "Japan Peony Award Master Distinction for Oil Painting 《山脊人家》",
-        "National Outstanding Chinese Painting Work Award for Shanshui 《暮色山乡》",
-        "Permanent Public Sculpture Commission 《团结-奋飞》 installed at Nanyang Primary School campus",
-        "President & Founder of Singapore Nanyang Artists Society"
+        "Who's Who in the World (1997)",
+        "Founder of Nanyang Asia College (SSG/CPE 4-Year EduTrust Certification)",
+        "President & Founder of Nanyang Artists Society (2002, mentored by Liu Kang)",
+        "Innovator of 'Mantis-Leg Clerical Script' & Pioneer of 'Tropical Rainforest Painting Style'",
+        "Monumental Sculpture 'Unity and Soaring High' for Nanyang Primary School Singapore",
+        "Confucius Sculpture for Foon Yew 2nd Affiliate Primary School Malaysia",
+        "Pioneer of Brain Intelligence & Memory Development Curriculums"
       ],
       coursesTaught: ["CRS-OIL-01", "CRS-CHP-01", "CRS-TCH-01"],
       selectedWorks: [
@@ -2724,376 +2740,700 @@ export const DB_DATA = {
   ],
 
   Courses: [
-    {
-      id: "CRS-OIL-01",
-      slug: "oil-painting",
-      title: "Oil Painting Masterclass",
-      title_en: "Oil Painting Masterclass",
-      title_zh: "油画研习与创作班",
-      category: "fine_arts",
-      category_slug: "fine-arts",
-      discipline: "Oil Painting",
-      ageGroup: "youth_adult",
-      age_range: "Ages 13+ / Adults",
-      target_group: "youth-arts",
-      skillLevel: "intermediate",
-      goal: "portfolio",
-      shortDescription: "Classical and modern oil painting techniques, glaze layering, brush-and-knife impasto, and canvas stretching.",
-      short_summary: "Classical and modern oil painting techniques, glaze layering, brush-and-knife impasto, and canvas stretching.",
-      description: "Structured for dedicated art enthusiasts and pre-academy students, this masterclass covers classical Grisaille underpainting, direct Alla Prima brushwork, multi-layer oil glazing, color temperature harmony, and contemporary Nanyang thematic composition.",
-      duration: "12 Weeks per Term (2.5 hrs/session)",
-      schedule: "Saturdays 2:00 PM – 4:30 PM / Wednesdays 7:00 PM – 9:30 PM",
-      fee: "Please contact secretariat for current term timetable and fee schedules (Studio materials subsidized)",
-      assessment: "Formative bi-weekly studio critiques, midterm portfolio review, and simulated National Grade Exam trials.",
-      gradePathway: "Prepares candidates for Singapore National Examination Grade 6 to Grade 9 (Advanced & Graduation Tiers).",
-      competitionOpp: "Exemplary student coursework is curated for direct entry into the Nanyang Star International Children's Art Competition and society annual salons.",
-      image: "https://www.image2url.com/r2/default/images/image-to-webp-1788500494651-1f109d0f-1596-4fe9-87b6-5a9ade083fd2.webp",
-      thumbnail_url: "https://www.image2url.com/r2/default/images/image-to-webp-1788500494651-1f109d0f-1596-4fe9-87b6-5a9ade083fd2.webp",
-      gallery: [
-        "https://www.image2url.com/r2/default/images/image-to-webp-1788500494651-1f109d0f-1596-4fe9-87b6-5a9ade083fd2.webp",
-        "https://i.ibb.co/G4NVNpVw/sketch-art.png",
-        "https://i.ibb.co/KxNwPR1X/art-3.png"
-      ],
-      videoPreviewUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      instructor: "Dr. Teng Jiashu (滕家述)",
-      class_format: "Studio Masterclass",
-      max_class_size: 8,
-      learningOutcomes: [
-        "Master classical Grisaille monochrome underpainting and fat-over-lean layering rules.",
-        "Execute dynamic palette knife impasto and delicate transparent glazing glazes.",
-        "Demonstrate subtle warm-cool temperature contrasts in portraits and landscapes.",
-        "Complete at least two full-scale stretched canvas masterworks for exhibition submission."
-      ],
-      syllabusStages: [
-        {
-          stage: "Stage 1",
-          title: "Medium Physics, Grounds & Tonal Grisaille (Weeks 1–4)",
-          desc: "Canvas preparation, gesso ground stretching, oil medium chemistry (linseed/turpentine/dammar), and monochrome tonal mapping."
+{
+        "id": "CRS-OIL-01",
+        "slug": "oil-painting",
+        "title": "Oil Painting",
+        "title_en": "Oil Painting",
+        "title_zh": "油画研习班",
+        "category": "fine_arts",
+        "category_slug": "fine-arts",
+        "discipline": "Oil Painting",
+        "ageGroup": "youth_adult",
+        "age_range": "Ages 13+ / Adults",
+        "target_group": "youth-arts",
+        "skillLevel": "all",
+        "goal": "portfolio",
+        "shortDescription": "Practice on techniques of Water Colour, Gouache and Oil Painting helps students to lay foundation on usage of colour.",
+        "short_summary": "Practice on techniques of Water Colour, Gouache and Oil Painting helps students to lay foundation on usage of colour.",
+        "objectives": "Practice on techniques of Water  Colour,  Gouache and Oil Painting helps students to lay foundation  on usage of colour. Technique such as transparency, overlaying and detailing. It helps student to choose an expression technique for their future career. Moreover, having a terrific sense of colour is extremely  important for an artist, an artist is able to deliver his/her expression wholly through  practice of above three colouring techniques.",
+        "objectives_zh": "通过水彩、水粉及油画技法的综合训练，帮助学员打下坚实的色彩运用基础。重点研习色彩通透度、多层叠色罩染及精细刻画技法，辅助学员明确未来的艺术表达方向与职业发展路径。具备敏锐卓绝的色彩感知力对于艺术家至关重要，学员通过上述三种色彩技法的系统研修，能够将内心情感与艺术构思淋漓尽致地呈现。",
+        "description": "Practice on techniques of Water Colour, Gouache and Oil Painting helps students to lay foundation on usage of colour. Technique such as transparency, overlaying and detailing. It helps student to choose an expression technique for their future career. Moreover, having a terrific sense of colour is extremely important for an artist, an artist is able to deliver his/her expression wholly through practice of above three colouring techniques.",
+        "description_zh": "通过水彩、水粉及油画技法的综合训练，帮助学员打下坚实的色彩运用基础。重点研习色彩通透度、多层叠色罩染及精细刻画技法。",
+        "duration": "2 hrs",
+        "schedule": "Saturdays 2:00 PM – 4:00 PM / Wednesdays 7:00 PM – 9:00 PM (2 hrs/session)",
+        "fee": "Group: S$50 / 2 hrs | 1 to 1: S$80 / 2 hrs (Min 3 months payment)",
+        "charges": [
+            {
+                "category": "Group",
+                "fee": "S$ 50",
+                "duration": "2 hrs"
+            },
+            {
+                "category": "1 to 1",
+                "fee": "S$ 80",
+                "duration": "2 hrs"
+            }
+        ],
+        "materials": "Self-contained Materials",
+        "materials_zh": "自备画材",
+        "paymentInstructions": [
+            "1. Every Payment at least 3 months.",
+            "2. One-time payment for half a year, S$50 discount.",
+            "3. One-time payment for one year, S$150 discount."
+        ],
+        "paymentInstructions_zh": [
+            "1. 每期学费至少按3个月缴纳。",
+            "2. 一次性缴纳半年学费，立减 S$50。",
+            "3. 一次性缴纳全年学费，立减 S$150。"
+        ],
+        "assessment": "Formative bi-weekly studio critiques, midterm portfolio review, and simulated National Grade Exam trials.",
+        "gradePathway": "Prepares candidates for Singapore National Examination Grade 1 to Grade 9.",
+        "competitionOpp": "Exemplary student coursework is curated for direct entry into the Nanyang Star International Children's Art Competition and society annual salons.",
+        "image": "assets/images/art-works/oil-panting.png",
+        "thumbnail_url": "assets/images/art-works/oil-panting.png",
+        "gallery": [
+            "assets/images/art-works/oil-panting.png",
+            "assets/images/art-works/sketch-art.png",
+            "assets/images/art-works/art-3.png"
+        ],
+        "videoPreviewUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "instructor": "Dr. Teng Jiashu (滕家述)",
+        "class_format": "Group & 1-to-1 Studio",
+        "max_class_size": 8,
+        "learningOutcomes": [
+            "Lays firm foundation on the usage and theory of colour across Water Colour, Gouache and Oil Painting.",
+            "Master medium techniques including transparency, overlaying, glaze layering and detailing.",
+            "Cultivate a terrific, sensitive sense of colour to wholly deliver personal creative expression.",
+            "Prepare comprehensive portfolio pieces suitable for advanced career and academic progression."
+        ],
+        "syllabusStages": [
+            {
+                "stage": "Stage 1",
+                "title": "Colour Foundation & Medium Basics (Weeks 1–4)",
+                "desc": "Transparency, gouache layering, brushwork dynamics, and colour wheel temperature."
+            },
+            {
+                "stage": "Stage 2",
+                "title": "Overlaying & Value Structure (Weeks 5–8)",
+                "desc": "Layering techniques, tonal balance, textures, and still life / landscape rendering."
+            },
+            {
+                "stage": "Stage 3",
+                "title": "Detailing & Independent Masterpiece (Weeks 9–12)",
+                "desc": "Fine brushwork detailing, varnishing, framing, and final portfolio presentation."
+            }
+        ],
+        "faq": [
+            {
+                "q": "What materials should students prepare?",
+                "a": "This course requires self-contained materials (brushes, paints, palettes, and canvas). A recommended materials list is provided upon registration."
+            },
+            {
+                "q": "What payment discounts are available?",
+                "a": "Minimum payment is 3 months. One-time payment for half a year receives a S$50 discount; one-time payment for one year receives a S$150 discount."
+            },
+            {
+                "q": "Can I choose between Group and 1-to-1 sessions?",
+                "a": "Yes, Group sessions are S$ 50 per 2-hour session, and 1-to-1 private tutoring is S$ 80 per 2-hour session."
+            }
+        ],
+        "relatedCourseIds": [
+            "CRS-SKT-01",
+            "CRS-WTC-01",
+            "CRS-CHP-01"
+        ],
+        "status": "active",
+        "featured": true,
+        "translations": {
+            "en": {
+                "title": "Oil Painting",
+                "summary": "Water Colour, Gouache and Oil Painting color foundations."
+            },
+            "zh": {
+                "title": "油画研习班",
+                "summary": "水彩水粉油画技法、色彩通透叠色与精细刻画。"
+            }
         },
-        {
-          stage: "Stage 2",
-          title: "Direct Alla Prima & Color Temperature (Weeks 5–8)",
-          desc: "Limited Zorn palette exercises, opaque impasto, color harmony, and still-life texture rendering (metal, glass, drapery)."
+        "contentStatus": "verified"
+    },
+    {
+        "id": "CRS-SKT-01",
+        "slug": "academic-sketching",
+        "title": "Sketching Courses",
+        "title_en": "Sketching Courses",
+        "title_zh": "基础与进阶素描班",
+        "category": "fine_arts",
+        "category_slug": "fine-arts",
+        "discipline": "Academic Sketching",
+        "ageGroup": "junior",
+        "age_range": "Ages 8+ / Teens & Adults",
+        "target_group": "fine-arts",
+        "skillLevel": "all",
+        "goal": "grade_exam",
+        "shortDescription": "Present a stereoscopic object by contrast. Develop fundamental art creation through still life, plaster cast and character sketching.",
+        "short_summary": "Present a stereoscopic object by contrast. Develop fundamental art creation through still life, plaster cast and character sketching.",
+        "objectives": "Present a stereoscopic object by contrast. Develop fundamental art creation through still life, plaster cast and character sketching. Student who have completed the courses will be able to present texture, dimension and perspective.",
+        "objectives_zh": "通过明暗对比手法塑造三维立体空间与体积感。从静物写生、经典石膏几何体与头像、再到人物肖像写生，系统构建造型艺术创作根基。结业学员将熟练掌握质感肌理表现、立体空间层次与透视结构法则。",
+        "description": "Present a stereoscopic object by contrast. Develop fundamental art creation through still life, plaster cast and character sketching. Student who have completed the courses will be able to present texture, dimension and perspective.",
+        "description_zh": "通过明暗对比塑造立体空间。从静物、石膏像到人物素描，结业学员熟练掌握质感、体积与透视法则。",
+        "duration": "2 hrs",
+        "schedule": "Sundays 10:00 AM – 12:00 PM / Fridays 5:00 PM – 7:00 PM (2 hrs/session)",
+        "fee": "Group: S$50 / 2 hrs | 1 to 1: S$80 / 2 hrs (Min 3 months payment)",
+        "charges": [
+            {
+                "category": "Group",
+                "fee": "S$ 50",
+                "duration": "2 hrs"
+            },
+            {
+                "category": "1 to 1",
+                "fee": "S$ 80",
+                "duration": "2 hrs"
+            }
+        ],
+        "materials": "Self-contained Materials",
+        "materials_zh": "自备画材",
+        "paymentInstructions": [
+            "1. Every Payment at least 3 months.",
+            "2. One-time payment for half a year, S$50 discount.",
+            "3. One-time payment for one year, S$150 discount."
+        ],
+        "paymentInstructions_zh": [
+            "1. 每期学费至少按3个月缴纳。",
+            "2. 一次性缴纳半年学费，立减 S$50。",
+            "3. 一次性缴纳全年学费，立减 S$150。"
+        ],
+        "assessment": "Continuous progressive grading and National Examination trial reviews.",
+        "gradePathway": "Comprehensive coverage of National Grade Examination Grades 1 through 9.",
+        "competitionOpp": "Outstanding sketch studies are entered into national drawing competitions and DSA secondary school portfolio showcases.",
+        "image": "assets/images/art-works/sketch-art.png",
+        "thumbnail_url": "assets/images/art-works/sketch-art.png",
+        "gallery": [
+            "assets/images/art-works/sketch-art.png",
+            "assets/images/art-works/art-1.png",
+            "assets/images/art-works/art-3.png"
+        ],
+        "videoPreviewUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "instructor": "Huang Hong (黄红) & Dr. Teng Jiashu (滕家述)",
+        "class_format": "Group & 1-to-1 Studio",
+        "max_class_size": 10,
+        "learningOutcomes": [
+            "Accurately present a stereoscopic object through tonal contrast and chiaroscuro.",
+            "Master structural perspective, sight-size proportions, and line quality.",
+            "Develop advanced skills in still life, plaster casts, and character sketching.",
+            "Confidently render realistic material textures, 3D volume, and spatial dimension."
+        ],
+        "syllabusStages": [
+            {
+                "stage": "Stage 1",
+                "title": "Still Life & Geometric Solids (Weeks 1–4)",
+                "desc": "Sight-size measurement, linear perspective, and chiaroscuro tonal values."
+            },
+            {
+                "stage": "Stage 2",
+                "title": "Classical Plaster Casts (Weeks 5–8)",
+                "desc": "Facial feature blocks, Greek & Roman plaster busts, and anatomical structure."
+            },
+            {
+                "stage": "Stage 3",
+                "title": "Character & Portrait Sketching (Weeks 9–12)",
+                "desc": "Live character sketch, texture rendering, and national grade exam papers."
+            }
+        ],
+        "faq": [
+            {
+                "q": "What pencils and materials should I bring?",
+                "a": "Students should bring their own sketching pencils (2B–8B), kneaded erasers, and drawing pads (Self-contained materials)."
+            },
+            {
+                "q": "Can this course help with DSA (Direct School Admission)?",
+                "a": "Yes, academic sketching forms the core foundation required for Singapore DSA visual arts portfolios."
+            }
+        ],
+        "relatedCourseIds": [
+            "CRS-OIL-01",
+            "CRS-WTC-01",
+            "CRS-CHP-01"
+        ],
+        "status": "active",
+        "featured": true,
+        "translations": {
+            "en": {
+                "title": "Sketching Courses",
+                "summary": "Stereoscopic volume, still life, plaster cast and character sketch."
+            },
+            "zh": {
+                "title": "基础与进阶素描班",
+                "summary": "明暗对比塑造立体感，静物、石膏像与人物写生造型。"
+            }
         },
-        {
-          stage: "Stage 3",
-          title: "Masterwork Creation & Exhibition Portfolio (Weeks 9–12)",
-          desc: "Individual thematic project execution (Nanyang landscape or figure), varnishing techniques, framing, and final critique."
-        }
-      ],
-      faq: [
-        { q: "Are oil paints and easels provided in the studio?", a: "Yes, studio easels, wash jars, and palettes are provided. Premium archival canvases and specialty pigments are subsidized for registered students." },
-        { q: "Is prior drawing experience required?", a: "Basic sketch or drawing experience is helpful, but our small 8-student class size allows tailored 1-on-1 instruction for all intermediate learners." },
-        { q: "Can I make up for missed classes?", a: "Yes, students may schedule up to two makeup classes per term during alternative studio session slots." }
-      ],
-      relatedCourseIds: ["CRS-SKT-01", "CRS-WTC-01", "CRS-CHP-01"],
-      status: "active",
-      featured: true,
-      translations: {
-        en: { title: "Oil Painting Masterclass", summary: "Classical and modern oil painting techniques." },
-        zh: { title: "油画研习与创作班", summary: "古典与现代油画技法、多层罩染与主题创作。" }
-      },
-      contentStatus: "verified"
+        "contentStatus": "verified"
     },
     {
-      id: "CRS-SKT-01",
-      slug: "academic-sketching",
-      title: "Academic Sketching & Structural Drawing",
-      title_en: "Academic Sketching & Structural Drawing",
-      title_zh: "学院派素描与结构造型班",
-      category: "fine_arts",
-      category_slug: "fine-arts",
-      discipline: "Academic Sketching",
-      ageGroup: "junior",
-      age_range: "Ages 9+ / Teens & Adults",
-      target_group: "fine-arts",
-      skillLevel: "beginner",
-      goal: "grade_exam",
-      shortDescription: "Rigorous training in geometric proportion, chiaroscuro shading, plaster casts, and live anatomical studies.",
-      short_summary: "Rigorous training in geometric proportion, chiaroscuro shading, plaster casts, and live anatomical studies.",
-      description: "A foundational cornerstone for all visual arts disciplines. Students learn sighting techniques, perspective geometry, line weight variation, five tonal values (highlight, mid-tone, core shadow, reflected light, cast shadow), and progressive plaster bust portraits.",
-      duration: "10 Weeks per Term (2.0 hrs/session)",
-      schedule: "Sundays 10:00 AM – 12:00 PM / Fridays 5:00 PM – 7:00 PM",
-      fee: "Please contact secretariat for current term timetable and fee schedules",
-      assessment: "Continuous progressive grading and National Examination trial reviews.",
-      gradePathway: "Comprehensive coverage of National Grade Examination Grades 1 through 9 (from Geometric Solids to Live Model Busts).",
-      competitionOpp: "Outstanding sketch studies are entered into national drawing competitions and DSA secondary school portfolio showcases.",
-      image: "https://i.ibb.co/G4NVNpVw/sketch-art.png",
-      thumbnail_url: "https://i.ibb.co/G4NVNpVw/sketch-art.png",
-      gallery: [
-        "https://i.ibb.co/27KGH14R/water-paint-art.png",
-        "https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80"
-      ],
-      videoPreviewUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      instructor: "Huang Hong (黄红)",
-      class_format: "Studio Practical",
-      max_class_size: 10,
-      learningOutcomes: [
-        "Accurately sight and measure angles, proportions, and perspective vanishing points.",
-        "Render the complete 5-tone value range smoothly using graphite and charcoal sticks.",
-        "Construct anatomical facial features (David eye/nose/mouth) from multi-angle plaster casts.",
-        "Demonstrate spatial depth and material textures in complex still-life arrangements."
-      ],
-      syllabusStages: [
-        {
-          stage: "Stage 1",
-          title: "Geometric Proportion & Linear Perspective (Weeks 1–3)",
-          desc: "Sight-size measurement, horizontal/vertical alignment, cubes, cylinders, spheres, and basic cast shadow construction."
+        "id": "CRS-WTC-01",
+        "slug": "watercolor-gouache-oil",
+        "title": "Water Colour",
+        "title_en": "Water Colour",
+        "title_zh": "水彩画专修班",
+        "category": "fine_arts",
+        "category_slug": "fine-arts",
+        "discipline": "Watercolor & Gouache",
+        "ageGroup": "junior",
+        "age_range": "Ages 8+ / Teens & Adults",
+        "target_group": "fine-arts",
+        "skillLevel": "all",
+        "goal": "exploration",
+        "shortDescription": "Practice on techniques of Water Colour, Gouache and Oil Painting helps students to lay foundation on usage of colour.",
+        "short_summary": "Practice on techniques of Water Colour, Gouache and Oil Painting helps students to lay foundation on usage of colour.",
+        "objectives": "Practice on techniques of Water  Colour,  Gouache and Oil Painting helps students to lay foundation  on usage of colour. Technique such as transparency, overlaying and detailing. It helps student to choose an expression technique for their future career. Moreover, having a terrific sense of colour is extremely  important for an artist, an artist is able to deliver his/her expression wholly through  practice of above three colouring techniques.",
+        "objectives_zh": "通过水彩、水粉及油画技法的综合训练，帮助学员打下坚实的色彩运用基础。重点研习水彩水分控制、干湿画法晕染、透明叠色与细节精修。具备敏锐卓绝的色彩感知力对于艺术家至关重要，学员通过系统研修能够自如表达艺术构思。",
+        "description": "Practice on techniques of Water Colour, Gouache and Oil Painting helps students to lay foundation on usage of colour. Technique such as transparency, overlaying and detailing. It helps student to choose an expression technique for their future career. Moreover, having a terrific sense of colour is extremely important for an artist, an artist is able to deliver his/her expression wholly through practice of above three colouring techniques.",
+        "description_zh": "通过水彩、水粉及油画技法综合训练，夯实色彩运用功底，研习水分控制、透明度与多层叠色。",
+        "duration": "2 hrs",
+        "schedule": "Saturdays 10:30 AM – 12:30 PM (2 hrs/session)",
+        "fee": "Group: S$50 / 2 hrs | 1 to 1: S$80 / 2 hrs (Min 3 months payment)",
+        "charges": [
+            {
+                "category": "Group",
+                "fee": "S$ 50",
+                "duration": "2 hrs"
+            },
+            {
+                "category": "1 to 1",
+                "fee": "S$ 80",
+                "duration": "2 hrs"
+            }
+        ],
+        "materials": "Self-contained Materials",
+        "materials_zh": "自备画材",
+        "paymentInstructions": [
+            "1. Every Payment at least 3 months.",
+            "2. One-time payment for half a year, S$50 discount.",
+            "3. One-time payment for one year, S$150 discount."
+        ],
+        "paymentInstructions_zh": [
+            "1. 每期学费至少按3个月缴纳。",
+            "2. 一次性缴纳半年学费，立减 S$50。",
+            "3. 一次性缴纳全年学费，立减 S$150。"
+        ],
+        "assessment": "Formative weekly wash feedback and portfolio critique.",
+        "gradePathway": "Prepares candidates for National Grade Examination Grades 1 to 9.",
+        "competitionOpp": "Students are encouraged to submit botanical and architectural watercolor studies to Nanyang Star youth awards.",
+        "image": "assets/images/art-works/art-1.png",
+        "thumbnail_url": "assets/images/art-works/art-1.png",
+        "gallery": [
+            "assets/images/art-works/art-1.png",
+            "assets/images/art-works/chinese-children-art.png",
+            "assets/images/art-works/art-3.png"
+        ],
+        "videoPreviewUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "instructor": "Deng Yiqing (邓一清) & Senior Faculty",
+        "class_format": "Group & 1-to-1 Studio",
+        "max_class_size": 10,
+        "learningOutcomes": [
+            "Develop an exceptional eye for colour through water colour and gouache transparency.",
+            "Control water pigment moisture ratio on wet-on-wet and dry-brush surfaces.",
+            "Master overlaying techniques without creating muddy color mixtures.",
+            "Complete finished landscape, botanical, and urban architectural paintings."
+        ],
+        "syllabusStages": [
+            {
+                "stage": "Stage 1",
+                "title": "Moisture & Wash Control (Weeks 1–4)",
+                "desc": "Flat washes, graded washes, wet-in-wet blending, and color wheel mixing."
+            },
+            {
+                "stage": "Stage 2",
+                "title": "Overlaying & Gouache Layering (Weeks 5–8)",
+                "desc": "Tropical botanical studies, fruit still lifes, and opaque gouache highlights."
+            },
+            {
+                "stage": "Stage 3",
+                "title": "Landscape & Heritage Architecture (Weeks 9–12)",
+                "desc": "Singapore shophouse streetscapes, atmosphere rendering, and exhibition mounting."
+            }
+        ],
+        "faq": [
+            {
+                "q": "Are materials provided?",
+                "a": "Students should prepare their own watercolor paints, palette, brushes, and 300gsm cold-press paper (Self-contained Materials)."
+            },
+            {
+                "q": "What are the payment terms?",
+                "a": "Group is S$50 / 2 hrs, 1 to 1 is S$80 / 2 hrs. Min 3 months payment. 6-month upfront discount S$50, 1-year upfront discount S$150."
+            }
+        ],
+        "relatedCourseIds": [
+            "CRS-SKT-01",
+            "CRS-OIL-01",
+            "CRS-CHD-01"
+        ],
+        "status": "active",
+        "featured": true,
+        "translations": {
+            "en": {
+                "title": "Water Colour",
+                "summary": "Water Colour, Gouache and Oil Painting color foundations."
+            },
+            "zh": {
+                "title": "水彩画专修班",
+                "summary": "水彩通透晕染、多层叠色与南洋风光写生。"
+            }
         },
-        {
-          stage: "Stage 2",
-          title: "Complex Still Life & Chiaroscuro Tonal Values (Weeks 4–7)",
-          desc: "Stoneware vases, metallic reflections, fruit groups, folded fabric drapery, and atmospheric spatial layering."
+        "contentStatus": "verified"
+    },
+    {
+        "id": "CRS-CLG-01",
+        "slug": "chinese-calligraphy",
+        "title": "Chinese Calligraphy Courses",
+        "title_en": "Chinese Calligraphy Courses",
+        "title_zh": "中国书法研修班",
+        "category": "heritage_arts",
+        "category_slug": "heritage-arts",
+        "discipline": "Chinese Calligraphy",
+        "ageGroup": "youth_adult",
+        "age_range": "Ages 7+ to Adults",
+        "target_group": "heritage-arts",
+        "skillLevel": "all",
+        "goal": "grade_exam",
+        "shortDescription": "Kaishu, Lishu, Xingshu, Caoshu and Zhuanshu calligraphy scripts with Art Appreciation for famous copybooks and inscriptions.",
+        "short_summary": "Kaishu, Lishu, Xingshu, Caoshu and Zhuanshu calligraphy scripts with Art Appreciation for famous copybooks and inscriptions.",
+        "objectives": "As the art of writing Chinese characters, Chinese calligraphy, or shufa, is closely related to the latter in its formation and development, boasting as long a history as that of China itself. It is one of the highest forms of Chinese art, serving the purpose of conveying thoughts while also showcasing abstract beauty of lines.\n\nWe teach Kaishu (regular hand), Lishu (official script), Xingshu(running hand), Caoshu (cursive hand) and Zhuanshu(seal script) etc. We also provide Art Appreciation class for famous calligraphy, copybook of calligraphy and Inscription.",
+        "objectives_zh": "中国书法作为汉字书写的艺术，与汉字的起源演变血脉相连，源远流长。它是中国传统艺术的最高境界之一，既能寄托性灵情操，又展现了纯粹精妙的线条抽象美感。\n\n本课程系统教授楷书、隶书、行书、草书及篆书等各体法度，并配套开设历代名家法帖、碑刻铭文及经典书法鉴赏研讨课。",
+        "description": "As the art of writing Chinese characters, Chinese calligraphy, or shufa, is closely related to the latter in its formation and development, boasting as long a history as that of China itself. It is one of the highest forms of Chinese art, serving the purpose of conveying thoughts while also showcasing abstract beauty of lines. We teach Kaishu (regular hand), Lishu (official script), Xingshu(running hand), Caoshu (cursive hand) and Zhuanshu(seal script) etc. We also provide Art Appreciation class for famous calligraphy, copybook of calligraphy and Inscription.",
+        "description_zh": "中国书法博大精深。本课程教授楷、隶、行、草、篆五体笔法，并开设历代名家碑帖鉴赏与题款研习。",
+        "duration": "2 hrs",
+        "schedule": "Sundays 2:00 PM – 4:00 PM / Thursdays 7:00 PM – 9:00 PM (2 hrs/session)",
+        "fee": "Group: S$50 / 2 hrs | 1 to 1: S$80 / 2 hrs (Min 3 months payment)",
+        "charges": [
+            {
+                "category": "Group",
+                "fee": "S$ 50",
+                "duration": "2 hrs"
+            },
+            {
+                "category": "1 to 1",
+                "fee": "S$ 80",
+                "duration": "2 hrs"
+            }
+        ],
+        "materials": "Self-contained Materials",
+        "materials_zh": "自备毛笔、墨汁与宣纸等画材",
+        "paymentInstructions": [
+            "1. Every Payment at least 3 months.",
+            "2. One-time payment for half a year, S$50 discount.",
+            "3. One-time payment for one year, S$150 discount."
+        ],
+        "paymentInstructions_zh": [
+            "1. 每期学费至少按3个月缴纳。",
+            "2. 一次性缴纳半年学费，立减 S$50。",
+            "3. 一次性缴纳全年学费，立减 S$150。"
+        ],
+        "assessment": "Weekly stroke critique, character spacing evaluation, and simulated national exam papers.",
+        "gradePathway": "Prepares candidates for Singapore National Grade Examination Grades 1 through 9 (Soft Pen & Hard Pen Calligraphy).",
+        "competitionOpp": "Students regularly participate in international calligraphy exhibitions and Dreaming Lion City awards.",
+        "image": "assets/images/art-works/art-21.png",
+        "thumbnail_url": "assets/images/art-works/art-21.png",
+        "gallery": [
+            "assets/images/art-works/art-21.png",
+            "assets/images/art-works/chinese-children-art.png",
+            "assets/images/art-works/art-1.png"
+        ],
+        "videoPreviewUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "instructor": "Dr. Teng Jiashu (滕家述) & Xu Liya (许丽雅)",
+        "class_format": "Group & 1-to-1 Studio",
+        "max_class_size": 12,
+        "learningOutcomes": [
+            "Master the 5 classical Chinese calligraphy scripts: Kaishu, Lishu, Xingshu, Caoshu, and Zhuanshu.",
+            "Understand Chinese calligraphy as the highest abstract expression of line and character art.",
+            "Develop connoisseurship through Art Appreciation for famous copybooks, steles, and inscriptions.",
+            "Master scroll composition, layout balance, classical side inscriptions (Luokuan), and red seal usage."
+        ],
+        "syllabusStages": [
+            {
+                "stage": "Stage 1",
+                "title": "Kaishu (Regular) & Lishu (Official Script) (Weeks 1–4)",
+                "desc": "Brush ergonomics, Yan/Liu/Ouyang standard models, and Han Dynasty clerical stele dynamics."
+            },
+            {
+                "stage": "Stage 2",
+                "title": "Xingshu (Running) & Caoshu (Cursive) (Weeks 5–8)",
+                "desc": "Stroke connections, tempo, ink moisture gradation, and Wang Xizhi running script fluency."
+            },
+            {
+                "stage": "Stage 3",
+                "title": "Zhuanshu (Seal Script) & Art Appreciation (Weeks 9–12)",
+                "desc": "Ancient seal script, inscription rubbings appreciation, and multi-line scroll completion."
+            }
+        ],
+        "faq": [
+            {
+                "q": "What scripts are taught in this course?",
+                "a": "We teach Kaishu (regular hand), Lishu (official script), Xingshu (running hand), Caoshu (cursive hand), and Zhuanshu (seal script), along with Art Appreciation for famous copybooks and inscriptions."
+            },
+            {
+                "q": "Are materials self-contained?",
+                "a": "Yes, students bring their own brushes, ink, felt mat, and Xuan paper (Self-contained Materials)."
+            },
+            {
+                "q": "What is the fee structure?",
+                "a": "Group: S$50 / 2 hrs, 1 to 1: S$80 / 2 hrs. Min 3 months payment. Half-year upfront discount S$50, one-year upfront discount S$150."
+            }
+        ],
+        "relatedCourseIds": [
+            "CRS-CHP-01",
+            "CRS-SKT-01",
+            "CRS-OIL-01"
+        ],
+        "status": "active",
+        "featured": true,
+        "translations": {
+            "en": {
+                "title": "Chinese Calligraphy Courses",
+                "summary": "Kaishu, Lishu, Xingshu, Caoshu, Zhuanshu and Art Appreciation."
+            },
+            "zh": {
+                "title": "中国书法研修班",
+                "summary": "楷书、隶书、行书、草书、篆书五体及历代名帖碑刻鉴赏。"
+            }
         },
-        {
-          stage: "Stage 3",
-          title: "Plaster Bust Anatomy & National Exam Preparation (Weeks 8–10)",
-          desc: "Classical plaster busts (Agrippa, Voltaire, Venus), skull bone landmarks, and simulated timed examination papers."
-        }
-      ],
-      faq: [
-        { q: "What pencils and paper should I bring?", a: "Standard 2B–8B drawing pencils, kneaded erasers, and drawing boards are used. A starter kit is available at the studio." },
-        { q: "Can this course help with DSA (Direct School Admission)?", a: "Yes, academic sketching forms the core foundation required for Singapore DSA visual arts portfolios." }
-      ],
-      relatedCourseIds: ["CRS-OIL-01", "CRS-WTC-01", "CRS-CHP-01"],
-      status: "active",
-      featured: true,
-      translations: {
-        en: { title: "Academic Sketching", summary: "Rigorous training in geometric proportion." },
-        zh: { title: "学院派素描与结构造型班", summary: "几何单体、石膏头像全因素明暗与人体骨骼肌肉写生。" }
-      },
-      contentStatus: "verified"
+        "contentStatus": "verified"
     },
     {
-      id: "CRS-WTC-01",
-      slug: "watercolor-gouache-oil",
-      title: "Watercolor, Gouache & Pure Fine Arts",
-      title_en: "Watercolor, Gouache & Pure Fine Arts",
-      title_zh: "水彩水粉与纯美术班",
-      category: "fine_arts",
-      category_slug: "fine-arts",
-      discipline: "Watercolor & Gouache",
-      ageGroup: "junior",
-      age_range: "Ages 8+ / Teens",
-      target_group: "fine-arts",
-      skillLevel: "intermediate",
-      goal: "exploration",
-      shortDescription: "Wet-on-wet watercolor washes, opaque gouache techniques, landscape atmosphere, and vibrant floral studies.",
-      short_summary: "Wet-on-wet watercolor washes, opaque gouache techniques, landscape atmosphere, and vibrant floral studies.",
-      description: "Combines the fluid spontaneity of British-tradition transparent watercolor with the solid architectural color blocks of gouache. Students explore pigment granulations, dry-brush textures, tropical botanical studies, and Singapore heritage shophouses.",
-      duration: "10 Weeks per Term (2.0 hrs/session)",
-      schedule: "Saturdays 10:30 AM – 12:30 PM",
-      fee: "Please contact secretariat for current term timetable and fee schedules",
-      assessment: "Formative weekly wash feedback and portfolio critique.",
-      gradePathway: "Prepares candidates for National Grade Examination Grades 1 to 8 (Watercolor and Gouache disciplines).",
-      competitionOpp: "Students are encouraged to submit botanical and architectural watercolor studies to Nanyang Star youth awards.",
-      image: "https://i.ibb.co/27KGH14R/water-paint-art.png",
-      thumbnail_url: "https://i.ibb.co/27KGH14R/water-paint-art.png",
-      gallery: [
-        "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80",
-        "https://i.ibb.co/xqTpXRhT/chinese-children-art.png",
-        "https://i.ibb.co/4ZfqVHt5/art-2.png",
-        "https://i.ibb.co/KxNwPR1X/art-3.png"
-      ],
-      videoPreviewUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      instructor: "Deng Yiqing (邓一清)",
-      class_format: "Studio Workshop",
-      max_class_size: 10,
-      learningOutcomes: [
-        "Master wet-in-wet color bleeding, dry brush lifting, and edge control.",
-        "Mix clean, non-muddy color palettes using warm and cool primaries.",
-        "Capture atmospheric perspective in Singapore heritage architecture.",
-        "Complete multiple finished watercolor landscape paintings."
-      ],
-      syllabusStages: [
-        { stage: "Stage 1", title: "Pigment Chemistry & Wash Control (Weeks 1–3)", desc: "Flat washes, graded washes, wet-in-wet blending, and cotton rag paper moisture management." },
-        { stage: "Stage 2", title: "Botanical & Still Life Studies (Weeks 4–7)", desc: "Tropical flowers, orchid studies, fruit textures, and opaque gouache highlights." },
-        { stage: "Stage 3", title: "Heritage Urban Landscapes (Weeks 8–10)", desc: "Singapore shophouse facades, light-and-shadow street scenes, and exhibition mounting." }
-      ],
-      faq: [
-        { q: "What watercolor paper weight is used?", a: "We utilize professional 300gsm 100% cotton cold-press watercolor sheets for optimal pigment absorption." }
-      ],
-      relatedCourseIds: ["CRS-SKT-01", "CRS-OIL-01", "CRS-CHD-01"],
-      status: "active",
-      featured: false,
-      translations: {
-        en: { title: "Watercolor & Gouache", summary: "Wet-on-wet washes and vibrant gouache techniques." },
-        zh: { title: "水彩水粉与纯美术班", summary: "湿画法水彩晕染、不透明水粉质感与南洋风貌写生。" }
-      },
-      contentStatus: "verified"
+        "id": "CRS-CHP-01",
+        "slug": "chinese-painting",
+        "title": "Chinese Painting",
+        "title_en": "Chinese Painting",
+        "title_zh": "传统中国画班",
+        "category": "heritage_arts",
+        "category_slug": "heritage-arts",
+        "discipline": "Chinese Painting",
+        "ageGroup": "youth_adult",
+        "age_range": "Ages 8+ / Teens & Adults",
+        "target_group": "heritage-arts",
+        "skillLevel": "all",
+        "goal": "grade_exam",
+        "shortDescription": "Bird-and-flower, Landscape, and Figure painting through Xieyi (freehand), Gongbi (fine-brush), and Pomo (splash-ink) techniques.",
+        "short_summary": "Bird-and-flower, Landscape, and Figure painting through Xieyi (freehand), Gongbi (fine-brush), and Pomo (splash-ink) techniques.",
+        "objectives": "Chinese painting is the unique artistic tradition of China. lt can be classified according to subject matter such as Chinese Bird-and-flower painting,Chinese Landscape painting, Chinese Figure painting etc after two thousand years of development. The techniques use in Chinese painting are Xieyi (freehand style), Gongbi(fine-brush),Pomo (splash-ink) etc. It shows one’s style, personality and characteristic through the way one uses writing brush, ink and color.",
+        "objectives_zh": "中国画是中华民族独具特色的传统艺术精粹。经过两千余年的演进发展，题材分为中国传统花鸟画、山水画、人物画等体系。技法涵盖写意（大写意与小写意）、工笔重彩、泼墨泼彩等。通过对毛笔运笔、水墨干湿浓淡以及色彩层次的融会贯通，充分展现创作者的艺术风貌、修养与品格特质。",
+        "description": "Chinese painting is the unique artistic tradition of China. lt can be classified according to subject matter such as Chinese Bird-and-flower painting,Chinese Landscape painting, Chinese Figure painting etc after two thousand years of development. The techniques use in Chinese painting are Xieyi (freehand style), Gongbi(fine-brush),Pomo (splash-ink) etc. It shows one’s style, personality and characteristic through the way one uses writing brush, ink and color.",
+        "description_zh": "两千余年中国画传统精粹。涵盖花鸟、山水、人物三大画科，融通写意、工笔与泼墨技法，彰显笔墨品格与个人风貌。",
+        "duration": "2 hrs",
+        "schedule": "Saturdays 4:30 PM – 6:30 PM (2 hrs/session)",
+        "fee": "Group: S$50 / 2 hrs | 1 to 1: S$80 / 2 hrs (Min 3 months payment)",
+        "charges": [
+            {
+                "category": "Group",
+                "fee": "S$ 50",
+                "duration": "2 hrs"
+            },
+            {
+                "category": "1 to 1",
+                "fee": "S$ 80",
+                "duration": "2 hrs"
+            }
+        ],
+        "materials": "Self-contained Materials",
+        "materials_zh": "自备画材",
+        "paymentInstructions": [
+            "1. Every Payment at least 3 months.",
+            "2. One-time payment for half a year, S$50 discount.",
+            "3. One-time payment for one year, S$150 discount."
+        ],
+        "paymentInstructions_zh": [
+            "1. 每期学费至少按3个月缴纳。",
+            "2. 一次性缴纳半年学费，立减 S$50。",
+            "3. 一次性缴纳全年学费，立减 S$150。"
+        ],
+        "assessment": "Ink wash tonality assessments and mock national exam papers.",
+        "gradePathway": "Prepares candidates for National Grade Examination Grades 1 to 9 (Chinese Painting Discipline).",
+        "competitionOpp": "Student landscape scrolls are submitted to Nanyang Star and international ink exhibitions.",
+        "image": "assets/images/art-works/art-3.png",
+        "thumbnail_url": "assets/images/art-works/art-3.png",
+        "gallery": [
+            "assets/images/art-works/art-3.png",
+            "assets/images/art-works/oil-panting.png",
+            "assets/images/art-works/chinese-children-art.png"
+        ],
+        "videoPreviewUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "instructor": "Dr. Teng Jiashu (滕家述) & Xu Liya (许丽雅)",
+        "class_format": "Group & 1-to-1 Studio",
+        "max_class_size": 10,
+        "learningOutcomes": [
+            "Master Chinese Bird-and-flower, Landscape, and Figure painting traditions.",
+            "Command Xieyi (freehand), Gongbi (fine-brush), and Pomo (splash-ink) techniques.",
+            "Control writing brush pressure, ink tone gradation (Five Colors of Ink), and color wash.",
+            "Express unique personal style, temperament, and character through classical compositions."
+        ],
+        "syllabusStages": [
+            {
+                "stage": "Stage 1",
+                "title": "Bird-and-Flower & Brushwork Basics (Weeks 1–4)",
+                "desc": "Moisture control on Xuan paper, bone-brush strokes, orchid, bamboo, and lotus studies."
+            },
+            {
+                "stage": "Stage 2",
+                "title": "Gongbi Fine-Brush & Pomo Splash-Ink (Weeks 5–8)",
+                "desc": "Fine wire outlines, mineral color layering, and splash-ink atmospheric transitions."
+            },
+            {
+                "stage": "Stage 3",
+                "title": "Landscape Shanshui & Figure Painting (Weeks 9–12)",
+                "desc": "Mountain rock wrinkles (Cunfa), mist, waterfall, figures, and full scroll inscriptions."
+            }
+        ],
+        "faq": [
+            {
+                "q": "What techniques and subjects are covered?",
+                "a": "Bird-and-flower, Landscape, and Figure painting through Xieyi (freehand), Gongbi (fine-brush), and Pomo (splash-ink) techniques."
+            },
+            {
+                "q": "Are materials provided?",
+                "a": "Materials are self-contained. Students provide their own Chinese painting brushes, mineral pigments, and Xuan paper."
+            },
+            {
+                "q": "What are the session charges and payment discounts?",
+                "a": "Group: S$50 / 2 hrs, 1 to 1: S$80 / 2 hrs. Min 3 months payment. Half-year upfront saves S$50, one-year upfront saves S$150."
+            }
+        ],
+        "relatedCourseIds": [
+            "CRS-CLG-01",
+            "CRS-OIL-01",
+            "CRS-SKT-01"
+        ],
+        "status": "active",
+        "featured": true,
+        "translations": {
+            "en": {
+                "title": "Chinese Painting",
+                "summary": "Bird-and-flower, Landscape, Figure via Xieyi, Gongbi and Pomo."
+            },
+            "zh": {
+                "title": "传统中国画班",
+                "summary": "花鸟、山水、人物画科，写意、工笔与泼墨技法通融。"
+            }
+        },
+        "contentStatus": "verified"
     },
     {
-      id: "CRS-CLG-01",
-      slug: "chinese-calligraphy",
-      title: "Chinese Calligraphy (Soft & Hard Pen)",
-      title_en: "Chinese Calligraphy (Soft & Hard Pen)",
-      title_zh: "中国书法高级研修班 (软笔与硬笔)",
-      category: "heritage_arts",
-      category_slug: "heritage-arts",
-      discipline: "Chinese Calligraphy",
-      ageGroup: "youth_adult",
-      age_range: "Ages 7+ to Adults",
-      target_group: "heritage-arts",
-      skillLevel: "beginner",
-      goal: "grade_exam",
-      shortDescription: "Traditional brush calligraphy across Regular (Yan/Liu/Ouyang), Clerical, and Running scripts alongside seal appreciation.",
-      short_summary: "Traditional brush calligraphy across Regular (Yan/Liu/Ouyang), Clerical, and Running scripts alongside seal appreciation.",
-      description: "Immerse in China's millenary calligraphic heritage. Starting with authentic brush holding, stroke dynamics (Zangfeng, Lufeng), structure rules of Yan Zhenqing and Liu Gongquan, progressing into Han Dynasty Clerical steles and Wang Xizhi Semi-Cursive running scripts.",
-      duration: "12 Weeks per Term (2.0 hrs/session)",
-      schedule: "Sundays 2:00 PM – 4:00 PM / Thursdays 7:00 PM – 9:00 PM",
-      fee: "Please contact secretariat for current term timetable and fee schedules (Rice paper and ink provided)",
-      assessment: "Weekly stroke critique, character spacing evaluation, and simulated national exam papers.",
-      gradePathway: "Prepares candidates for Singapore National Grade Examination Grades 1 through 9 (Soft Pen & Hard Pen Calligraphy).",
-      competitionOpp: "Students regularly participate in international calligraphy exhibitions at Singapore Calligraphy Centre and Dreaming Lion City awards.",
-      image: "https://i.ibb.co/4ZfqVHt5/art-2.png",
-      thumbnail_url: "https://i.ibb.co/4ZfqVHt5/art-2.png" ,
-      gallery: [
-        "https://i.ibb.co/xqTpXRhT/chinese-children-art.png",
-        "https://i.ibb.co/27KGH14R/water-paint-art.png",
-        "https://i.ibb.co/G4NVNpVw/sketch-art.png"
-      ],
-      videoPreviewUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      instructor: "Wang Guangqing (王广清) & Xu Liya (许丽雅)",
-      class_format: "Traditional Studio",
-      max_class_size: 12,
-      learningOutcomes: [
-        "Execute standard calligraphy strokes (Heng, Shu, Pie, Na, Gou, Dian) with concealed tip (Zangfeng).",
-        "Balance character structural equilibrium on Mi-grid and Jiugong-grid paper.",
-        "Inscribe multi-character Tang poetry scrolls with classical side inscription (Luokuan) and seal placement.",
-        "Distinguish stylistic aesthetics of Regular, Clerical, and Running scripts."
-      ],
-      syllabusStages: [
-        { stage: "Stage 1", title: "Basic Strokes & Regular Script Grid Foundations (Weeks 1–4)", desc: "Brush holding ergonomics, wrist posture, eight basic strokes of 'Yong' character, and Yan Zhenqing stele models." },
-        { stage: "Stage 2", title: "Poetry Quatrains & Side Inscriptions (Weeks 5–8)", desc: "Five-character and seven-character Tang poems, line spacing, layout harmony, and hard-pen daily script." },
-        { stage: "Stage 3", title: "Clerical/Running Scripts & Scroll Creation (Weeks 9–12)", desc: "Han Dynasty stele flavor, Semi-Cursive rhythm, hanging scroll creation, and red seal carving stamping." }
-      ],
-      faq: [
-        { q: "Is prior knowledge of Chinese required?", a: "While familiarity with Chinese characters is beneficial, we teach character stroke orders and structural principles step-by-step for all learners." },
-        { q: "Are brushes and ink provided?", a: "Yes, studio ink, felt mats, and Xuan paper are provided during all classroom sessions." }
-      ],
-      relatedCourseIds: ["CRS-CHP-01", "CRS-SKT-01", "CRS-TCH-01"],
-      status: "active",
-      featured: true,
-      translations: {
-        en: { title: "Chinese Calligraphy", summary: "Soft & hard pen calligraphy across Regular, Clerical, and Running styles." },
-        zh: { title: "中国书法高级研修班", summary: "楷书（颜柳欧赵）、汉隶名碑、行草创作与落款用印章法。" }
-      },
-      contentStatus: "verified"
-    },
-    {
-      id: "CRS-CHP-01",
-      slug: "chinese-painting",
-      title: "Chinese Painting: Shanshui & Lingnan Bird-and-Flower",
-      title_en: "Chinese Painting: Shanshui & Lingnan Bird-and-Flower",
-      title_zh: "传统中国画班 (山水与岭南花鸟)",
-      category: "heritage_arts",
-      category_slug: "heritage-arts",
-      discipline: "Chinese Painting",
-      ageGroup: "youth_adult",
-      age_range: "Ages 8+ / Teens & Adults",
-      target_group: "heritage-arts",
-      skillLevel: "intermediate",
-      goal: "grade_exam",
-      shortDescription: "Ink wash tonalities, Cun-wrinkle mountain textures, Xieyi freehand dynamics, and poetic inscription harmony.",
-      short_summary: "Ink wash tonalities, Cun-wrinkle mountain textures, Xieyi freehand dynamics, and poetic inscription harmony.",
-      description: "Master the Five Colors of Ink (焦浓重淡清). Students progress from the Four Gentlemen (Plum, Orchid, Bamboo, Chrysanthemum) to majestic Shanshui landscape vistas, waterfalls, Lingnan boneless flower-and-bird painting, and classical mounting appreciation.",
-      duration: "12 Weeks per Term (2.0 hrs/session)",
-      schedule: "Saturdays 4:30 PM – 6:30 PM",
-      fee: "Please contact secretariat for current term timetable and fee schedules",
-      assessment: "Ink wash tonality assessments and mock national exam papers.",
-      gradePathway: "Prepares candidates for National Grade Examination Grades 1 to 9 (Chinese Painting Discipline).",
-      competitionOpp: "Student landscape scrolls are submitted to Nanyang Star and international ink exhibitions.",
-      image: "https://i.ibb.co/KxNwPR1X/art-3.png",
-      thumbnail_url: "https://i.ibb.co/KxNwPR1X/art-3.png",
-      gallery: [
-        "https://i.ibb.co/4ZfqVHt5/art-2.png" ,
-        "https://i.ibb.co/xqTpXRhT/chinese-children-art.png",
-        "https://i.ibb.co/27KGH14R/water-paint-art.png"
-      ],
-      videoPreviewUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      instructor: "Dr. Teng Jiashu (滕家述) & Xu Liya (许丽雅)",
-      class_format: "Traditional Studio",
-      max_class_size: 10,
-      learningOutcomes: [
-        "Command the Five Colors of Ink and bone-stroke brush dynamics.",
-        "Paint the Four Gentlemen (Plum, Orchid, Bamboo, Chrysanthemum) with fluid ink wash.",
-        "Apply classical Shanshui Cun-wrinkles (Pima, Fupi) to model rocks, trees, and water.",
-        "Compose full traditional scrolls with poetic inscriptions and red seal placement."
-      ],
-      syllabusStages: [
-        { stage: "Stage 1", title: "Ink Wash Physics & The Four Gentlemen (Weeks 1–4)", desc: "Moisture control on raw vs. sized Xuan paper, bamboo joints, orchid leaves, and plum blossom branches." },
-        { stage: "Stage 2", title: "Lingnan Flower-and-Bird & Mineral Color (Weeks 5–8)", desc: "Boneless method (Mogu), mineral azurite and cinnabar glazes, lotus flowers, and aquatic bird compositions." },
-        { stage: "Stage 3", title: "Comprehensive Shanshui Landscape Creation (Weeks 9–12)", desc: "Layered mountain peaks, flowing mist, pine trees, architectural bridges, and examination trial scrolls." }
-      ],
-      faq: [
-        { q: "Is raw (Sheng) or sized (Shu) Xuan paper used?", a: "Both are explored! Beginners start with semi-sized Xuan paper for controllable ink gradation before progressing to raw Xuan." }
-      ],
-      relatedCourseIds: ["CRS-CLG-01", "CRS-OIL-01", "CRS-SKT-01"],
-      status: "active",
-      featured: true,
-      translations: {
-        en: { title: "Chinese Painting", summary: "Shanshui landscapes and Lingnan flower-and-bird compositions." },
-        zh: { title: "传统中国画班", summary: "四君子笔法、大写意花鸟、水墨山水皴法与诗书画印。" }
-      },
-      contentStatus: "verified"
-    },
-    {
-      id: "CRS-CHD-01",
-      slug: "childrens-drawing",
-      title: "Children Intellectual Art & Creative Discovery",
-      title_en: "Children Intellectual Art & Creative Discovery",
-      title_zh: "少儿智力美术与启智阶梯班",
-      category: "youth_arts",
-      category_slug: "youth-arts",
-      discipline: "Children Fine Arts",
-      ageGroup: "children",
-      age_range: "Ages 3–8 Years",
-      target_group: "youth-arts",
-      skillLevel: "beginner",
-      goal: "exploration",
-      shortDescription: "Multi-sensory color exploration, tactile mixed media, oil pastel blending, and patented plastic origami 3D craft.",
-      short_summary: "Multi-sensory color exploration, tactile mixed media, oil pastel blending, and patented plastic origami 3D craft.",
-      description: "Designed specifically for early-childhood cognitive and fine-motor development. Through storytelling, observational sketching, oil pastels, and Mr. Jason Koh's patented plastic origami techniques, children build confidence, spatial reasoning, and artistic joy.",
-      duration: "10 Weeks per Term (1.5 hrs/session)",
-      schedule: "Saturdays 9:00 AM – 10:30 AM / Sundays 11:00 AM – 12:30 PM",
-      fee: "Please contact secretariat for current term timetable and fee schedules (All child-safe materials included)",
-      assessment: "Developmental milestone reports and positive encouraging studio feedback.",
-      gradePathway: "Prepares children for National Grade Examination Grades 1 to 3 (Children Intellectual Art Discipline).",
-      competitionOpp: "Every child completes competition-grade entries for the Nanyang Star International Children's Art Competition.",
-      image: "https://i.ibb.co/xqTpXRhT/chinese-children-art.png",
-      thumbnail_url: "https://i.ibb.co/xqTpXRhT/chinese-children-art.png",
-      gallery: [
-        "https://i.ibb.co/xqTpXRhT/chinese-children-art.png",
-        "https://i.ibb.co/27KGH14R/water-paint-art.png",
-        "https://i.ibb.co/4ZfqVHt5/art-2.png",
-        "https://i.ibb.co/KxNwPR1X/art-3.png"
-      ],
-      videoPreviewUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-      instructor: "Ivy Huang (黄郁乔) & Jason Koh (许修信)",
-      class_format: "Creative Workshop",
-      max_class_size: 8,
-      learningOutcomes: [
-        "Build fine motor grip and hand-eye coordination through drawing and folding.",
-        "Explore primary, secondary, and complementary color mixing using oil pastels.",
-        "Construct 3D geometric and animal sculptures using patented plastic origami foils.",
-        "Develop creative storytelling confidence through visual narrative drawings."
-      ],
-      syllabusStages: [
-        { stage: "Stage 1", title: "Sensory Colors & Storytelling Shapes (Weeks 1–3)", desc: "Oil pastel blending, texture rubbing, animal character design, and narrative picture books." },
-        { stage: "Stage 2", title: "Tactile 3D Craft & Patented Origami (Weeks 4–7)", desc: "Mr. Jason Koh's patented plastic origami techniques, 3D paper sculptures, and spatial geometry." },
-        { stage: "Stage 3", title: "Creative Thematic Exhibition Masterpiece (Weeks 8–10)", desc: "Large-scale mixed media drawing on archival paper for Nanyang Star competition entry." }
-      ],
-      faq: [
-        { q: "Are materials safe for young children?", a: "Yes, 100% non-toxic, washable, child-safe pastels, glues, and patented plastic foils are used." }
-      ],
-      relatedCourseIds: ["CRS-CTN-01", "CRS-SKT-01", "CRS-WTC-01"],
-      status: "active",
-      featured: true,
-      translations: {
-        en: { title: "Children Intellectual Art", summary: "Multi-sensory color exploration and patented 3D plastic origami." },
-        zh: { title: "少儿智力美术与启智阶梯班", summary: "多感官色彩启蒙、油画棒混色、观察力培养与专利折纸立体手工。" }
-      },
-      contentStatus: "verified"
+        "id": "CRS-CHD-01",
+        "slug": "childrens-drawing",
+        "title": "Children’s Intellectual Art Education",
+        "title_en": "Children’s Intellectual Art Education",
+        "title_zh": "少儿智力美术教育与动漫",
+        "category": "youth_arts",
+        "category_slug": "youth-arts",
+        "discipline": "Children Fine Arts",
+        "ageGroup": "children",
+        "age_range": "Ages 3–12 Years",
+        "target_group": "youth-arts",
+        "skillLevel": "beginner",
+        "goal": "exploration",
+        "shortDescription": "Continuous improvement of children’s intelligence, memory and concentration through drawing, painting, integrated arts, and cartoon drawing.",
+        "short_summary": "Continuous improvement of children’s intelligence, memory and concentration through drawing, painting, integrated arts, and cartoon drawing.",
+        "objectives": "Children’s Intellectual Art Education is to achieve the comtinuation improvement of children’s intelligence, memory and concentration through drawing,painting,integrated arts and super memory training.\n\nTeaching Content:\n1. Children’s intellectual art education, including handwork, painting and drawing.\n2. Children’s memory development, including potential inspiration and Emotional intelligence implication.\n3. Cartoon drawing class: Develop students’ love towards art by cartoon drawing and simple stroke drawing. Bring characters from movies, popular comics and video games to life! Learn how to draw cartoons and caricatures with a variety of different expressions and features.",
+        "objectives_zh": "少儿智力美术教育旨在通过绘画、手工综合艺术与超强记忆潜能训练，持续提升儿童的智力、记忆力与专注力。\n\n教学内容：\n1. 少儿智力美术教育：涵盖立体手工制作、综合绘画与线描。\n2. 儿童记忆力发展：潜在灵感激发与情商启迪。\n3. 动漫卡通班：通过生动有趣的卡通漫画与简笔画培养艺术兴趣，将影视、热门漫画与游戏角色跃然纸上，掌握丰富表情与人物动态造型。",
+        "description": "Children’s Intellectual Art Education is to achieve the continuation improvement of children’s intelligence, memory and concentration through drawing,painting,integrated arts and super memory training. Covers handwork, painting and drawing, memory development, potential inspiration, emotional intelligence implication, and cartoon/caricature drawing.",
+        "description_zh": "少儿智力美术教育旨在通过综合绘画、手工制作与超强记忆潜能训练，持续提升儿童智力、记忆力与专注力。包含智力手工绘画、记忆发展与动漫卡通造型。",
+        "duration": "2 hrs",
+        "schedule": "Saturdays 9:00 AM – 11:00 AM / Sundays 11:00 AM – 1:00 PM (2 hrs/session)",
+        "fee": "Group: S$50 / 2 hrs | 1 to 1: S$80 / 2 hrs (One-time materials fee S$50, Min 3 months payment)",
+        "charges": [
+            {
+                "category": "Group",
+                "fee": "S$ 50",
+                "duration": "2 hrs"
+            },
+            {
+                "category": "1 to 1",
+                "fee": "S$ 80",
+                "duration": "2 hrs"
+            },
+            {
+                "category": "One-time Teaching materials fee",
+                "fee": "S$ 50",
+                "duration": "-"
+            }
+        ],
+        "materials": "One-time Teaching materials fee S$ 50",
+        "materials_zh": "一次性教学材料费 S$50",
+        "paymentInstructions": [
+            "1. Every Payment at least 3 months.",
+            "2. One-time payment for half a year, S$50 discount.",
+            "3. One-time payment for one year, S$150 discount."
+        ],
+        "paymentInstructions_zh": [
+            "1. 每期学费至少按3个月缴纳。",
+            "2. 一次性缴纳半年学费，立减 S$50。",
+            "3. 一次性缴纳全年学费，立减 S$150。"
+        ],
+        "assessment": "Developmental milestone reports and positive encouraging studio feedback.",
+        "gradePathway": "Prepares children for National Grade Examination Grades 1 to 6 (Children Intellectual Art & Cartoon Drawing).",
+        "competitionOpp": "Every child completes competition-grade entries for the Nanyang Star International Children's Art Competition.",
+        "image": "assets/images/art-works/chinese-children-art.png",
+        "thumbnail_url": "assets/images/art-works/chinese-children-art.png",
+        "gallery": [
+            "assets/images/art-works/chinese-children-art.png",
+            "assets/images/art-works/Creative-Cartoon-art.png",
+            "assets/images/art-works/art-1.png"
+        ],
+        "videoPreviewUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+        "instructor": "Dr. Teng Jiashu (滕家述) & Ivy Huang (黄郁乔)",
+        "class_format": "Group & 1-to-1 Workshop",
+        "max_class_size": 8,
+        "learningOutcomes": [
+            "Achieve continuous improvement in intelligence, memory, concentration, and emotional quotient.",
+            "Explore creative handwork, painting, and foundational drawing techniques.",
+            "Foster memory development through potential inspiration and sensory image recall.",
+            "Master cartoon drawing, simple stroke drawing, caricatures, and dynamic facial expressions."
+        ],
+        "syllabusStages": [
+            {
+                "stage": "Stage 1",
+                "title": "Handwork, Painting & Cognitive Drawing (Weeks 1–4)",
+                "desc": "Sensory color matching, handwork craft, and observational drawing."
+            },
+            {
+                "stage": "Stage 2",
+                "title": "Memory Development & Potential Inspiration (Weeks 5–8)",
+                "desc": "Super memory recall drawing, emotional intelligence implication, and imaginative storyboards."
+            },
+            {
+                "stage": "Stage 3",
+                "title": "Cartoon & Caricature Drawing Class (Weeks 9–12)",
+                "desc": "Movie/comic characters, diverse expressions, simple stroke lines, and competition artworks."
+            }
+        ],
+        "faq": [
+            {
+                "q": "What is included in the teaching content?",
+                "a": "Children’s intellectual art education (handwork, painting and drawing), memory development (potential inspiration and EQ implication), and Cartoon drawing (popular characters, caricatures, expressions)."
+            },
+            {
+                "q": "What is the fee and materials fee?",
+                "a": "Group is S$50 / 2 hrs, 1 to 1 is S$80 / 2 hrs. There is a One-time Teaching materials fee of S$50. Minimum payment is 3 months. Half-year upfront discount S$50, one-year upfront discount S$150."
+            }
+        ],
+        "relatedCourseIds": [
+            "CRS-CTN-01",
+            "CRS-SKT-01",
+            "CRS-WTC-01"
+        ],
+        "status": "active",
+        "featured": true,
+        "translations": {
+            "en": {
+                "title": "Children’s Intellectual Art Education",
+                "summary": "Intelligence, memory, concentration, handwork, painting, and cartoon drawing."
+            },
+            "zh": {
+                "title": "少儿智力美术教育与动漫",
+                "summary": "手工制作、综合绘画、记忆潜能开发与动漫卡通造型班。"
+            }
+        },
+        "contentStatus": "verified"
     },
     {
       id: "CRS-TCH-01",
@@ -3118,10 +3458,10 @@ export const DB_DATA = {
       assessment: "Written pedagogical thesis, practical grading examination, and supervised teaching practicum.",
       gradePathway: "Society Certified Art Instructor Accreditation Certificate & FAS Registered Teacher status.",
       competitionOpp: "Certified instructors are invited as jury panels and mentors for Nanyang Star international events.",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1200&q=80",
-      thumbnail_url: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80",
+      image: "assets/images/art-works/art-11.png",
+      thumbnail_url: "assets/images/art-works/art-11.png",
       gallery: [
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+        "assets/images/art-works/art-11.png"
       ],
       videoPreviewUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
       instructor: "Dr. Teng Jiashu (滕家述) & Academic Council",

@@ -46,7 +46,7 @@ export class AppBootloader {
    * Fetches a component HTML template and replaces {{BASE_PATH}}
    */
   async fetchComponent(componentName) {
-    const url = `${this.basePath}components/${componentName}.html`;
+    const url = `${this.basePath}components/${componentName}.html?v=mf4`;
     try {
       const res = await fetch(url);
       if (!res.ok) throw new Error(`HTTP ${res.status} loading component ${url}`);

@@ -30,5 +30,5 @@ export const en = {
   tag_since: "Since 2002",
   quick_search_placeholder: "Search courses, exam criteria, test centres...",
   footer_heritage: "Established in 2002 under the guidance and titling of pioneer master Liu Kang. Fostering Singaporean and regional arts education, academic rigor, and international creative exchange.",
-  copyright: "© 2002–2026 Singapore Nanyang Artists Society. All Rights Reserved."
+  copyright: "© 2002–2026 Singapore Nanyang Artists Society (南洋美术家协会). All Rights Reserved."
 };
