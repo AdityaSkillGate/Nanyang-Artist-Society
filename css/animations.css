@@ -616,11 +616,15 @@ body.page-loaded {
   position: absolute;
   inset: 0;
   z-index: 1;
+  overflow: hidden;
+  max-width: 100%;
 }
 
 .hero-slide {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  max-width: 100%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), visibility 1.2s;
@@ -1008,15 +1012,17 @@ body.page-loaded {
   }
 
   .entrance-popup-card {
-    max-width: 92%;
+    max-width: calc(100vw - 28px) !important;
+    width: 100% !important;
+    margin: 0 auto;
     border-radius: var(--radius-md, 8px);
   }
 
   .entrance-popup-body {
-    padding: 20px;
+    padding: 18px 16px !important;
   }
 
   .entrance-popup-img {
-    height: 150px;
+    height: 140px !important;
   }
 }
